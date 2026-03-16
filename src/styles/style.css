@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: MM;
+    src: url('../assets/fonts/MM.ttf');
+}
+
+.map
+{
+    display: grid;
+    background-color: rgb(193, 205, 214);
+}
