@@ -1,23 +1,22 @@
 # Дод 18.04.2026
 
 ## Структура проекта
-1. src
-    1. assets
-        1. fonts
-        2. goals
-        3. road
-2. components
-    1. Alchemy
-    2. CenterDivModal
-    3. FindSecret
-    4. Map
-    5. TicTacToe
-3. styles
-    1. modals
-        1. base
+1. /src/
+    1. assets/  //Дополнительные ресурсы проекта
+        - fonts // Набор шрифтов
+        - goals // Флажки для выполнения задания
+        - road  // Дороги, но они под вопросом
+2. /components/ //Компоненты
+    - Alchemy
+    - CenterDivModal
+    - FindSecret
+    - Map
+    - TicTacToe
+3. /styles/     //Глобальные и модальные стили
+    1. modals/
+        - base
     2. map.css
     3. style.css
-
 4. App.js
 5. index.js
 ### Основные цвета 
