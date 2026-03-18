@@ -1,4 +1,4 @@
-import React, {useContext, createContext} from "react";
+import {useContext, createContext} from "react";
 
 const QuestContext = createContext();
 
@@ -11,23 +11,10 @@ export const useQuest = () => {
 };
 export const QuestProvider = ({ children }) => {
     const [completedQuests, setCompletedQuests] = useState({
-        question1: false,
-        question2: false,
-        question3: false,
-        question4: false,
-        question5: false,
-        question6: false,
-        question7: false,
-        typeText: false,
-        findSecret: false,
-        centerDiv: false,
+        tictactoe: false,
         alchemy: false,
-        findBug1: false,
-        findBug2: false,
-        findBug3: false,
-        findBug4: false,
-        boss: false,
-        battle: false
+        findsecret: false,
+        centerdiv: false,
     });
 
     const updateQuestStatus = (questName, isCompleted) => {
@@ -39,22 +26,10 @@ export const QuestProvider = ({ children }) => {
 
     const resetProgress = () => {
         setCompletedQuests({
-            question1: false,
-            question2: false,
-            question3: false,
-            question4: false,
-            question5: false,
-            question6: false,
-            question7: false,
-            typeText: false,
-            findSecret: false,
-            centerDiv: false,
+            tictactoe: false,
             alchemy: false,
-            findBug1: false,
-            findBug2: false,
-            findBug3: false,
-            findBug4: false,
-            boss: false
+            findsecret: false,
+            centerdiv: false,
         });
     };
 

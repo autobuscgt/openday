@@ -7,6 +7,7 @@ import goal_4 from '../assets/goals/goal 4.svg'
 
 function Map({isOpen, onClose}) {
   if(!isOpen) return null;
+
   return (
     <div className="map_container">
     <h1>Дорожная карта</h1>

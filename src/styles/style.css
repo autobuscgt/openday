@@ -17,8 +17,30 @@
     --border-square-radius: 15px;
     --def-padding: 15px;
     --def-margin: 10px;
+    --white-purple:#6392F7;
     --white-blue: #76CAFF;
     --dark-grey: #363636;
     --white-grey: #E8E8E8;
     --primary-color: #F9F9F9;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    text-align: center;
 }
