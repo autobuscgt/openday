@@ -3,8 +3,6 @@
     src: url('../assets/fonts/MB.ttf');
 }
 
-
-
 .map_container{
     background-color: rgba(50, 50, 50, 0.500);
     display: flex;
@@ -14,6 +12,7 @@
     height: 100vh;
     transition: all 0.2s ease;
 }
+
 .map_container h1{
     text-align: center;
     margin: 10px 0px;
@@ -22,6 +21,7 @@
     color: white;
     font-family: MB;
 }
+
 .map_container img:hover{
     opacity: 0.7;
     transition: all 0.2s ease;
@@ -47,6 +47,7 @@
     left: -100px;
     top: -160px;
 }
+
 #gl3{
     position: relative;
     width: 116px;
@@ -54,6 +55,7 @@
     top: -370px;
     left: -160px;
 }
+
 #gl4{
     position: relative;
     width: 70px;
@@ -62,21 +64,16 @@
     left: 40px;
 }
 
-/* #rd1{
-    position: absolute;
-    bottom: 190px;
-    left: 210px;
+.map_icon{
+    display: flex;
+    background-image: url('../assets/burger_menu.svg');
+    background-position: center;
+    width: 75px;
+    height: 75px;
+    background-size: contain;
+    border: none;
+    border-radius: 15px;
 }
-#rd2{
-    position: absolute;
-    left: 60px;
-    bottom: 450px;
-}
-#rd3{
-    position: absolute;
-    top: 90px;
-    left: 210px;
-} */
 
 .backward_btn{
     height: 70px;

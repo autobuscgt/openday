@@ -2,21 +2,23 @@
     margin: 0px;
     padding: 0px;
 }
-
+/*
+============== Шрифты ==============
+*/
 @font-face {
     font-family: MM;
     src: url('../assets/fonts/MM.ttf');
 }
-
+/*
+============== Базовые стили =======
+*/
 :root{
+    --border-radius: 600px;
+    --border-square-radius: 15px;
+    --def-padding: 15px;
+    --def-margin: 10px;
     --white-blue: #76CAFF;
     --dark-grey: #363636;
     --white-grey: #E8E8E8;
     --primary-color: #F9F9F9;
-}
-
-.map
-{
-    display: grid;
-    background-color: rgb(193, 205, 214);
 }
