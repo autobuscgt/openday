@@ -8,6 +8,13 @@
     src: url('../assets/fonts/MM.ttf');
 }
 
+:root{
+    --white-blue: #76CAFF;
+    --dark-grey: #363636;
+    --white-grey: #E8E8E8;
+    --primary-color: #F9F9F9;
+}
+
 .map
 {
     display: grid;
