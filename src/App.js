@@ -14,12 +14,12 @@ import FindSecret from './components/FindSecret';
 import Modal from './components/Modal';
 
 function App() {
-  const [mapIsOpen, setMapIsOpen] = useState(false);
   const [greetIsOpen, setGreetIsOpen] = useState(false);
   const [alchemyIsOpen, setAlchemyIsOpen] = useState(false);
   const [findSecretIsOpen, setFindSecretIsOpen] = useState(false);
   const [centerDivIsOpen, setCenterDivIsOpen] = useState(false);
   const [ticTacToeIsOpen, setTicTacToeIsOpen] = useState(false);
+
   return (
     <div className="map">
       <button
@@ -29,7 +29,7 @@ function App() {
         (i)
       </button>
 
-      
+      {/* Приветствуем */}
       <Modal 
       isOpen={greetIsOpen} 
       onClose={()=> setGreetIsOpen(false)} 
@@ -37,23 +37,27 @@ function App() {
       >
         <Greet/>
       </Modal>
-
-      <Modal isOpen={alchemyIsOpen} onClose={()=> setAlchemyIsOpen(false)}>
+      {/* Приветствуем */}
+      <button onClick={() => setAlchemyIsOpen(true)}>Алхимия</button>
+      <Modal isOpen={alchemyIsOpen} onClose={()=> setAlchemyIsOpen(false)} title={'Алхимия'}>
          <Alchemy/>  
       </Modal>
-      <Modal isOpen={findSecretIsOpen} onClose={()=> setFindSecretIsOpen(false)}>
+      {/* Приветствуем */}
+      <button onClick={() => setFindSecretIsOpen(true)}>Найди секретный ключ </button>
+      <Modal isOpen={findSecretIsOpen} onClose={()=> setFindSecretIsOpen(false)} title={'Найди секретный ключ'}>
          <FindSecret/> 
        </Modal>
-      <Modal isOpen={centerDivIsOpen} onClose={()=> setCenterDivIsOpen(false)}>
+       {/* Приветствуем */}
+      <button onClick={() => setCenterDivIsOpen(true)}>Центрирование дива</button>
+      <Modal isOpen={centerDivIsOpen} onClose={()=> setCenterDivIsOpen(false)} title={'Центрирование дива'}>
          <CenterDivModal/>  
       </Modal>
-      <Modal isOpen={ticTacToeIsOpen} onClose={()=> setTicTacToeIsOpen(false)}>
+      {/* Приветствуем */}
+      <button onClick={() => setTicTacToeIsOpen(true)}>Крестики нолики</button>
+      <Modal isOpen={ticTacToeIsOpen} onClose={()=> setTicTacToeIsOpen(false)} title={'Крестики нолики'}>
          <TicTacToe/>  
       </Modal>
-
-    
-
-      <Map isOpen={mapIsOpen} onClose={() => setMapIsOpen(false)} />
+      <Map/>
     </div>
   );
 }
