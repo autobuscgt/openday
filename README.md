@@ -13,10 +13,10 @@
     - Map
     - TicTacToe
 3. /styles/     
-    1. modals/
+    - modals/
         - base
-    2. map.css
-    3. style.css
+    - map.css
+    - style.css
 > Глобальные и модальные стили
 4. App.js
 5. index.js
