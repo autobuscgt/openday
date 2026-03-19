@@ -1,7 +1,7 @@
 @font-face {
     font-family: MB;
     src: url('../assets/fonts/MB.ttf');
-}
+};
 
 .map_container{
     background-color: rgba(0, 0, 0, 0.5);

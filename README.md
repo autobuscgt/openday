@@ -6,7 +6,8 @@
         - fonts 
         - goals 
 > assets - Дополнительные ресурсы проекта <br> fonts - Набор шрифтов <br> goals - Флажки для выполнения задания 
-2. /components/ //Компоненты
+2. /components/ 
+> UI Компоненты
     - Alchemy
     - CenterDivModal
     - FindSecret

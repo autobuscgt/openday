@@ -1,10 +1,8 @@
 import '../styles/modals/Alchemy.css'
 
-function Alchemy({isOpen, onClose}) {
-  if(!isOpen) return null;
+function Alchemy() {
   return (
     <div className="alchemyContainer"
-    onClick={onClose}
     >
       Alchemy
     </div>

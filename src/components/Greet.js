@@ -1,10 +1,8 @@
 
-function Greet({isOpen, onClose}) {
-    if(!isOpen) return null
+function Greet() {
     return (
-    <div className='instructions_container' onClick={onClose}>
-        <div className='instructions'>
-            <h1>Инструкция</h1>
+    <div className=''>
+        <div className=''>
             <p>Приветствуем тебя!</p> <br/>
             <p>Сегодня мы предлагаем сыграть в небольшую игру, которая поверхностно погружает в повседневные суету из задач и проблем разработчика.</p><br/>
             <p>Вы знаете, что такое сетевой пакет? Это набор данных, передаваемый по сети, от одной точки в другую - от соседа к соседа и от компютера к смартфону.</p><br/>
