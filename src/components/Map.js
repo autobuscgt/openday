@@ -15,7 +15,7 @@ function Map() {
 
   const questMapping = {
     '1': 'tictactoe',      // Крестики-нолики
-    '2': 'centerDiv',      // Центрирование div
+    '2': 'centerdiv',      // Центрирование div
     '3': 'alchemy',        // Алхимия
     '4': 'findSecret'      // Поиск секрета
   };

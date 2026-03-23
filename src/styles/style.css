@@ -40,7 +40,7 @@
 }
 
 .modal-content {
-    
+    z-index: 99999;
     font-family: MM;
     background-color: white;
     padding: 15px;
@@ -489,4 +489,75 @@
     100% {
         transform: scale(1);
     }
+}
+
+
+.inst_btn{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    cursor: pointer;
+    border: none;
+    width: 51px;
+    height: 51px;
+    background-image: url('../assets/instruction_icon.svg');
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.2s ease;
+}
+.inst_btn:hover{
+    background-image: url('../assets/instruction_icon_hover.svg');
+    transition: all 0.2s ease;
+}
+
+
+/* ПОЛУМЕРЫ */
+.tictactoe_pos{
+    cursor: pointer;
+    z-index: 9999;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    left: 1080px;
+    bottom: 250px;
+}
+
+.alch_pos{
+    cursor: pointer;
+    z-index: 9999;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    position: absolute;
+    left: 670px;
+    bottom: 60px;
+
+
+}
+.ctdiv_pos{
+    cursor: pointer;
+    z-index: 9999;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    position: absolute;
+    left: 690px;
+    bottom: 450px;
+}
+
+.secret_pos{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    top: 100px;
+    left: 1000px;
+    z-index: 9999;
+    width: 200px;
+    height: 200px;
+    position: absolute;
 }

@@ -24,14 +24,18 @@ function App() {
   return (
     <QuestProvider>
     <div className="map">
+
+
+      {/*
+      =====================
+           Инструкции 
+      =====================
+      */}
+      <div className='instructions'>
       <button
         onClick={()=> setGreetIsOpen(true)}
-        style={{fontSize:'35px'}}
-      >
-        (i)
-      </button>
-
-      {/* Приветствуем */}
+        className='inst_btn'
+      />
       <Modal 
       isOpen={greetIsOpen} 
       onClose={()=> setGreetIsOpen(false)} 
@@ -39,23 +43,44 @@ function App() {
       >
         <Greet/>
       </Modal>
-      {/* Приветствуем */}
-      <button onClick={() => setAlchemyIsOpen(true)}>Алхимия</button>
+      </div>
+
+      {/* 
+      =====================
+            Алхимия 
+      =====================
+      */}
+      <button onClick={() => setAlchemyIsOpen(true)} className='alch_pos'></button>
       <Modal isOpen={alchemyIsOpen} onClose={()=> setAlchemyIsOpen(false)} title={'Алхимия'}>
          <Alchemy/>  
       </Modal>
-      {/* Приветствуем */}
-      <button onClick={() => setFindSecretIsOpen(true)}>Найди секретный ключ </button>
+
+      {/* 
+      =====================
+          Секретный ключ 
+      =====================
+      */}
+      <button onClick={() => setFindSecretIsOpen(true)} className='secret_pos'>   </button>
       <Modal isOpen={findSecretIsOpen} onClose={()=> setFindSecretIsOpen(false)} title={'Найди секретный ключ'}>
          <FindSecret/> 
        </Modal>
-       {/* Приветствуем */}
-      <button onClick={() => setCenterDivIsOpen(true)}>Центрирование дива</button>
+
+       {/* 
+      =====================
+       Центрирование дива 
+      =====================
+       */}
+      <button onClick={() => setCenterDivIsOpen(true)} className='ctdiv_pos'> </button>
       <Modal isOpen={centerDivIsOpen} onClose={()=> setCenterDivIsOpen(false)} title={'Центрирование дива'}>
          <CenterDivModal/>  
       </Modal>
-      {/* Приветствуем */}
-      <button onClick={() => setTicTacToeIsOpen(true)}>Крестики нолики</button>
+
+      {/*
+      =====================
+         Крестики нолики 
+      =====================
+      */}
+      <button onClick={() => setTicTacToeIsOpen(true)} className='tictactoe_pos'></button>
       <Modal isOpen={ticTacToeIsOpen} onClose={()=> setTicTacToeIsOpen(false)} title={'Крестики нолики'}>
          <TicTacToe/>  
       </Modal>
