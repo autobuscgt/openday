@@ -1,4 +1,4 @@
-import {useContext, createContext} from "react";
+import { useContext, createContext, useState, useMemo } from "react";
 
 const QuestContext = createContext();
 
@@ -9,6 +9,7 @@ export const useQuest = () => {
     }
     return context;
 };
+
 export const QuestProvider = ({ children }) => {
     const [completedQuests, setCompletedQuests] = useState({
         tictactoe: false,
@@ -33,17 +34,15 @@ export const QuestProvider = ({ children }) => {
         });
     };
 
-const value = useMemo(() => ({
-    completedQuests,
-    updateQuestStatus,
-    resetProgress
-  }), [completedQuests]);
+    const value = useMemo(() => ({
+        completedQuests,
+        updateQuestStatus,
+        resetProgress
+    }), [completedQuests]);
 
-return (
-<QuestContext.Provider value={value}>
-
-</QuestContext.Provider>
-);
-
-
-}
+    return (
+        <QuestContext.Provider value={value}>
+            {children}  {/* This was missing */}
+        </QuestContext.Provider>
+    );
+};

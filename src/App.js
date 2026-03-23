@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import './styles/style.css';
 import './styles/map.css';
 import Map from './components/Map';
@@ -12,6 +12,7 @@ import FindSecret from './components/FindSecret';
 
 //Универсальная модалка
 import Modal from './components/Modal';
+import { QuestProvider } from './context/questContext';
 
 function App() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
@@ -21,6 +22,7 @@ function App() {
   const [ticTacToeIsOpen, setTicTacToeIsOpen] = useState(false);
 
   return (
+    <QuestProvider>
     <div className="map">
       <button
         onClick={()=> setGreetIsOpen(true)}
@@ -59,6 +61,7 @@ function App() {
       </Modal>
       <Map/>
     </div>
+    </QuestProvider>
   );
 }
 

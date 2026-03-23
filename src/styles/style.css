@@ -76,3 +76,14 @@
     transition: 0.2s;
     cursor: pointer;
 }
+
+/* Модальные окна */
+.find-secret-modal {
+  max-width: 1200px !important;
+  width: 95% !important;
+}
+
+.center-div-modal {
+  max-width: 1100px !important;
+  width: 95% !important;
+}
