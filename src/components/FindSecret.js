@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useQuest } from '../context/questContext';
+import '../styles/modals/FindSecret.css';
 
 const systemIcons = {
     server: '🖥️',
@@ -79,11 +80,11 @@ const FindSecret = () => {
     }, []);
 
     useEffect(() => {
-            initializeElements();
+        initializeElements();
     }, [initializeElements]);
 
     useEffect(() => {
-        if (secretId !== null && !found) {
+        if (secretId !== null && !found && elements.length > 0) {
             const secretZIndex = cssProperties.zIndex[secretId] || 0;
             const allOtherZIndices = elements
                 .filter(el => el.id !== secretId)
@@ -92,7 +93,7 @@ const FindSecret = () => {
             const isOnTop = allOtherZIndices.length === 0 ||
                 secretZIndex > Math.max(...allOtherZIndices);
 
-            if (isOnTop) {
+            if (isOnTop && !found) {
                 setFound(true);
                 updateQuestStatus('findSecret', true);
             }
@@ -128,12 +129,21 @@ const FindSecret = () => {
 
     const updateTransform = useCallback((id, property, value) => {
         setCssProperties(prev => {
+            const currentTransform = prev.transform[id] || '';
             let newTransform;
 
             if (property === 'rotate') {
-                newTransform = `rotate(${value}deg)`;
+                // Preserve scale if it exists
+                const scaleMatch = currentTransform.match(/scale\(([^)]+)\)/);
+                const scale = scaleMatch ? scaleMatch[1] : 1;
+                newTransform = `rotate(${value}deg) scale(${scale})`;
             } else if (property === 'scale') {
-                newTransform = `scale(${value})`;
+                // Preserve rotation if it exists
+                const rotateMatch = currentTransform.match(/rotate\(([^)]+)\)/);
+                const rotate = rotateMatch ? rotateMatch[1] : '0deg';
+                newTransform = `${rotate} scale(${value})`;
+            } else {
+                newTransform = currentTransform;
             }
 
             return {
@@ -147,14 +157,22 @@ const FindSecret = () => {
     }, []);
 
     const updateFilter = useCallback((id, type, value) => {
-        setCssProperties(prev => ({
-            ...prev,
-            filter: {
-                ...prev.filter,
-                [id]: type === 'blur' ? `blur(${value}px)` :
-                    type === 'brightness' ? `brightness(${value})` : 'none'
+        setCssProperties(prev => {
+            let newFilter = '';
+            if (type === 'blur') {
+                newFilter = `blur(${value}px)`;
+            } else if (type === 'brightness') {
+                newFilter = `brightness(${value})`;
             }
-        }));
+            
+            return {
+                ...prev,
+                filter: {
+                    ...prev.filter,
+                    [id]: newFilter
+                }
+            };
+        });
     }, []);
 
     const resetGame = useCallback(() => {
@@ -165,17 +183,38 @@ const FindSecret = () => {
         if (selectedElement !== null) {
             const element = elements.find(el => el.id === selectedElement);
             if (element) {
-                updateZIndex(selectedElement, 'reset');
-                updateOpacity(selectedElement, element.initialOpacity);
-                updateTransform(selectedElement, 'rotate', element.initialRotation);
+                setCssProperties(prev => ({
+                    zIndex: {
+                        ...prev.zIndex,
+                        [selectedElement]: element.initialZIndex
+                    },
+                    opacity: {
+                        ...prev.opacity,
+                        [selectedElement]: element.initialOpacity
+                    },
+                    transform: {
+                        ...prev.transform,
+                        [selectedElement]: `rotate(${element.initialRotation}deg)`
+                    },
+                    filter: {
+                        ...prev.filter,
+                        [selectedElement]: 'none'
+                    }
+                }));
             }
         }
-    }, [selectedElement, elements, updateZIndex, updateOpacity, updateTransform]);
+    }, [selectedElement, elements]);
+
+    const handleCompleteQuest = useCallback(() => {
+        if (found) {
+            // You might want to close the modal or navigate away
+            updateQuestStatus('findSecret', true);
+        }
+    }, [found, updateQuestStatus]);
 
     return (
-        <div>
-            <div className="modal-content find-secret-modal" onClick={(e) => e.stopPropagation()}>
-
+        <div className="find-secret-modal-container">
+            <div className="find-secret-modal" onClick={(e) => e.stopPropagation()}>
                 <h2 className="modal-title">Поиск секретного ключа</h2>
 
                 <div className="modal-question">
@@ -184,133 +223,130 @@ const FindSecret = () => {
                     <p><strong>Подсказка:</strong> Секретный файл должен быть поверх всех остальных элементов (самый большой z-index)</p>
                 </div>
 
-                <div className="game-container">
-                    <div className="game-play-area">
-                        <div className="elements-container" style={{ position: 'relative', height: '400px' }}>
-                            {elements.map((element) => (
-                                <div
-                                    key={element.id}
-                                    className={`system-element ${selectedElement === element.id ? 'selected' : ''} ${element.isSecret && found ? 'found' : ''}`}
-                                    style={{
-                                        position: 'absolute',
-                                        left: `${element.initialLeft}px`,
-                                        top: `${element.initialTop}px`,
-                                        zIndex: cssProperties.zIndex[element.id] || element.initialZIndex,
-                                        opacity: cssProperties.opacity[element.id] || 1,
-                                        transform: cssProperties.transform[element.id] || 'none',
-                                        filter: cssProperties.filter[element.id] || 'none',
-                                        cursor: 'pointer'
-                                    }}
-                                    onClick={() => handleElementClick(element.id)}
-                                >
-                                    <div className="element-icon">{element.icon}</div>
-                                    <div className="element-label">{element.label}</div>
-                                    <div className="element-zindex">z-index: {cssProperties.zIndex[element.id]}</div>
-                                </div>
-                            ))}
+                <div className="elements-container" style={{ position: 'relative', minHeight: '400px' }}>
+                    {elements.map((element) => (
+                        <div
+                            key={element.id}
+                            className={`system-element ${selectedElement === element.id ? 'selected' : ''} ${element.isSecret && found ? 'found' : ''}`}
+                            style={{
+                                position: 'absolute',
+                                left: `${element.initialLeft}px`,
+                                top: `${element.initialTop}px`,
+                                zIndex: cssProperties.zIndex[element.id] || element.initialZIndex,
+                                opacity: cssProperties.opacity[element.id] !== undefined ? cssProperties.opacity[element.id] : element.initialOpacity,
+                                transform: cssProperties.transform[element.id] || `rotate(${element.initialRotation}deg)`,
+                                filter: cssProperties.filter[element.id] || 'none',
+                                cursor: 'pointer',
+                                transition: 'all 0.3s ease'
+                            }}
+                            onClick={() => handleElementClick(element.id)}
+                        >
+                            <div className="element-icon">{element.icon}</div>
+                            <div className="element-label">{element.label}</div>
+                            <div className="element-zindex">z-index: {cssProperties.zIndex[element.id] || element.initialZIndex}</div>
                         </div>
+                    ))}
+                </div>
 
-                        {selectedElement !== null && !found && (
-                            <div className="control-panel">
-                                <h3>Управление элементом</h3>
+                {selectedElement !== null && !found && (
+                    <div className="control-panel">
+                        <h3>Управление элементом</h3>
 
-                                <div className="control-group">
-                                    <label>Z-Index (приоритет отображения):</label>
-                                    <div className="button-group">
-                                        <button onClick={() => updateZIndex(selectedElement, 'decrease')}>-</button>
-                                        <span>{cssProperties.zIndex[selectedElement]}</span>
-                                        <button onClick={() => updateZIndex(selectedElement, 'increase')}>+</button>
-                                    </div>
-                                </div>
-
-                                <div className="control-group">
-                                    <label>Прозрачность (Opacity):</label>
-                                    <input
-                                        type="range"
-                                        min="0.1"
-                                        max="1"
-                                        step="0.1"
-                                        value={cssProperties.opacity[selectedElement] || 1}
-                                        onChange={(e) => updateOpacity(selectedElement, parseFloat(e.target.value))}
-                                    />
-                                    <span>{(cssProperties.opacity[selectedElement] || 1).toFixed(1)}</span>
-                                </div>
-
-                                <div className="control-group">
-                                    <label>Поворот (Rotate):</label>
-                                    <input
-                                        type="range"
-                                        min="-180"
-                                        max="180"
-                                        value={parseInt(cssProperties.transform[selectedElement]?.match(/-?\d+/) || 0)}
-                                        onChange={(e) => updateTransform(selectedElement, 'rotate', e.target.value)}
-                                    />
-                                    <span>{cssProperties.transform[selectedElement]?.match(/-?\d+/)?.[0] || 0}°</span>
-                                </div>
-
-                                <div className="control-group">
-                                    <label>Масштаб (Scale):</label>
-                                    <input
-                                        type="range"
-                                        min="0.5"
-                                        max="2"
-                                        step="0.1"
-                                        value={parseFloat(cssProperties.transform[selectedElement]?.match(/scale\(([^)]+)\)/)?.[1] || 1)}
-                                        onChange={(e) => updateTransform(selectedElement, 'scale', e.target.value)}
-                                    />
-                                </div>
-
-                                <div className="control-group">
-                                    <label>Размытие (Blur):</label>
-                                    <input
-                                        type="range"
-                                        min="0"
-                                        max="5"
-                                        step="0.5"
-                                        onChange={(e) => updateFilter(selectedElement, 'blur', e.target.value)}
-                                    />
-                                </div>
-
-                                <div className="control-group">
-                                    <label>Яркость (Brightness):</label>
-                                    <input
-                                        type="range"
-                                        min="0.2"
-                                        max="2"
-                                        step="0.1"
-                                        onChange={(e) => updateFilter(selectedElement, 'brightness', e.target.value)}
-                                    />
-                                </div>
-
-                                <button
-                                    className="reset-element-btn"
-                                    onClick={resetElement}
-                                >
-                                    Сбросить для этого элемента
-                                </button>
+                        <div className="control-group">
+                            <label>Z-Index (приоритет отображения):</label>
+                            <div className="button-group">
+                                <button onClick={() => updateZIndex(selectedElement, 'decrease')}>-</button>
+                                <span>{cssProperties.zIndex[selectedElement] || elements.find(el => el.id === selectedElement)?.initialZIndex}</span>
+                                <button onClick={() => updateZIndex(selectedElement, 'increase')}>+</button>
                             </div>
-                        )}
-                    </div>
-
-                    <div className="game-footer">
-                        <div className="game-stats">
-                            <span className="info-message">Попыток: {attempts}</span>
-                            {found && <span className="victory">Ключ найден! Задание выполнено!</span>}
                         </div>
 
-                        <div className="game-controls">
-                            {!found && (
-                                <button className="reset-btn" onClick={resetGame}>
-                                    Новая игра
-                                </button>
-                            )}
-                            {found && (
-                                <button className="reset-btn">
-                                    Завершить задание
-                                </button>
-                            )}
+                        <div className="control-group">
+                            <label>Прозрачность (Opacity):</label>
+                            <input
+                                type="range"
+                                min="0.1"
+                                max="1"
+                                step="0.1"
+                                value={cssProperties.opacity[selectedElement] !== undefined ? cssProperties.opacity[selectedElement] : 1}
+                                onChange={(e) => updateOpacity(selectedElement, parseFloat(e.target.value))}
+                            />
+                            <span>{(cssProperties.opacity[selectedElement] !== undefined ? cssProperties.opacity[selectedElement] : 1).toFixed(1)}</span>
                         </div>
+
+                        <div className="control-group">
+                            <label>Поворот (Rotate):</label>
+                            <input
+                                type="range"
+                                min="-180"
+                                max="180"
+                                value={parseInt(cssProperties.transform[selectedElement]?.match(/rotate\(([^)]+)\)/)?.[1] || 0)}
+                                onChange={(e) => updateTransform(selectedElement, 'rotate', e.target.value)}
+                            />
+                            <span>{parseInt(cssProperties.transform[selectedElement]?.match(/rotate\(([^)]+)\)/)?.[1] || 0)}°</span>
+                        </div>
+
+                        <div className="control-group">
+                            <label>Масштаб (Scale):</label>
+                            <input
+                                type="range"
+                                min="0.5"
+                                max="2"
+                                step="0.1"
+                                value={parseFloat(cssProperties.transform[selectedElement]?.match(/scale\(([^)]+)\)/)?.[1] || 1)}
+                                onChange={(e) => updateTransform(selectedElement, 'scale', parseFloat(e.target.value))}
+                            />
+                            <span>{parseFloat(cssProperties.transform[selectedElement]?.match(/scale\(([^)]+)\)/)?.[1] || 1).toFixed(1)}</span>
+                        </div>
+
+                        <div className="control-group">
+                            <label>Размытие (Blur):</label>
+                            <input
+                                type="range"
+                                min="0"
+                                max="5"
+                                step="0.5"
+                                onChange={(e) => updateFilter(selectedElement, 'blur', e.target.value)}
+                            />
+                            <span>{cssProperties.filter[selectedElement]?.match(/blur\(([^)]+)\)/)?.[1] || 0}px</span>
+                        </div>
+
+                        <div className="control-group">
+                            <label>Яркость (Brightness):</label>
+                            <input
+                                type="range"
+                                min="0.2"
+                                max="2"
+                                step="0.1"
+                                onChange={(e) => updateFilter(selectedElement, 'brightness', e.target.value)}
+                            />
+                            <span>{cssProperties.filter[selectedElement]?.match(/brightness\(([^)]+)\)/)?.[1] || 1}</span>
+                        </div>
+
+                        <button className="reset-element-btn" onClick={resetElement}>
+                            Сбросить для этого элемента
+                        </button>
                     </div>
+                )}
+            </div>
+
+            <div className="game-footer">
+                <div className="game-stats">
+                    <span className="info-message">Попыток: {attempts}</span>
+                    {found && <span className="victory">Ключ найден! Задание выполнено!</span>}
+                </div>
+
+                <div className="game-controls">
+                    {!found && (
+                        <button className="reset-btn" onClick={resetGame}>
+                            Новая игра
+                        </button>
+                    )}
+                    {found && (
+                        <button className="reset-btn" onClick={handleCompleteQuest}>
+                            Завершить задание
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

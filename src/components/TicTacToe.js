@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './TicTacToe.css';
+import '../styles/modals/TicTacToe.css';
 import { useQuest } from '../context/questContext';
 
 const TicTacToe = () => {
