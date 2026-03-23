@@ -207,7 +207,6 @@ const FindSecret = () => {
 
     const handleCompleteQuest = useCallback(() => {
         if (found) {
-            // You might want to close the modal or navigate away
             updateQuestStatus('findSecret', true);
         }
     }, [found, updateQuestStatus]);

@@ -1,7 +1,8 @@
-<svg width="176" height="178" viewBox="0 0 176 178" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="55" cy="152" rx="55" ry="12" fill="#DADADA"/>
-<path d="M88.3211 30.3462L159.579 49.4397L130.35 66.5763L147.095 96.0313L75.8369 76.9378L88.3211 30.3462Z" fill="#F48445"/>
-<rect x="82.6201" y="21.4749" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 82.6201 21.4749)" fill="#363636"/>
-<rect x="56.103" y="14.9106" width="5" height="18" rx="2.5" transform="rotate(-30 56.103 14.9106)" fill="#F48445"/>
-<rect x="43.0002" y="31.249" width="5" height="18" rx="2.5" transform="rotate(-60 43.0002 31.249)" fill="#F48445"/>
+<svg width="700" height="264" viewBox="0 0 700 264" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="700" height="264" transform="matrix(-1 0 0 1 700 0)" fill="white"/>
+<ellipse cx="579" cy="195.239" rx="55" ry="12" fill="#DADADA"/>
+<path d="M612.182 73.5852L683.44 92.6787L654.212 109.815L670.956 139.27L599.698 120.177L612.182 73.5852Z" fill="#F48444"/>
+<rect x="606.481" y="64.7139" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 606.481 64.7139)" fill="#363636"/>
+<rect x="579.964" y="58.1497" width="5" height="18" rx="2.5" transform="rotate(-30 579.964 58.1497)" fill="#F48444"/>
+<rect x="566.862" y="74.488" width="5" height="18" rx="2.5" transform="rotate(-60 566.862 74.488)" fill="#F48444"/>
 </svg>

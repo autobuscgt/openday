@@ -14,7 +14,7 @@ export const QuestProvider = ({ children }) => {
     const [completedQuests, setCompletedQuests] = useState({
         tictactoe: false,
         alchemy: false,
-        findsecret: false,
+        findSecret: false,
         centerdiv: false,
     });
 
@@ -29,8 +29,8 @@ export const QuestProvider = ({ children }) => {
         setCompletedQuests({
             tictactoe: false,
             alchemy: false,
-            findsecret: false,
-            centerdiv: false,
+            findSecret: false,
+            centerDiv: false,
         });
     };
 
@@ -42,7 +42,7 @@ export const QuestProvider = ({ children }) => {
 
     return (
         <QuestContext.Provider value={value}>
-            {children}  {/* This was missing */}
+            {children} 
         </QuestContext.Provider>
     );
 };

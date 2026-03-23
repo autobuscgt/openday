@@ -1,31 +1,73 @@
 import '../styles/map.css'
 import FlagTask from './MapComponents/FlagTask';
-import red_green from '../components/MapComponents/red_green.svg'
-import blue_green from '../components/MapComponents/blue_green.svg'
-import blue_orange from '../components/MapComponents/blue_orange.svg'
+import { useQuest } from '../context/questContext';
 
 const divStyle = {
-  width:'100%',
-  justifyContent:'center',
-  flexDirection:'column',
-  display:'flex',
-  alignItems:'center'
+  width: '100%',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  display: 'flex',
+  alignItems: 'center'
 }
 
 function Map() {
+  const { completedQuests } = useQuest();
+
+  const questMapping = {
+    '1': 'tictactoe',      // Крестики-нолики
+    '2': 'centerDiv',      // Центрирование div
+    '3': 'alchemy',        // Алхимия
+    '4': 'findSecret'      // Поиск секрета
+  };
+
+  const getQuestStatus = (questId) => {
+    const questName = questMapping[questId];
+    return completedQuests[questName] || false;
+  };
+
+  const getActiveQuest = () => {
+    for (let i = 1; i <= 4; i++) {
+      const questName = questMapping[i];
+      if (!completedQuests[questName]) {
+        return i.toString();
+      }
+    }
+    return null;
+  };
+
+  const activeQuestId = getActiveQuest();
+
   return (
     <div className="map-container" style={divStyle}>
-    <h1 style={{color:'var(--white-purple)'}}>Дорожная карта</h1>
-    {/* <img src={road_map} style={{width:'700px'}} className='roadmap' alt='Дорожная карта'/> */}
-    <div className='road-container'>
-      <FlagTask isCompleted={true} isActive={false} id={"4"}/>
-      <img src={blue_orange} alt='blue/yellow road' id='rd3'/>
-      <FlagTask isCompleted={true} isActive={false} id={"3"}/>
-      <img src={blue_green} alt='green/blue road' id='rd2'/>
-      <FlagTask isCompleted={true} isActive={false} id={"2"}/>
-      <img src={red_green} alt='red/green road' id='rd1'/>
-      <FlagTask isCompleted={true} isActive={true} id={"1"}/>
-    </div>
+      <h1 style={{ color: 'var(--white-purple)' }}>Дорожная карта</h1>
+      <div className='road-container'>
+        <FlagTask 
+          id={"4"} 
+          isCompleted={getQuestStatus('4')} 
+          isActive={activeQuestId === '4'} 
+        />
+
+        
+        <FlagTask 
+          id={"3"} 
+          isCompleted={getQuestStatus('3')} 
+          isActive={activeQuestId === '3'} 
+        />
+
+        
+        <FlagTask 
+          id={"2"} 
+          isCompleted={getQuestStatus('2')} 
+          isActive={activeQuestId === '2'} 
+        />
+
+        
+        <FlagTask 
+          id={"1"} 
+          isCompleted={getQuestStatus('1')} 
+          isActive={activeQuestId === '1'} 
+        />
+      </div>
     </div>
   );
 }
