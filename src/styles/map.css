@@ -15,9 +15,7 @@
     color: white;
     font-family: MB;
 }
-.map-container{
 
-}
 .map-header h1 {
     background-color: var(--dark-grey);
     border-bottom: 4px solid var(--white-purple);

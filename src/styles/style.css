@@ -30,8 +30,8 @@
 */
 .inst_btn{
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    left: 10px;
     cursor: pointer;
     border: none;
     width: 51px;
@@ -147,8 +147,8 @@
     position: absolute;
     width: 100px;
     border-radius: 10px;
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
 }
 
 /* Animations */
