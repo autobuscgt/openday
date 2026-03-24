@@ -1,17 +1,20 @@
-<svg width="700" height="450" viewBox="0 0 700 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="700" height="264" transform="matrix(-1 0 0 1 700 77.761)" fill="white"/>
-<ellipse cx="579" cy="272.761" rx="55" ry="12" fill="#DADADA"/>
-<path d="M612.182 151.107L683.44 170.201L654.212 187.337L670.956 216.792L599.698 197.699L612.182 151.107Z" fill="#63C574"/>
-<rect x="606.481" y="142.236" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 606.481 142.236)" fill="#363636"/>
-<rect x="579.964" y="135.672" width="5" height="18" rx="2.5" transform="rotate(-30 579.964 135.672)" fill="#63C574"/>
-<rect x="566.862" y="152.01" width="5" height="18" rx="2.5" transform="rotate(-60 566.862 152.01)" fill="#63C574"/>
-<path d="M106.5 133.761L106.5 230.139C106.5 243.946 117.693 255.139 131.5 255.139L495.4 255.139" stroke="url(#paint0_linear_1720_17)" stroke-width="5" stroke-linecap="round"/>
-<circle cx="144.067" cy="253.694" r="14.9334" fill="#63C574"/>
-<circle cx="144.066" cy="253.694" r="9.24446" fill="white"/>
+<svg width="700" height="264" viewBox="0 0 700 264" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="700" height="264" transform="matrix(-1 0 0 1 700 0)" fill="#232323"/>
+<rect width="209" height="207" rx="15" transform="matrix(-1 0 0 1 672 43)" fill="white"/>
+<ellipse cx="550" cy="208" rx="55" ry="12" fill="#DADADA"/>
+<path d="M583.182 86.3462L654.44 105.44L625.212 122.576L641.956 152.031L570.698 132.938L583.182 86.3462Z" fill="#63C574"/>
+<rect x="577.481" y="77.4749" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 577.481 77.4749)" fill="#363636"/>
+<rect x="550.964" y="70.9106" width="5" height="18" rx="2.5" transform="rotate(-30 550.964 70.9106)" fill="#63C574"/>
+<rect x="537.862" y="87.249" width="5" height="18" rx="2.5" transform="rotate(-60 537.862 87.249)" fill="#63C574"/>
+<path d="M106.5 56L106.5 152.378C106.5 166.185 117.693 177.378 131.5 177.378L495.4 177.378" stroke="url(#paint0_linear_1732_35)" stroke-width="5" stroke-linecap="round"/>
+<circle cx="144.067" cy="175.933" r="14.9334" fill="#6292F7"/>
+<circle cx="144.067" cy="175.933" r="9.24446" fill="white"/>
 <defs>
-<linearGradient id="paint0_linear_1720_17" x1="141.5" y1="257.761" x2="146.5" y2="257.761" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_1732_35" x1="142.5" y1="177.5" x2="488.5" y2="177.5" gradientUnits="userSpaceOnUse">
 <stop stop-color="#6292F7"/>
-<stop offset="1" stop-color="#63C574"/>
+<stop stop-color="#63C574"/>
+<stop offset="0.93" stop-color="#63C574"/>
+<stop offset="1" stop-color="white"/>
 </linearGradient>
 </defs>
 </svg>

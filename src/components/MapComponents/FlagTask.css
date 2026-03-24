@@ -1,6 +1,6 @@
 .flag-container{
     filter: saturate(0);
-    height: 200px;
+    height: 264px;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../../assets/goals/goal\ 1.svg');
@@ -15,16 +15,18 @@
 }
 .flag-container[data-flag-id ="2"] {
     background-image: url('../../assets/goals/goal\ 2.svg');
-    scale: 0.8;
+ 
 }
 .flag-container[data-flag-id ="3"] {
     background-image: url('../../assets/goals/goal\ 3.svg');
-    scale: 0.6;
+
 
 }
 .flag-container[data-flag-id ="4"] {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     background-image: url('../../assets/goals/goal\ 4.svg');
-    scale: 0.4;
+ 
 
 }
 .flag-container.active{

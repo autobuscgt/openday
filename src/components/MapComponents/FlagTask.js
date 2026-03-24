@@ -5,9 +5,9 @@ const FlagTask = ({ id, isCompleted, isActive, onClick }) => {
   const { updateQuestStatus } = useQuest();
   const questMapping = {
     '1': 'tictactoe',
-    '2': 'centerdiv',
+    '2': 'centerDiv',
     '3': 'alchemy',
-    '4': 'findsecret'
+    '4': 'findSecret'
   };
 
   const handleFlagClick = () => {

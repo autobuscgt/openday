@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles/style.css';
 import './styles/map.css';
 import Map from './components/Map';
 import Greet from './components/Greet';
+import mkit_logo from './assets/mkit_logo.svg';
+
 
 //UI-Компоненты
 import Alchemy from './components/Alchemy';
@@ -20,18 +22,36 @@ function App() {
   const [findSecretIsOpen, setFindSecretIsOpen] = useState(false);
   const [centerDivIsOpen, setCenterDivIsOpen] = useState(false);
   const [ticTacToeIsOpen, setTicTacToeIsOpen] = useState(false);
+  const [init, setInit] = useState(false)
+  const [isLoaded, setIsLoaded] =  useState(false)
+
+  useEffect(()=>{
+    const already_loaded = localStorage.getItem('isLoaded') === 'true';
+    if(!already_loaded){
+      setGreetIsOpen(true);
+      localStorage.setItem('isLoaded', 'true');
+      setIsLoaded(true); 
+    } else{
+      setIsLoaded(true)
+    }
+    setInit(true);
+  },[])
+
+  if (!init) {
+    return null; 
+  }
 
   return (
     <QuestProvider>
     <div className="map">
-
+    <img src={mkit_logo} className='logo' alt='mkit_logo'/>
 
       {/*
       =====================
            Инструкции 
       =====================
       */}
-      <div className='instructions'>
+      {isLoaded ? <div className='instructions'>
       <button
         onClick={()=> setGreetIsOpen(true)}
         className='inst_btn'
@@ -43,7 +63,7 @@ function App() {
       >
         <Greet/>
       </Modal>
-      </div>
+      </div>: ' ' }
 
       {/* 
       =====================

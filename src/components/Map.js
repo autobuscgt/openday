@@ -39,7 +39,9 @@ function Map() {
 
   return (
     <div className="map-container" style={divStyle}>
-      <h1 style={{ color: 'var(--white-purple)' }}>Дорожная карта</h1>
+      <div className='map-header'>
+        <h1>{'._={ ROAD MAP }=_.'}</h1>
+      </div>
       <div className='road-container'>
         <FlagTask 
           id={"4"} 

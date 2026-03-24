@@ -1,17 +1,20 @@
-<svg width="700" height="450" viewBox="0 0 700 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="77.761" width="700" height="264" fill="white"/>
-<path d="M593.5 133.761L593.5 230.139C593.5 243.946 582.307 255.139 568.5 255.139L204.6 255.139" stroke="url(#paint0_linear_1720_32)" stroke-width="5" stroke-linecap="round"/>
-<circle cx="14.9334" cy="14.9334" r="14.9334" transform="matrix(-1 0 0 1 570.867 238.761)" fill="#6292F7"/>
-<circle cx="9.24446" cy="9.24446" r="9.24446" transform="matrix(-1 0 0 1 565.178 244.45)" fill="white"/>
-<ellipse cx="111" cy="273" rx="55" ry="12" fill="#DADADA"/>
-<path d="M144.182 151.346L215.44 170.44L186.212 187.576L202.956 217.031L131.698 197.938L144.182 151.346Z" fill="#6292F7"/>
-<rect x="138.481" y="142.475" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 138.481 142.475)" fill="#363636"/>
-<rect x="111.964" y="135.911" width="5" height="18" rx="2.5" transform="rotate(-30 111.964 135.911)" fill="#6292F7"/>
-<rect x="98.8616" y="152.249" width="5" height="18" rx="2.5" transform="rotate(-60 98.8616 152.249)" fill="#6292F7"/>
+<svg width="700" height="264" viewBox="0 0 700 264" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="700" height="264" fill="#232323"/>
+<rect x="28" y="43" width="209" height="207" rx="15" fill="white"/>
+<ellipse cx="111" cy="195" rx="55" ry="12" fill="#DADADA"/>
+<path d="M144.182 73.3462L215.44 92.4397L186.212 109.576L202.956 139.031L131.698 119.938L144.182 73.3462Z" fill="#6292F7"/>
+<rect x="138.481" y="64.4749" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 138.481 64.4749)" fill="#363636"/>
+<rect x="111.964" y="57.9106" width="5" height="18" rx="2.5" transform="rotate(-30 111.964 57.9106)" fill="#6292F7"/>
+<rect x="98.8616" y="74.249" width="5" height="18" rx="2.5" transform="rotate(-60 98.8616 74.249)" fill="#6292F7"/>
+<path d="M593.5 56L593.5 152.378C593.5 166.185 582.307 177.378 568.5 177.378L204.6 177.378" stroke="url(#paint0_linear_1732_51)" stroke-width="5" stroke-linecap="round"/>
+<circle cx="14.9334" cy="14.9334" r="14.9334" transform="matrix(-1 0 0 1 570.866 161)" fill="#F48344"/>
+<circle cx="9.24446" cy="9.24446" r="9.24446" transform="matrix(-1 0 0 1 565.178 166.689)" fill="white"/>
 <defs>
-<linearGradient id="paint0_linear_1720_32" x1="558.5" y1="257.761" x2="553.5" y2="257.761" gradientUnits="userSpaceOnUse">
-<stop stop-color="#F48444"/>
-<stop offset="1" stop-color="#6292F7"/>
+<linearGradient id="paint0_linear_1732_51" x1="557.5" y1="177.5" x2="211.5" y2="177.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F48445"/>
+<stop stop-color="#6292F7"/>
+<stop offset="0.93" stop-color="#6292F7"/>
+<stop offset="1" stop-color="white"/>
 </linearGradient>
 </defs>
 </svg>

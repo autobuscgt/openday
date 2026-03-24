@@ -16,7 +16,7 @@ export const QuestProvider = ({ children }) => {
         tictactoe: false,
         alchemy: false,
         findSecret: false,
-        centerdiv: false,
+        centerDiv: false,
     });
 
     const updateQuestStatus = (questName, isCompleted) => {
