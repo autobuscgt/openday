@@ -1,7 +1,7 @@
 import '../styles/map.css'
 import FlagTask from './MapComponents/FlagTask';
 import { useQuest } from '../context/questContext';
-
+import '../styles/Animation.css'
 const divStyle = {
   width: '100%',
   justifyContent: 'center',
@@ -43,6 +43,7 @@ function Map() {
         <h1>{'._={ ROAD MAP }=_.'}</h1>
       </div>
       <div className='road-container'>
+        <div className='white_purple_outline'/>
         <FlagTask 
           id={"4"} 
           isCompleted={getQuestStatus('4')} 

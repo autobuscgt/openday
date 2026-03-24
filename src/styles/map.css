@@ -37,4 +37,29 @@
     display: grid;
 }
 
+.white_purple_outline{
+    z-index: 5;
+    border-top: 4px solid rgb(234, 255, 0);
+    border-bottom: 4px solid rgb(234, 255, 0);
+    border-radius: 15px;
+    position: absolute;
+    bottom: -192px;
+    left: 626px;
+    width: 210px;
+    height: 220px;
+    animation: 2.5s pulse infinite ease-in;
+}
 
+
+@keyframes pulse {  
+    0% {  
+        transform: scale(1);  
+    }  
+    50% { 
+        transform: scale(1.04);  
+
+    }  
+    100% {  
+        transform: scale(1);  
+    }  
+}  

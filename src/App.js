@@ -5,7 +5,6 @@ import Map from './components/Map';
 import Greet from './components/Greet';
 import mkit_logo from './assets/mkit_logo.svg';
 
-
 //UI-Компоненты
 import Alchemy from './components/Alchemy';
 import TicTacToe from './components/TicTacToe';
