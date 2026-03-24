@@ -6,15 +6,13 @@
 <rect x="577.481" y="77.4749" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 577.481 77.4749)" fill="#363636"/>
 <rect x="550.964" y="70.9106" width="5" height="18" rx="2.5" transform="rotate(-30 550.964 70.9106)" fill="#63C574"/>
 <rect x="537.862" y="87.249" width="5" height="18" rx="2.5" transform="rotate(-60 537.862 87.249)" fill="#63C574"/>
-<path d="M106.5 56L106.5 152.378C106.5 166.185 117.693 177.378 131.5 177.378L495.4 177.378" stroke="url(#paint0_linear_1732_35)" stroke-width="5" stroke-linecap="round"/>
+<path d="M107 25V151.829C107 165.731 116.526 177 128.278 177L438 177" stroke="url(#paint0_linear_1732_35)" stroke-width="5" stroke-linecap="round"/>
 <circle cx="144.067" cy="175.933" r="14.9334" fill="#6292F7"/>
 <circle cx="144.067" cy="175.933" r="9.24446" fill="white"/>
 <defs>
-<linearGradient id="paint0_linear_1732_35" x1="142.5" y1="177.5" x2="488.5" y2="177.5" gradientUnits="userSpaceOnUse">
-<stop stop-color="#6292F7"/>
-<stop stop-color="#63C574"/>
-<stop offset="0.93" stop-color="#63C574"/>
-<stop offset="1" stop-color="white"/>
+<linearGradient id="paint0_linear_1732_35" x1="137.64" y1="177.123" x2="154" y2="177.123" gradientUnits="userSpaceOnUse">
+<stop offset="0.07" stop-color="#6292F7"/>
+<stop offset="1" stop-color="#63C574"/>
 </linearGradient>
 </defs>
 </svg>
