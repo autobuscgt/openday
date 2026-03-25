@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useQuest } from '../context/questContext';
-import '../styles/modals/FindSecret.css';
+import { useQuest } from '../../context/questContext';
+import '../../styles/modals/FindSecret.css';
 
 const systemIcons = {
     server: '🖥️',

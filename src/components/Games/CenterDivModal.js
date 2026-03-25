@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useQuest } from '../context/questContext';
-import '../styles/modals/CenterDivModal.css'
+import { useQuest } from '../../context/questContext';
+import '../../styles/modals/CenterDivModal.css'
 
 const CenterDivModal = () => {
     const [justifyContent, setJustifyContent] = useState('flex-start');

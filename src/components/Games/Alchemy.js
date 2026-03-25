@@ -1,9 +1,9 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { useQuest } from '../context/questContext';
-import '../styles/alchemy.css'
+import { useQuest } from '../../context/questContext';
+import '../../styles/alchemy.css'
 
-const Alchemy = () => {
+const Alchemy = ({onComplete}) => {
     const [recipes, setRecipes] = useState({
         "код,дизайн": "Сайт",
         "код,сервер": "Бэкенд",
