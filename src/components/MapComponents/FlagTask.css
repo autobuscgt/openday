@@ -1,35 +1,50 @@
 .flag-container{
     filter: saturate(0);
-    height: 264px;
+    height: 230px;
+    width: 230px;
     background-position: center;
+    position: relative;
     background-repeat: no-repeat;
-    background-image: url('../../assets/goals/goal\ 1.svg');
 }
 
 .flag-container.completed{
     filter: saturate(1);
 }
+
 .flag-container[data-flag-id ="1"] {
     background-image: url('../../assets/goals/goal\ 1.svg');
-
+    grid-row: 4;
+    grid-column: 1;
 }
+
 .flag-container[data-flag-id ="2"] {
     background-image: url('../../assets/goals/goal\ 2.svg');
- 
+    grid-row: 3;
+    grid-column: 3;
 }
+
 .flag-container[data-flag-id ="3"] {
     background-image: url('../../assets/goals/goal\ 3.svg');
-
-
+    grid-row: 2;
+    grid-column: 1;
 }
+
 .flag-container[data-flag-id ="4"] {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
     background-image: url('../../assets/goals/goal\ 4.svg');
- 
-
+    grid-row: 1;
+    grid-column: 3;
 }
+
 .flag-container.active{
-    
+    filter: saturate(1);
+    border: 1px solid #EF3C3C;
+    border-radius: 25px;
+    animation: 2s pulse ease-in infinite;
+}
+
+@keyframes pulse {
+    0%{ scale: 1;}
+    50%{box-shadow: 0px 0px 20px 0px #EF3C3C; scale: 1.01;}
+    100%{ scale: 1;}
 }
 

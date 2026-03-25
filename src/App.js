@@ -6,10 +6,7 @@ import Greet from './components/Greet';
 import mkit_logo from './assets/mkit_logo.svg';
 
 //UI-Компоненты
-import Alchemy from './components/Alchemy';
-import TicTacToe from './components/TicTacToe';
-import CenterDivModal from './components/CenterDivModal';
-import FindSecret from './components/FindSecret';
+
 
 //Универсальная модалка
 import Modal from './components/Modal';
@@ -17,10 +14,7 @@ import { QuestProvider } from './context/questContext';
 
 function App() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
-  const [alchemyIsOpen, setAlchemyIsOpen] = useState(false);
-  const [findSecretIsOpen, setFindSecretIsOpen] = useState(false);
-  const [centerDivIsOpen, setCenterDivIsOpen] = useState(false);
-  const [ticTacToeIsOpen, setTicTacToeIsOpen] = useState(false);
+
   const [init, setInit] = useState(false)
   const [isLoaded, setIsLoaded] =  useState(false)
 
@@ -64,45 +58,7 @@ function App() {
       </Modal>
       </div>: ' ' }
 
-      {/* 
-      =====================
-            Алхимия 
-      =====================
-      */}
-      <button onClick={() => setAlchemyIsOpen(true)} className='alch_pos'></button>
-      <Modal isOpen={alchemyIsOpen} onClose={()=> setAlchemyIsOpen(false)} title={'Алхимия'}>
-         <Alchemy/>  
-      </Modal>
-
-      {/* 
-      =====================
-          Секретный ключ 
-      =====================
-      */}
-      <button onClick={() => setFindSecretIsOpen(true)} className='secret_pos'>   </button>
-      <Modal isOpen={findSecretIsOpen} onClose={()=> setFindSecretIsOpen(false)} title={'Найди секретный ключ'}>
-         <FindSecret/> 
-       </Modal>
-
-       {/* 
-      =====================
-       Центрирование дива 
-      =====================
-       */}
-      <button onClick={() => setCenterDivIsOpen(true)} className='ctdiv_pos'> </button>
-      <Modal isOpen={centerDivIsOpen} onClose={()=> setCenterDivIsOpen(false)} title={'Центрирование дива'}>
-         <CenterDivModal/>  
-      </Modal>
-
-      {/*
-      =====================
-         Крестики нолики 
-      =====================
-      */}
-      <button onClick={() => setTicTacToeIsOpen(true)} className='tictactoe_pos'></button>
-      <Modal isOpen={ticTacToeIsOpen} onClose={()=> setTicTacToeIsOpen(false)} title={'Крестики нолики'}>
-         <TicTacToe/>  
-      </Modal>
+      
       <Map/>
     </div>
     </QuestProvider>

@@ -1,0 +1,39 @@
+{/* 
+      =====================
+            Алхимия 
+      =====================
+      */}
+      <button onClick={() => setAlchemyIsOpen(true)} className='alch_pos'></button>
+      <Modal isOpen={alchemyIsOpen} onClose={()=> setAlchemyIsOpen(false)} title={'Алхимия'}>
+         <Alchemy/>  
+      </Modal>
+
+      {/* 
+      =====================
+          Секретный ключ 
+      =====================
+      */}
+      <button onClick={() => setFindSecretIsOpen(true)} className='secret_pos'>   </button>
+      <Modal isOpen={findSecretIsOpen} onClose={()=> setFindSecretIsOpen(false)} title={'Найди секретный ключ'}>
+         <FindSecret/> 
+       </Modal>
+
+       {/* 
+      =====================
+       Центрирование дива 
+      =====================
+       */}
+      <button onClick={() => setCenterDivIsOpen(true)} className='ctdiv_pos'> </button>
+      <Modal isOpen={centerDivIsOpen} onClose={()=> setCenterDivIsOpen(false)} title={'Центрирование дива'}>
+         <CenterDivModal/>  
+      </Modal>
+
+      {/*
+      =====================
+         Крестики нолики 
+      =====================
+      */}
+      <button onClick={() => setTicTacToeIsOpen(true)} className='tictactoe_pos'></button>
+      <Modal isOpen={ticTacToeIsOpen} onClose={()=> setTicTacToeIsOpen(false)} title={'Крестики нолики'}>
+         <TicTacToe/>  
+      </Modal>

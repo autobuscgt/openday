@@ -1,18 +1,7 @@
-<svg width="700" height="264" viewBox="0 0 700 264" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="700" height="264" transform="matrix(-1 0 0 1 700 0)" fill="#232323"/>
-<rect width="209" height="207" rx="15" transform="matrix(-1 0 0 1 672 43)" fill="white"/>
-<ellipse cx="550" cy="208" rx="55" ry="12" fill="#DADADA"/>
-<path d="M583.182 86.3462L654.44 105.44L625.212 122.576L641.956 152.031L570.698 132.938L583.182 86.3462Z" fill="#63C574"/>
-<rect x="577.481" y="77.4749" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 577.481 77.4749)" fill="#363636"/>
-<rect x="550.964" y="70.9106" width="5" height="18" rx="2.5" transform="rotate(-30 550.964 70.9106)" fill="#63C574"/>
-<rect x="537.862" y="87.249" width="5" height="18" rx="2.5" transform="rotate(-60 537.862 87.249)" fill="#63C574"/>
-<path d="M107 25V151.829C107 165.731 116.526 177 128.278 177L438 177" stroke="url(#paint0_linear_1732_35)" stroke-width="5" stroke-linecap="round"/>
-<circle cx="144.067" cy="175.933" r="14.9334" fill="#6292F7"/>
-<circle cx="144.067" cy="175.933" r="9.24446" fill="white"/>
-<defs>
-<linearGradient id="paint0_linear_1732_35" x1="137.64" y1="177.123" x2="154" y2="177.123" gradientUnits="userSpaceOnUse">
-<stop offset="0.07" stop-color="#6292F7"/>
-<stop offset="1" stop-color="#63C574"/>
-</linearGradient>
-</defs>
+<svg width="176" height="178" viewBox="0 0 176 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="55" cy="152" rx="55" ry="12" fill="#DADADA"/>
+<path d="M88.3211 30.3462L159.579 49.4397L130.35 66.5763L147.095 96.0313L75.8369 76.9378L88.3211 30.3462Z" fill="#63C574"/>
+<rect x="82.6201" y="21.4749" width="8.5121" height="136.194" rx="4.25605" transform="rotate(15 82.6201 21.4749)" fill="#363636"/>
+<rect x="56.1035" y="14.9106" width="5" height="18" rx="2.5" transform="rotate(-30 56.1035 14.9106)" fill="#63C574"/>
+<rect x="43.0005" y="31.249" width="5" height="18" rx="2.5" transform="rotate(-60 43.0005 31.249)" fill="#63C574"/>
 </svg>
