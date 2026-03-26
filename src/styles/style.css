@@ -13,6 +13,10 @@
 /*
 ============== Базовые стили =======
 */
+body{
+    overflow: hidden;
+}
+
 :root{
     --border-radius: 600px;
     --border-square-radius: 15px;
@@ -24,6 +28,8 @@
     --white-grey: #E8E8E8;
     --primary-color: #F9F9F9;
     --green-color : #63C574;
+    --red-color: #EF3C3C;
+    --orange-color: #F48445;
 }
 /*
 ============== Кнопка инструкции =======
@@ -150,6 +156,32 @@
     top: 10px;
     left: 10px;
 }
+/*
+============== Серые точки + Задние линии =======
+*/
+.background-dots[data-dots="1"]{
+    position: absolute;
+    width: 230px;
+    right: 25px;
+    bottom: 10px;
+}
+.background-dots[data-dots="2"]{
+    position: absolute;
+    width: 230px;
+    left: 25px;
+    transform: translateY(50%);
+    top: 20%;
+}
+
+.background-line{
+    position: absolute;
+    top: -60%;
+    rotate: 10deg;
+    scale: 0.7;
+    right: -22%;
+
+}
+
 
 /* Animations */
 @keyframes pulse {

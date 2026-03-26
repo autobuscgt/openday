@@ -14,8 +14,12 @@ import FindSecret from './Games/FindSecret';
 import Modal from './Modal';
 import Boss from './Games/SeaBattle';
 
+
+
+
 const divStyle = {
   width: '100%',
+  overflow:'hidden',
   justifyContent: 'center',
   flexDirection: 'column',
   display: 'flex',
@@ -95,7 +99,7 @@ function Map() {
         <h1>{'-._={ Дорожная карта }=_.-'}</h1>
       </div>
       <div className='road-container'>
-  
+
         <div id="rd7">
           <FlagTask 
             id={"4"} 

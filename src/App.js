@@ -4,7 +4,8 @@ import './styles/map.css';
 import Map from './components/Map';
 import Greet from './components/Greet';
 import mkit_logo from './assets/mkit_logo.svg';
-
+import grey_dots from './assets/grey_dots.svg';
+import blue_line from './assets/blue_line.png'
 //UI-Компоненты
 
 
@@ -37,6 +38,9 @@ function App() {
   return (
     <QuestProvider>
     <div className="map">
+    <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>
+    <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="2"/>
+    <img src={blue_line} alt='синяя линия' className='background-line' />
     <img src={mkit_logo} className='logo' alt='mkit_logo'/>
 
       {/*

@@ -33,12 +33,33 @@
 
 }
 
-.flag-container.active{
+.flag-container[data-flag-id ="2"].active{
     cursor: pointer;
     filter: saturate(1);
-    border: 1px solid #EF3C3C;
+    border: 1px solid var(--green-color);
+    border-radius: 25px;
+    animation: 2s pulse1 ease-in infinite;
+}
+.flag-container[data-flag-id ="1"].active{
+    cursor: pointer;
+    filter: saturate(1);
+    border: 1px solid var(--red-color);
     border-radius: 25px;
     animation: 2s pulse ease-in infinite;
+}
+.flag-container[data-flag-id ="3"].active{
+    cursor: pointer;
+    filter: saturate(1);
+    border: 1px solid var(--white-purple);
+    border-radius: 25px;
+    animation: 2s pulse2 ease-in infinite;
+}
+.flag-container[data-flag-id ="4"].active{
+    cursor: pointer;
+    filter: saturate(1);
+    border: 1px solid var(--orange-color);
+    border-radius: 25px;
+    animation: 2s pulse3 ease-in infinite;
 }
 
 .path-container{
@@ -115,6 +136,22 @@
 @keyframes pulse {
     0%{ scale: 1;}
     50%{box-shadow: 0px 0px 20px 0px #EF3C3C; scale: 1.01;}
+    100%{ scale: 1;}
+}
+@keyframes pulse1 {
+    0%{ scale: 1;}
+    50%{box-shadow: 0px 0px 20px 0px #63C574; scale: 1.01;}
+    100%{ scale: 1;}
+}
+@keyframes pulse2 {
+    0%{ scale: 1;}
+    50%{box-shadow: 0px 0px 20px 0px var(--white-purple); scale: 1.01;}
+    100%{ scale: 1;}
+}
+
+@keyframes pulse3 {
+    0%{ scale: 1;}
+    50%{box-shadow: 0px 0px 20px 0px #F48445; scale: 1.01;}
     100%{ scale: 1;}
 }
 
