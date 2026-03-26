@@ -1,6 +1,4 @@
 
-import './RoadContainer.css';
-
 const RoadContainer = ({ id, isCompleted, isActive, onClick }) => {
   const handleRoadClick = () => {
     if (onClick) {

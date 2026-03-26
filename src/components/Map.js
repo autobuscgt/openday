@@ -22,10 +22,10 @@ const divStyle = {
 }
 
 const questMapping = {
-  '1': 'alchemy',        // Алхимия
-  '2': 'centerDiv',      // Центрирование div
-  '3': 'findSecret',     // Поиск секрета
-  '4': 'tictactoe',      // Крестики-нолики
+  '1': 'centerDiv',      // Центрирование div
+  '2': 'findSecret',     // Поиск секрета
+  '3': 'tictactoe',      // Крестики-нолики
+  '4': 'alchemy',        // Алхимия
 };
 
 function Map() {
@@ -65,16 +65,16 @@ function Map() {
 
   const handleFlagClick = (questId) => {
     switch(questId) {
-      case '1':
+      case '4':
         setAlchemyIsOpen(true);
         break;
-      case '2':
+      case '1':
         setIsCenterDivOpen(true);
         break;
-      case '3':
+      case '2':
         setFindSecretIsOpen(true);
         break;
-      case '4':
+      case '3':
         setIsTicTacToe(true);
         break;
       default:
@@ -89,7 +89,7 @@ function Map() {
       </div>
       <div className='road-container'>
   
-        <div>
+        <div id="rd7">
           <FlagTask 
             id={"4"} 
             isCompleted={getQuestStatus('4')} 
@@ -101,7 +101,20 @@ function Map() {
           </Modal>
         </div>
 
-        <div>
+        <div id="rd6">
+          <FlagTask 
+            id={"3"} 
+            isCompleted={getQuestStatus('3')} 
+            isActive={activeQuestId === '3'} 
+            onClick={() => handleFlagClick('3')}
+          />
+          <Modal isOpen={isAlchemyOpen} onClose={handleClose} title={'IT-Алхимия'}> 
+            <Alchemy onComplete={handleClose} />
+          </Modal>
+
+        </div>
+
+        <div id="rd5">
           <RoadContainer
             id={"3"}
             isCompleted={getQuestStatus('3')}
@@ -109,19 +122,8 @@ function Map() {
           />
         </div>
 
-        <div>
-          <FlagTask 
-            id={"3"} 
-            isCompleted={getQuestStatus('3')} 
-            isActive={activeQuestId === '3'} 
-            onClick={() => handleFlagClick('3')}
-          />
-          <Modal isOpen={isFindSecretOpen} onClose={handleClose} title={'Найди секретный ключ'}> 
-            <FindSecret onComplete={handleClose} />
-          </Modal>
-        </div>
 
-        <div>
+        <div id="rd4">
           <RoadContainer
             id={"2"}
             isCompleted={getQuestStatus('2')}
@@ -129,7 +131,7 @@ function Map() {
           />
         </div>
 
-        <div>
+        <div id="rd3">
           <FlagTask 
             id={"2"} 
             isCompleted={getQuestStatus('2')} 
@@ -141,7 +143,7 @@ function Map() {
           </Modal>
         </div>
 
-        <div>
+        <div id="rd2">
           <RoadContainer
             id={"1"}
             isCompleted={getQuestStatus('1')}
@@ -149,15 +151,15 @@ function Map() {
           />
         </div>
 
-        <div>
+        <div id="rd1">
           <FlagTask 
             id={"1"} 
             isCompleted={getQuestStatus('1')} 
             isActive={activeQuestId === '1'} 
             onClick={() => handleFlagClick('1')}
           />
-          <Modal isOpen={isAlchemyOpen} onClose={handleClose} title={'IT-Алхимия'}> 
-            <Alchemy onComplete={handleClose} />
+          <Modal isOpen={isFindSecretOpen} onClose={handleClose} title={'Найди секретный ключ'}> 
+            <FindSecret onComplete={handleClose} />
           </Modal>
         </div>
       </div>

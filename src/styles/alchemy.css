@@ -125,7 +125,7 @@
 .items_list {
     width: 25%;
     height: 600px;
-    background-color: rgb(63 63 63);
+    background-color: var(--dark-grey);
     display: flex;
     flex-direction: column;
     gap: 20px;
