@@ -214,7 +214,7 @@ const FindSecret = () => {
     return (
         <div className="find-secret-modal-container">
             <div className="find-secret-modal" onClick={(e) => e.stopPropagation()}>
-                <h2 className="modal-title">Поиск секретного ключа</h2>
+                <h2 style={{color:'var(--white-purple)'}}>Поиск секретного ключа</h2>
 
                 <div className="modal-question">
                     <p>Секретный ключ для расшифровки данных потерялся. Секретный файл (🔐), который хранит все ключи, необходимо найти среди множества элементов информационной системы.</p>

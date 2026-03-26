@@ -12,6 +12,7 @@ import TicTacToe from './Games/TicTacToe';
 import CenterDivModal from './Games/CenterDivModal';
 import FindSecret from './Games/FindSecret';
 import Modal from './Modal';
+import Boss from './Games/SeaBattle';
 
 const divStyle = {
   width: '100%',
@@ -26,6 +27,7 @@ const questMapping = {
   '2': 'findSecret',     // Поиск секрета
   '3': 'tictactoe',      // Крестики-нолики
   '4': 'alchemy',        // Алхимия
+  '5': 'boss',        // Алхимия
 };
 
 function Map() {
@@ -35,11 +37,13 @@ function Map() {
   const [isAlchemyOpen, setAlchemyIsOpen] = useState(false);
   const [isFindSecretOpen, setFindSecretIsOpen] = useState(false);
   const [isCenterDivOpen, setIsCenterDivOpen] = useState(false);
+  const [isBossOpen, setBossOpen] = useState(false);
 
   const handleClose = () => {
     setAlchemyIsOpen(false);
     setFindSecretIsOpen(false);
     setIsCenterDivOpen(false);
+    setBossOpen(false);
   }
 
   const handleCloseTicTacToe = () => {
@@ -76,6 +80,9 @@ function Map() {
         break;
       case '3':
         setIsTicTacToe(true);
+        break;
+      case '5':
+        setBossOpen(true);
         break;
       default:
         break;
@@ -117,9 +124,12 @@ function Map() {
         <div id="rd5">
           <RoadContainer
             id={"3"}
-            isCompleted={getQuestStatus('3')}
-            isActive={activeQuestId === '3'}
+            isCompleted={getQuestStatus('5')}
+            isActive={activeQuestId === '5'}
           />
+          <Modal isOpen={isBossOpen} onClose={handleClose} title={'Босс'}>
+            <Boss onComplete={handleClose}/>
+          </Modal>
         </div>
 
 
