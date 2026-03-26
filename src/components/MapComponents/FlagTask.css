@@ -34,6 +34,7 @@
 }
 
 .flag-container.active{
+    cursor: pointer;
     filter: saturate(1);
     border: 1px solid #EF3C3C;
     border-radius: 25px;
