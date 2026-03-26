@@ -12,14 +12,14 @@
     height: 90px;
     margin-bottom: 10px;
     pointer-events: none;
-    color: white;
+
     font-family: MB;
 }
 
 .map-header h1 {
     background-color: var(--dark-grey);
-    border-bottom: 4px solid var(--white-purple);
-    color: var(--white-purple);
+    border-bottom: 4px solid var(--green-color);
+    color: var(--green-color);
     padding: 15px;
     border-radius: 15px;
 }
@@ -37,9 +37,7 @@
     z-index: 2;
     border-radius: 25px;
     width: 700px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(3, 1fr);

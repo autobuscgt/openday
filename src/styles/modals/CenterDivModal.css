@@ -3,10 +3,9 @@
 }
 .center-div-container{
     width: 100%;
-    height: 700px;
+    height: 500px;
 }
 .control-panel{
-
     padding: 15px;
 }
 .control-panel h2{
@@ -16,8 +15,4 @@
 .flex-playground {
     background-color: var(--dark-grey);
     border-radius: 10px;
-}
-.playground-container{
-    padding-bottom: 15px;
-    border-bottom: 4px solid var(--white-purple);
 }

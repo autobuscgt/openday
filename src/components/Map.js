@@ -85,7 +85,7 @@ function Map() {
   return (
     <div className="map-container" style={divStyle}>
       <div className='map-header'>
-        <h1>{'._={ ROAD MAP }=_.'}</h1>
+        <h1>{'-._={ Дорожная карта }=_.-'}</h1>
       </div>
       <div className='road-container'>
   

@@ -5,6 +5,8 @@
     background-position: center;
     position: relative;
     background-repeat: no-repeat;
+    background-color: white;
+    border-radius: 25px;
 }
 
 .flag-container.completed{
@@ -13,6 +15,7 @@
 
 .flag-container[data-flag-id ="1"] {
     background-image: url('../../assets/goals/goal\ 1.svg');
+   
 }
 
 .flag-container[data-flag-id ="2"] {
@@ -60,7 +63,7 @@
 
 .path-container[data-road-id ="2"] {
     background-image: url('../../assets/roads/green_blue.svg');
-    background-position-x: 90px;
+    background-position-x: 130px;
 }
 
 .path-container[data-road-id ="3"] {

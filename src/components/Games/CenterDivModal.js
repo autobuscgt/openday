@@ -115,7 +115,7 @@ const CenterDivModal = () => {
                                     flexDirection: flexDirection,
                                     justifyContent: justifyContent,
                                     alignItems: alignItems,
-                                    minHeight: '300px'
+                                    minHeight: '400px'
                                 }}
                             >
                                 <div className={`floating-block ${showOffer ? 'transforming' : ''}`}>
