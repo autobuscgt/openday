@@ -346,6 +346,7 @@ const Alchemy = ({onComplete}) => {
                                         zIndex: item.isDragging ? 1000 : 1,
                                         width: '140px',
                                         minWidth: '140px',
+                                        userSelect: 'none',
                                     }}
                                     onMouseDown={(e) => handleDragStart(e, item)}
                                 >
