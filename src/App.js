@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react';
+
+import './styles/modals/Alchemy.css'
+import './styles/modals/CenterDivModal.css'
+import './styles/modals/FindSecret.css'
+import './styles/modals/TicTacToe.css'
+import './styles/alchemy.css'
+import './styles/Animation.css'
 import './styles/style.css';
 import './styles/map.css';
+
 import Map from './components/Map';
 import Greet from './components/Greet';
 import mkit_logo from './assets/mkit_logo.svg';
@@ -8,14 +16,12 @@ import grey_dots from './assets/grey_dots.svg';
 import blue_line from './assets/blue_line.png'
 //UI-Компоненты
 
-
 //Универсальная модалка
 import Modal from './components/Modal';
-import { QuestProvider } from './context/questContext';
+import Switcher from './components/Switcher';
 
 function App() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
-
   const [init, setInit] = useState(false)
   const [isLoaded, setIsLoaded] =  useState(false)
 
@@ -36,12 +42,14 @@ function App() {
   }
 
   return (
-    <QuestProvider>
+  <div>
     <div className="map">
     <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>
     <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="2"/>
     <img src={blue_line} alt='синяя линия' className='background-line' />
     <img src={mkit_logo} className='logo' alt='mkit_logo'/>
+    <Switcher/>
+
 
       {/*
       =====================
@@ -61,11 +69,9 @@ function App() {
         <Greet/>
       </Modal>
       </div>: ' ' }
-
-      
       <Map/>
     </div>
-    </QuestProvider>
+  </div>
   );
 }
 

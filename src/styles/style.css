@@ -14,7 +14,7 @@
 ============== Базовые стили =======
 */
 body{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 :root{
@@ -122,7 +122,7 @@ body{
     font-size: 1.5rem;
 }
 /*
-    Вопросы
+============== Модальные окна (вопросы) =======
 */
 .modal-question {
     background-color: var(--white-grey);
@@ -182,8 +182,9 @@ body{
 
 }
 
-
-/* Animations */
+/*
+============== Анимации =======
+*/
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -210,53 +211,77 @@ body{
     }
 }
 
-
-/* ПОЛУМЕРЫ */
-.tictactoe_pos{
-    cursor: pointer;
-    z-index: 3;
-    width: 200px;
-    height: 200px;
+/*
+============== Смена пути =======
+*/
+.switch-container{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: var(--dark-grey);
+    border-radius: 600px;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0);
+    right: 10px;
+    top: 10px;
+    transition: 0.5s;
+}
+.switch-container.dev{
+    background-color: var(--green-color);
+    transition: 0.5s;
+}
+.switch-btn{
+    position: relative;
+    left: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 600px;
     border: none;
-    left: 1080px;
-    bottom: 250px;
+    background-color: white;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
-.alch_pos{
-    cursor: pointer;
-    z-index: 3;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    position: absolute;
-    left: 670px;
-    bottom: 60px;
-
-
-}
-.ctdiv_pos{
-    cursor: pointer;
-    z-index: 3;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    position: absolute;
-    left: 690px;
-    bottom: 450px;
+.switch-btn.dev{
+    left: 60px;
+    transition: 0.5s;
 }
 
-.secret_pos{
+/*
+============== Выбор пути =======
+*/
+
+.dev-container{
+    padding: 10px 0px;
+    display: grid;
+    grid-template-columns: repeat(2,300px);
+    gap: 20px;
+    min-height: 300px;
+}
+
+.choosen-path{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-repeat: no-repeat;
+    min-width: 300px;
+    min-height: 300px;
+}
+.choosen-path[path-id="1"]{
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    top: 100px;
-    left: 1000px;
-    z-index: 3;
-    width: 200px;
-    height: 200px;
-    position: absolute;
+    transition: all 0.2s ease-in-out;
+    background-image: url('../assets/path/dev_path_ico.svg');
+}
+.choosen-path[path-id="1"]:hover{
+    transition: all 0.2s ease-in-out;
+    background-image: url('../assets/path/dev_path_ico_hover.svg');
+}
+.choosen-path[path-id="2"]{
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-image: url('../assets/path/default_path_ico.svg');
+}
+.choosen-path[path-id="2"]:hover{
+    transition: all 0.2s ease-in-out;
+    background-image: url('../assets/path/default_path_ico_hover.svg');
 }
