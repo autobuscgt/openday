@@ -52,7 +52,7 @@ function App() {
 
     <div className="end-animation-container">
         <div className="end-inner-items-container">
-          <span>Поздравляем!</span>
+          <span style={{color:'var(--dark-grey)'}}>Поздравляем!🎓</span>
           <p>{'{'} <b>ВЫ</b> прошли <b>ВСЕ</b> задачи, <b>ВЫ</b> огромный молодец!🎉🎉🎉 {'}'}</p>
         </div>
           <div className="mkit_cube" cube-id="3"> <span>М</span> </div>

@@ -51,6 +51,8 @@ const Alchemy = ({onComplete}) => {
         'облако', 'синхронизация', 'интернет', 'api', 'маркетплейс','базаданных','илюстраторр','игра'
     ];
 
+    const secretElement = ['МКИТ']
+
     const [availableItems, setAvailableItems] = useState(['код', 'дизайн', 'сервер']);
     const [fieldItems, setFieldItems] = useState([]);
     const [draggedItem, setDraggedItem] = useState(null);
@@ -254,7 +256,7 @@ const Alchemy = ({onComplete}) => {
         const x = e.clientX - fieldRect.left - 25; // Центрируем
         const y = e.clientY - fieldRect.top - 25;
         //проверка id для создания элемента на поле
-        if(allPossibleItems.includes(itemId)){
+        if(allPossibleItems.includes(itemId) || secretElement.includes(itemId)){
         createFieldItem(itemId, { x, y });
         }
     };
@@ -273,7 +275,7 @@ const Alchemy = ({onComplete}) => {
             <div className='alchemy-container' onClick={(e) => e.stopPropagation()}>
                 <div>
                     <p>Для построения топологии сети, в которой движется пакет, необходимо собрать воедино все роутеры и соединить в сетку. Проведём аналогию и поалхимичим!</p>
-                    <p>Используйте панель управления слева, чтобы перетаскивать предметы, соединять их и получать новые!</p>
+                    <p>Используйте панель управления слева, чтобы перетаскивать предметы, соединять их и получать новые! МКИТ</p>
                 </div>
                 <div className="progress-info">
                     <span>Прогресс: {availableItems.length} / {allPossibleItems.length}</span>

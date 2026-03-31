@@ -176,7 +176,7 @@ body{
     z-index: 10000;
     font-size: 9.6rem;
     left: -100%;
-    animation: expand 2s forwards ease;
+    /* animation: expand 2s forwards ease; */
 }
 
 @keyframes expand {
@@ -221,14 +221,14 @@ body{
     z-index: 11000;
     position: absolute;
     opacity: 0;
-    animation: MKIT_frames 1s ease forwards;
+    /* animation: MKIT_frames 1s ease forwards; */
 }
 
 .mkit_cube[cube-id="1"]{
     background-color: var(--white-purple);
     filter: blur(1px);
     rotate: 45deg;
-    top: 60%;
+    top: 65%;
     right: 15%;
     scale: 1.2;
     animation-delay: 4s;
