@@ -149,13 +149,130 @@ body{
 */
 .logo{
     background-color: var(--dark-grey);
-    padding: 25px;
-    position: absolute;
+    padding: 20px;
+    position: fixed;
     width: 100px;
+    height: 70px;
     border-radius: 10px;
     top: 10px;
     left: 10px;
 }
+
+/*
+============== Конечная анимация =======
+*/
+.end-inner-items-container{
+    overflow: hidden;
+    background-color: var(--white-grey);
+    font-family: MB;
+    color:var(--dark-grey);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    font-size: 9.6rem;
+    left: -100%;
+    animation: expand 2s forwards ease;
+}
+
+@keyframes expand {
+    0%{}
+    100%{            
+        left: 0;
+    }
+}
+
+.end-inner-items-container p{
+    animation: transparent-transition 1s forwards ease-in;
+    animation-delay: 2.5s;
+    font-family: MM;
+    height: 0px;
+    opacity: 0;
+    font-size: 2rem;
+    width: 100%;
+    color: var(--white-purple);
+    text-align: center;
+    
+}
+
+@keyframes transparent-transition {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.mkit_cube{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    font-family: MB;
+    color: var(--white-grey);
+    width: 100px;
+    height: 100px;
+    z-index: 11000;
+    position: absolute;
+    opacity: 0;
+    animation: MKIT_frames 1s ease forwards;
+}
+
+.mkit_cube[cube-id="1"]{
+    background-color: var(--white-purple);
+    filter: blur(1px);
+    rotate: 45deg;
+    top: 60%;
+    right: 15%;
+    scale: 1.2;
+    animation-delay: 4s;
+}
+.mkit_cube[cube-id="2"]{
+    background-color:  var(--orange-color);
+    rotate: 67deg;
+    top: 40%;
+    right: 5%;
+    filter: blur(1.5px);
+    scale: 1.7;
+    animation-delay: 4.5s;
+}
+.mkit_cube[cube-id="3"]{
+    background-color: var(--red-color);
+    rotate: -60deg;
+    top: 35%;
+    left: 7%;
+    scale: 1.2;
+    filter: blur(3px);
+    animation-delay: 3s;
+
+}
+.mkit_cube[cube-id="4"]{
+    background-color: var(--green-color);
+    rotate: 37deg;
+    top: 75%;
+    left: 25%;
+    scale: 1.7;
+    animation-delay: 3.5s;
+}
+
+@keyframes MKIT_frames{
+    0%
+    {
+        transform: scale(1.7) skew(5deg) rotate(50deg);
+    }
+    100%
+    {
+        transform: scale(1) skew(0deg) rotate(0deg);
+        opacity: 1;
+    }
+}
+
 /*
 ============== Серые точки + Задние линии =======
 */

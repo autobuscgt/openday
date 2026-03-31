@@ -47,10 +47,19 @@ function App() {
     <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>
     <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="2"/>
     <img src={blue_line} alt='синяя линия' className='background-line' />
-    <img src={mkit_logo} className='logo' alt='mkit_logo'/>
+      <img src={mkit_logo} alt='mkit_logo' className='logo'/>
     <Switcher/>
 
-
+    <div className="end-animation-container">
+        <div className="end-inner-items-container">
+          <span>Поздравляем!</span>
+          <p>{'{'} <b>ВЫ</b> прошли <b>ВСЕ</b> задачи, <b>ВЫ</b> огромный молодец!🎉🎉🎉 {'}'}</p>
+        </div>
+          <div className="mkit_cube" cube-id="3"> <span>М</span> </div>
+          <div className="mkit_cube" cube-id="4"> <span>К</span> </div>
+          <div className="mkit_cube" cube-id="2"> <span>Т</span> </div>
+          <div className="mkit_cube" cube-id="1"> <span>И</span> </div>
+    </div>
       {/*
       =====================
            Инструкции 
