@@ -19,11 +19,13 @@ import blue_line from './assets/blue_line.png'
 //Универсальная модалка
 import Modal from './components/Modal';
 import Switcher from './components/Switcher';
+import End from './components/End';
 
 function App() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
   const [init, setInit] = useState(false)
   const [isLoaded, setIsLoaded] =  useState(false)
+  const [endIsOpen, setEndIsOpen] = useState(false)
 
   useEffect(()=>{
     const already_loaded = localStorage.getItem('isLoaded') === 'true';
@@ -49,17 +51,13 @@ function App() {
     <img src={blue_line} alt='синяя линия' className='background-line' />
       <img src={mkit_logo} alt='mkit_logo' className='logo'/>
     <Switcher/>
-
-    <div className="end-animation-container">
-        <div className="end-inner-items-container">
-          <span style={{color:'var(--dark-grey)'}}>Поздравляем!🎓</span>
-          <p>{'{'} <b>ВЫ</b> прошли <b>ВСЕ</b> задачи, <b>ВЫ</b> огромный молодец!🎉🎉🎉 {'}'}</p>
-        </div>
-          <div className="mkit_cube" cube-id="3"> <span>М</span> </div>
-          <div className="mkit_cube" cube-id="4"> <span>К</span> </div>
-          <div className="mkit_cube" cube-id="2"> <span>Т</span> </div>
-          <div className="mkit_cube" cube-id="1"> <span>И</span> </div>
-    </div>
+    <button 
+    style={{width:'100%', zIndex:'2', position:'absolute'}} 
+    onClick={()=> setEndIsOpen(true)}
+    >
+      END
+    </button>
+    <End isOpen={endIsOpen} onClose={() => setEndIsOpen(false)}/>
       {/*
       =====================
            Инструкции 

@@ -163,6 +163,7 @@ body{
 */
 .end-inner-items-container{
     overflow: hidden;
+    backdrop-filter: blur(5px);
     background-color: var(--white-grey);
     font-family: MB;
     color:var(--dark-grey);
@@ -176,14 +177,7 @@ body{
     z-index: 10000;
     font-size: 9.6rem;
     left: -100%;
-    /* animation: expand 2s forwards ease; */
-}
-
-@keyframes expand {
-    0%{}
-    100%{            
-        left: 0;
-    }
+    animation: expand 2s forwards ease;
 }
 
 .end-inner-items-container p{
@@ -199,17 +193,7 @@ body{
     
 }
 
-@keyframes transparent-transition {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
 .mkit_cube{
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,12 +205,12 @@ body{
     z-index: 11000;
     position: absolute;
     opacity: 0;
-    /* animation: MKIT_frames 1s ease forwards; */
+    animation: MKIT_frames 1s ease forwards;
 }
 
 .mkit_cube[cube-id="1"]{
     background-color: var(--white-purple);
-    filter: blur(1px);
+
     rotate: 45deg;
     top: 65%;
     right: 15%;
@@ -238,7 +222,7 @@ body{
     rotate: 67deg;
     top: 40%;
     right: 5%;
-    filter: blur(1.5px);
+
     scale: 1.7;
     animation-delay: 4.5s;
 }
@@ -248,7 +232,7 @@ body{
     top: 35%;
     left: 7%;
     scale: 1.2;
-    filter: blur(3px);
+
     animation-delay: 3s;
 
 }
@@ -259,18 +243,6 @@ body{
     left: 25%;
     scale: 1.7;
     animation-delay: 3.5s;
-}
-
-@keyframes MKIT_frames{
-    0%
-    {
-        transform: scale(1.7) skew(5deg) rotate(50deg);
-    }
-    100%
-    {
-        transform: scale(1) skew(0deg) rotate(0deg);
-        opacity: 1;
-    }
 }
 
 /*
@@ -324,6 +296,34 @@ body{
     }
     to {
         transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes expand {
+    0%{}
+    100%{            
+        left: 0;
+    }
+}
+
+@keyframes transparent-transition {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes MKIT_frames{
+    0%
+    {
+        transform: scale(1.7) skew(5deg) rotate(50deg);
+    }
+    100%
+    {
+        transform: scale(1) skew(0deg) rotate(0deg);
         opacity: 1;
     }
 }
