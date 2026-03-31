@@ -210,7 +210,6 @@ body{
 
 .mkit_cube[cube-id="1"]{
     background-color: var(--white-purple);
-
     rotate: 45deg;
     top: 65%;
     right: 15%;

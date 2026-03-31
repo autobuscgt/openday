@@ -95,6 +95,7 @@ const Alchemy = ({onComplete}) => {
     const addToAvailableItems = useCallback((itemName) => {
         const normalizedName = normalizeName(itemName);
         if (!availableItems.includes(normalizedName)) {
+            setAvailableItems([...new Set(availableItems)]);
             setAvailableItems(prev => [...prev, normalizedName]);
         }
     }, [availableItems]);
