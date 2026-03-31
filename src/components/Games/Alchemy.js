@@ -139,7 +139,6 @@ const Alchemy = ({onComplete}) => {
             console.log(`${name1} + ${name2} = ${result}`);
 
             setFieldItems(prev => prev.filter(item => item.id !== item1.id && item.id !== item2.id));
-
             createFieldItem(result, item1.position);
         }
     }, [recipes, createFieldItem]);
@@ -254,8 +253,10 @@ const Alchemy = ({onComplete}) => {
         const fieldRect = fieldRef.current.getBoundingClientRect();
         const x = e.clientX - fieldRect.left - 25; // Центрируем
         const y = e.clientY - fieldRect.top - 25;
-
+        //проверка id для создания элемента на поле
+        if(allPossibleItems.includes(itemId)){
         createFieldItem(itemId, { x, y });
+        }
     };
 
     const handleDragOver = (e) => {
@@ -346,6 +347,7 @@ const Alchemy = ({onComplete}) => {
                                         zIndex: item.isDragging ? 1000 : 1,
                                         width: '140px',
                                         minWidth: '140px',
+                                        userSelect: 'none',
                                     }}
                                     onMouseDown={(e) => handleDragStart(e, item)}
                                 >
