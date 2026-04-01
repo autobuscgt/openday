@@ -52,7 +52,7 @@ function App() {
       <img src={mkit_logo} alt='mkit_logo' className='logo'/>
     <Switcher/>
     <button 
-    style={{width:'100%', zIndex:'2', position:'absolute'}} 
+    style={{zIndex:'2', position:'absolute', bottom:'20px', right:'20px'}} 
     onClick={()=> setEndIsOpen(true)}
     >
       END
