@@ -8,8 +8,6 @@ const CenterDivModal = () => {
     const [flexDirection, setFlexDirection] = useState('row');
     const [isCentered, setIsCentered] = useState(false);
     const [showOffer, setShowOffer] = useState(false);
-    const [attempts, setAttempts] = useState(0);
-    const [hint, setHint] = useState('');
     const { updateQuestStatus } = useQuest();
 
     const justifyOptions = [
@@ -32,7 +30,6 @@ const CenterDivModal = () => {
         { value: 'column', label: 'Колонка', icon: '⬇️' }
     ];
 
-    // Проверка центрирования
     useEffect(() => {
         const isPerfectlyCentered =
             justifyContent === 'center' &&
@@ -41,8 +38,6 @@ const CenterDivModal = () => {
 
         if (isPerfectlyCentered && !isCentered) {
             setIsCentered(true);
-            setHint('Кривой блок на странице - самая жиза для любого фронтенд-разработчика');
-
 
             setTimeout(() => {
                 setShowOffer(true);
@@ -51,28 +46,24 @@ const CenterDivModal = () => {
         } else if (!isPerfectlyCentered && isCentered) {
             setIsCentered(false);
             setShowOffer(false);
-            setHint('Центрирование сбито... Попробуйте снова!');
         }
     }, [justifyContent, alignItems, flexDirection, isCentered]);
 
     const handleJustifyChange = (value) => {
         if (!showOffer) {
             setJustifyContent(value);
-            setAttempts(prev => prev + 1);
         }
     };
 
     const handleAlignChange = (value) => {
         if (!showOffer) {
             setAlignItems(value);
-            setAttempts(prev => prev + 1);
         }
     };
 
     const handleDirectionChange = (value) => {
         if (!showOffer) {
             setFlexDirection(value);
-            setAttempts(prev => prev + 1);
         }
     };
 
@@ -82,8 +73,6 @@ const CenterDivModal = () => {
         setFlexDirection('row');
         setIsCentered(false);
         setShowOffer(false);
-        setAttempts(0);
-        setHint('');
     };
 
     return (
@@ -226,26 +215,15 @@ const CenterDivModal = () => {
                                     <div
                                         className="progress-fill"
                                         style={{
-                                            width: `${(justifyContent === 'center' ? 33.33 : 0) +
+                                            width: `${
+                                                (justifyContent === 'center' ? 33.33 : 0) +
                                                 (alignItems === 'center' ? 33.33 : 0) +
                                                 (flexDirection === 'row' ? 33.34 : 0)
                                                 }%`
                                         }}
                                     ></div>
                                 </div>
-                                <div className="progress-stats">
-                                    <span>Попыток: {attempts}</span>
-                                    <span className={`status ${isCentered ? 'success' : ''}`}>
-                                        {isCentered ? 'Центрировано!' : '⏳ В процессе'}
-                                    </span>
-                                </div>
                             </div>
-
-                            {hint && (
-                                <div className={`hint-message ${isCentered ? 'success' : ''}`}>
-                                    {hint}
-                                </div>
-                            )}
 
                             <button
                                 className="reset-btn"

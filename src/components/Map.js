@@ -31,7 +31,7 @@ const questMapping = {
   '2': 'findSecret',     // Поиск секрета
   '3': 'tictactoe',      // Крестики-нолики
   '4': 'alchemy',        // Алхимия
-  '5': 'boss',        // Алхимия
+  '5': 'seabattle',      // Морской бой
 };
 
 function Map() {
@@ -60,7 +60,7 @@ function Map() {
   };
 
   const getActiveQuest = () => {
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; ++i) {
       const questName = questMapping[i];
       if (!completedQuests[questName]) {
         return i.toString();
@@ -73,18 +73,18 @@ function Map() {
 
   const handleFlagClick = (questId) => {
     switch(questId) {
-      case '4':
-        setAlchemyIsOpen(true);
-        break;
       case '1':
         setIsCenterDivOpen(true);
-        break;
+      break;
       case '2':
         setFindSecretIsOpen(true);
         break;
       case '3':
         setIsTicTacToe(true);
         break;
+      case '4':
+        setAlchemyIsOpen(true);
+      break;
       case '5':
         setBossOpen(true);
         break;

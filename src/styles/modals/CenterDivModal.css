@@ -1,18 +1,353 @@
-.game-play-area{
-    height: 200px;
-}
-.center-div-container{
-    width: 100%;
-    height: 500px;
-}
-.control-panel{
-    padding: 15px;
-}
-.control-panel h2{
-    font-family: MB;
+/* CenterDivModal.css
+
+:root {
+    --white-purple: #c084fc;
+    --dark-grey: #1e1e2e;
+    --text-muted: #94a3b8;
+    --success: #10b981;
+    --primary: #6366f1;
 }
 
+/* Контейнер модального окна 
+.center-div-container {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.modal-question1 p {
+    margin: 8px 0;
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modal-question1 p:first-child {
+    font-weight: 600;
+    color: var(--white-purple);
+    font-size: 15px;
+}
+
+.modal-question1 p:last-child {
+    font-family: 'Monaco', 'Courier New', monospace;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--white-purple);
+}
+
+/* Область игры 
+.game-play-area {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    flex-wrap: wrap;
+}
+*
+/* Контейнер с playground 
+.playground-container {
+    flex: 2;
+    min-width: 300px;
+    background: var(--darker-grey);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.playground-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.playground-header span:first-child {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.flex-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 11px;
+}
+
+.flex-info span {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--text-light);
+}
+
+/* Flex playground 
 .flex-playground {
     background-color: var(--dark-grey);
     border-radius: 10px;
+    min-height: 400px;
+    transition: all 0.3s ease;
+    position: relative;
 }
+
+.flex-playground.centered {
+    box-shadow: inset 0 0 20px rgba(192, 132, 252, 0.1);
+}
+
+/* Плавающий блок 
+.floating-block {
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+
+.block-icon {
+    font-size: 55px;
+}
+
+
+.offer-content {
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.offer-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.accept-offer {
+    background: var(--success);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.accept-offer:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+/* Панель управления 
+.control-panel {
+    flex: 1;
+    min-width: 280px;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.control-panel h2 {
+    font-family: MM;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+/* Секции управления 
+.control-section {
+    margin-bottom: 24px;
+}
+
+.control-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.label-icon {
+    font-size: 14px;
+}
+
+/* Кнопки для direction x
+.buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.control-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--dark-grey);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 13px;
+}
+
+.control-btn:hover:not(:disabled) {
+    background: #2d2d3a;
+    border-color: var(--white-purple);
+}
+
+.control-btn.active {
+    background: var(--white-purple);
+    border-color: var(--white-purple);
+    color: var(--darker-grey);
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-icon {
+    font-size: 14px;
+}
+
+.btn-label {
+    font-size: 12px;
+}
+
+/* Слайдеры 
+.slider-container {
+    margin-top: 8px;
+}
+
+.css-slider {
+    width: 100%;
+    height: 4px;
+    -webkit-appearance: none;
+    background: var(--border-color);
+    border-radius: 2px;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+.css-slider:disabled {
+    opacity: 0.5;
+}
+
+.css-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--white-purple);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.css-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    background: #d8b4fe;
+}
+
+.css-slider:disabled::-webkit-slider-thumb {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.slider-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 4px 6px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+}
+
+.slider-label:hover {
+    background: rgba(192, 132, 252, 0.1);
+    color: var(--white-purple);
+}
+
+.slider-label.active {
+    color: var(--white-purple);
+    font-weight: 500;
+}
+
+.label-icon-small {
+    font-size: 14px;
+}
+
+.label-text {
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+/* Индикатор прогресса 
+.progress-indicator {
+    margin: 20px 0;
+}
+
+.progress-bar {
+    background: var(--border-color);
+    border-radius: 10px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: var(--white-purple);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Кнопка сброса 
+.reset-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--dark-grey);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+}
+
+.reset-btn:hover {
+    background: #2d2d3a;
+    border-color: var(--white-purple);
+} */
