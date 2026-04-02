@@ -20,12 +20,16 @@ import blue_line from './assets/blue_line.png'
 import Modal from './components/Modal';
 import Switcher from './components/Switcher';
 import End from './components/End';
+import DevMap from './components/DevMap';
+import { PathProvider } from './context/pathContext';
+import pathContext from './context/pathContext';
 
 function App() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
   const [init, setInit] = useState(false)
   const [isLoaded, setIsLoaded] =  useState(false)
   const [endIsOpen, setEndIsOpen] = useState(false)
+  const [isDev, setIsDev] = useState(false);
 
   useEffect(()=>{
     const already_loaded = localStorage.getItem('isLoaded') === 'true';
@@ -39,18 +43,26 @@ function App() {
     setInit(true);
   },[])
 
+
+  const handleToggle = () => {
+    setIsDev(prevState => !prevState); 
+  };
+
   if (!init) {
     return null; 
   }
 
   return (
+  <PathProvider>
   <div>
     <div className="map">
     <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>
     <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="2"/>
     <img src={blue_line} alt='синяя линия' className='background-line' />
-      <img src={mkit_logo} alt='mkit_logo' className='logo'/>
-    <Switcher/>
+    <img src={mkit_logo} alt='mkit_logo' className='logo'/>
+    
+    <Switcher toggled={isDev} onClick={handleToggle}/>
+    
     <button 
     style={{zIndex:'2', position:'absolute', bottom:'20px', right:'20px'}} 
     onClick={()=> setEndIsOpen(true)}
@@ -76,9 +88,14 @@ function App() {
         <Greet/>
       </Modal>
       </div>: ' ' }
-      <Map/>
+      
+      <pathContext.Consumer>
+          {({ isDev }) => (isDev ? <DevMap /> : <Map />)}
+      </pathContext.Consumer>
+
     </div>
   </div>
+  </PathProvider>
   );
 }
 

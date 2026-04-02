@@ -12,10 +12,6 @@ import TicTacToe from './Games/TicTacToe';
 import CenterDivModal from './Games/CenterDivModal';
 import FindSecret from './Games/FindSecret';
 import Modal from './Modal';
-import Boss from './Games/SeaBattle';
-
-
-
 
 const divStyle = {
   width: '100%',
@@ -100,18 +96,6 @@ function Map() {
       </div>
       <div className='road-container'>
 
-        <div id="rd7">
-          <FlagTask 
-            id={"4"} 
-            isCompleted={getQuestStatus('4')} 
-            isActive={activeQuestId === '4'} 
-            onClick={() => handleFlagClick('4')}
-          />
-          <Modal isOpen={isTicTacToe} onClose={handleCloseTicTacToe} title={'Крестики нолики'}> 
-            <TicTacToe onComplete={handleCloseTicTacToe} />
-          </Modal>
-        </div>
-
         <div id="rd6">
           <FlagTask 
             id={"3"} 
@@ -119,23 +103,30 @@ function Map() {
             isActive={activeQuestId === '3'} 
             onClick={() => handleFlagClick('3')}
           />
+          <Modal isOpen={isTicTacToe} onClose={handleCloseTicTacToe} title={'Крестики нолики'}> 
+            <TicTacToe onComplete={handleCloseTicTacToe} />
+          </Modal>
+        </div>
+
+        <div id="rd7">
+          <FlagTask 
+            id={"4"} 
+            isCompleted={getQuestStatus('4')} 
+            isActive={activeQuestId === '4'} 
+            onClick={() => handleFlagClick('4')}
+          />
           <Modal isOpen={isAlchemyOpen} onClose={handleClose} title={'IT-Алхимия'}> 
             <Alchemy onComplete={handleClose} />
           </Modal>
-
         </div>
 
         <div id="rd5">
           <RoadContainer
             id={"3"}
-            isCompleted={getQuestStatus('5')}
-            isActive={activeQuestId === '5'}
+            isCompleted={getQuestStatus('3')}
+            isActive={activeQuestId ==='3'}
           />
-          <Modal isOpen={isBossOpen} onClose={handleClose} title={'Босс'}>
-            <Boss onComplete={handleClose}/>
-          </Modal>
         </div>
-
 
         <div id="rd4">
           <RoadContainer

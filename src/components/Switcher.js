@@ -1,16 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
+import pathContext from "../context/pathContext";
+
+
 
 function Switcher(){
-    const [toggled, setToggled] = useState(false)
-
-    const toggleRoad = () => {
-        toggled === false ? setToggled(true) : setToggled(false)
-    }
-    return (
-        <div className={`switch-container ${toggled === true ? 'dev': ''}`}>
+    const { isDev, toggleMode } = useContext(pathContext);
+        return (
+        <div className={`switch-container ${isDev ? 'dev': ''}`}>
             <button 
-            className= {`switch-btn ${toggled === true ? 'dev': ''}`}
-            onClick={toggleRoad}/>
+            className= {`switch-btn ${isDev ? 'dev': ''}`}
+            onClick={toggleMode}/>
         </div>
     )
 }

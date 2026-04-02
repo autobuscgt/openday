@@ -12,7 +12,6 @@
     height: 90px;
     margin-bottom: 10px;
     pointer-events: none;
-
     font-family: MB;
 }
 
@@ -23,6 +22,12 @@
     padding: 15px;
     border-radius: 15px;
 }
+
+.map-header[data-id="dev"] h1{
+    color: var(--white-purple);
+    border-bottom: 4px solid var(--white-purple);
+}
+
 
 .goal-container{
     display: grid;
