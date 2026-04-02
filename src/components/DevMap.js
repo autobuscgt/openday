@@ -1,61 +1,85 @@
-import { useEffect, useState } from 'react';
-import Greet from "./Greet";
-import Map from "./Map";
-import Modal from "./Modal";
 
-import mkit_logo from '../assets/mkit_logo.svg';
-import grey_dots from '../assets/grey_dots.svg';
-import blue_line from '../assets/blue_line.png';
+import FlagTask from './MapComponents/FlagTask';
+import RoadContainer from './MapComponents/RoadContainer';
+
+
+const divStyle = {
+  width: '100%',
+  overflow:'hidden',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  display: 'flex',
+  alignItems: 'center'
+}
 
 function DevMap(){
-    const [greetIsOpen, setGreetIsOpen] = useState(false);
-    const [init, setInit] = useState(false)
-    const [isLoaded, setIsLoaded] =  useState(false)
-  
-    useEffect(()=>{
-      const already_loaded = localStorage.getItem('isLoaded') === 'true';
-      if(!already_loaded){
-        setGreetIsOpen(true);
-        localStorage.setItem('isLoaded', 'true');
-        setIsLoaded(true); 
-      } else{
-        setIsLoaded(true)
-      }
-      setInit(true);
-    },[])
-  
-    if (!init) {
-      return null; 
-    }
-  
     return (
-        <div>
-        <div className="map">
-        <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>
-        <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="2"/>
-        <img src={blue_line} alt='синяя линия' className='background-line' />
-        <img src={mkit_logo} className='logo' alt='mkit_logo'/>
-    
-          {/*
-          =====================
-               Инструкции 
-          =====================
-          */}
-          {isLoaded ? <div className='instructions'>
-          <button
-            onClick={()=> setGreetIsOpen(true)}
-            className='inst_btn'
+      <div className="map-container" style={divStyle}>
+      <div className='map-header' data-id="dev">
+        <h1>{'{__ПутьР@зработчик@_}'}</h1>
+      </div>
+      <div className='road-container'>
+        <div id='rd1'>
+          <FlagTask
+            id={'5'}
+            item={'JUNIOR'}
+            isActive={true}
+            isCompleted={true}
           />
-          <Modal 
-          isOpen={greetIsOpen} 
-          onClose={()=> setGreetIsOpen(false)} 
-          title={'Инструкции'} 
-          >
-            <Greet/>
-          </Modal>
-          </div>: ' ' }
-          <Map/>
         </div>
+        
+        <div id='rd2'>
+          <RoadContainer 
+          isActive={true}
+          isCompleted={true}
+          id={"4"}
+          />
+        </div>
+        
+        <div id='rd3'>
+        <FlagTask
+            id={'6'}
+            item={'MIDDLE'}
+            isActive={true}
+            isCompleted={true}
+          />
+        </div>
+        
+        <div id='rd4'>
+          <RoadContainer
+          id={"5"}
+          isActive={true}
+          isCompleted={true}
+          />
+        </div>
+        
+        <div id='rd5'>
+          <RoadContainer
+          id={"6"}
+          isActive={true}
+          isCompleted={true}
+          />
+        </div>
+
+        <div id='rd6'>
+        <FlagTask
+            id={'7'}
+            item={'SENIOR'}
+            isActive={true}
+            isCompleted={true}
+          />
+        </div>
+
+        <div id='rd7'>
+        <FlagTask
+            id={'8'}
+            item={'LEAD'}
+            isActive={true}
+            isCompleted={true}
+        />
+        </div>
+      </div>
+      
       </div>
     )
 }

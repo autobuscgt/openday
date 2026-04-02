@@ -1,6 +1,6 @@
 import './FlagTask.css';
 
-const FlagTask = ({ id, isCompleted, isActive, onClick }) => {
+const FlagTask = ({ id, isCompleted, isActive, onClick, item}) => {
   const handleFlagClick = () => {
     if (onClick) {
       onClick();
@@ -14,6 +14,7 @@ const FlagTask = ({ id, isCompleted, isActive, onClick }) => {
       data-flag-id={id}
       onClick={handleFlagClick}
     >
+    <div className='inner-flag-container-item'>{item}</div>  
     </div>
   );
 };

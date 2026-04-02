@@ -2,6 +2,34 @@
     font-family: MB;
     src: url('../assets/fonts/MB.ttf');
 }
+.map{
+    background-color: white;
+}
+.map.dev{
+    background-color: rgb(255, 255, 255);
+}
+
+
+.map.dev .background-dots[data-dots="1"]{
+    position: absolute;
+    width: 230px;
+    left: 35px;
+    bottom: 150px;
+}
+.map.dev .background-dots[data-dots="2"]{
+    position: absolute;
+    top: 0px;
+    right: 35px;
+    left: auto;
+}
+.map.dev img[data-dots="3"]{
+    display: block;
+    position: absolute;
+    top: -30%;
+    rotate: 0deg;
+    scale: 0.7;
+    left: -20%;
+}
 
 .map-header{
     text-align: center;
@@ -12,7 +40,6 @@
     height: 90px;
     margin-bottom: 10px;
     pointer-events: none;
-
     font-family: MB;
 }
 
@@ -23,6 +50,12 @@
     padding: 15px;
     border-radius: 15px;
 }
+
+.map-header[data-id="dev"] h1{
+    color: var(--white-purple);
+    border-bottom: 4px solid var(--white-purple);
+}
+
 
 .goal-container{
     display: grid;

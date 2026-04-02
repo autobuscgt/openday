@@ -7,31 +7,52 @@
     background-repeat: no-repeat;
     background-color: white;
     border-radius: 25px;
+    transition: 5s;
+}
+
+.inner-flag-container-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 35px;
+    font-family: MB ;
 }
 
 .flag-container.completed{
     filter: saturate(1);
+    transition: 5s;
 }
 
 .flag-container[data-flag-id ="1"] {
-    background-image: url('../../assets/goals/goal\ 1.svg');
-   
+    background-image: url('../../assets/goals/goal\ 1.svg');  
 }
 
 .flag-container[data-flag-id ="2"] {
     background-image: url('../../assets/goals/goal\ 2.svg');
-
 }
 
 .flag-container[data-flag-id ="3"] {
     background-image: url('../../assets/goals/goal\ 3.svg');
-
 }
 
 .flag-container[data-flag-id ="4"] {
     background-image: url('../../assets/goals/goal\ 4.svg');
-
 }
+
+.flag-container[data-flag-id ="5"]{
+    /* background-image: url('../../assets/dev_map/JUNIOR.svg'); */
+}
+.flag-container[data-flag-id ="6"]{
+    /* background-image: url('../../assets/dev_map/MIDDLE.svg'); */
+}
+.flag-container[data-flag-id ="7"]{
+    /* background-image: url('../../assets/dev_map/SENIOR.svg'); */
+}
+.flag-container[data-flag-id ="8"]{
+    /* background-image: url('../../assets/dev_map/LEAD.svg'); */
+}
+
 
 .flag-container[data-flag-id ="2"].active{
     cursor: pointer;
@@ -67,15 +88,14 @@
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
-}
-
-.path-container{
     filter: saturate(0);
     background-size: 70%;
+    transition: 5s;
 }
 
 .path-container.completed{
     filter: saturate(1);
+    transition: 5s;
 }
 
 .path-container[data-road-id ="1"] {
@@ -90,11 +110,22 @@
 
 .path-container[data-road-id ="3"] {
     background-image: url('../../assets/roads/blue_orange.svg');
-
 }
 
-.path-container.active{
-   
+.path-container[data-road-id="4"]{
+    background-position-y: 10px;
+    background-position-x: 20px;
+    background-image: url('../../assets/dev_map/roads/green_road_from_left_to_right.svg');
+}
+.path-container[data-road-id="5"]{
+    background-image: url('../../assets/dev_map/roads/green_road_from_right_to_left.svg');
+    background-position-x: 120px;
+    background-position-y: 10px;
+}
+.path-container[data-road-id="6"]{
+    background-position-y: 10px;
+    background-position-x: 20px;
+    background-image: url('../../assets/dev_map/roads/green_road_from_left_to_right.svg');
 }
 
 #rd1{    

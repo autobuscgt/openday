@@ -12,10 +12,6 @@ import TicTacToe from './Games/TicTacToe';
 import CenterDivModal from './Games/CenterDivModal';
 import FindSecret from './Games/FindSecret';
 import Modal from './Modal';
-import Boss from './Games/SeaBattle';
-
-
-
 
 const divStyle = {
   width: '100%',
@@ -31,7 +27,7 @@ const questMapping = {
   '2': 'findSecret',     // Поиск секрета
   '3': 'tictactoe',      // Крестики-нолики
   '4': 'alchemy',        // Алхимия
-  '5': 'boss',        // Алхимия
+  '5': 'seabattle',      // Морской бой
 };
 
 function Map() {
@@ -60,7 +56,7 @@ function Map() {
   };
 
   const getActiveQuest = () => {
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; ++i) {
       const questName = questMapping[i];
       if (!completedQuests[questName]) {
         return i.toString();
@@ -73,18 +69,18 @@ function Map() {
 
   const handleFlagClick = (questId) => {
     switch(questId) {
-      case '4':
-        setAlchemyIsOpen(true);
-        break;
       case '1':
         setIsCenterDivOpen(true);
-        break;
+      break;
       case '2':
         setFindSecretIsOpen(true);
         break;
       case '3':
         setIsTicTacToe(true);
         break;
+      case '4':
+        setAlchemyIsOpen(true);
+      break;
       case '5':
         setBossOpen(true);
         break;
@@ -100,18 +96,6 @@ function Map() {
       </div>
       <div className='road-container'>
 
-        <div id="rd7">
-          <FlagTask 
-            id={"4"} 
-            isCompleted={getQuestStatus('4')} 
-            isActive={activeQuestId === '4'} 
-            onClick={() => handleFlagClick('4')}
-          />
-          <Modal isOpen={isTicTacToe} onClose={handleCloseTicTacToe} title={'Крестики нолики'}> 
-            <TicTacToe onComplete={handleCloseTicTacToe} />
-          </Modal>
-        </div>
-
         <div id="rd6">
           <FlagTask 
             id={"3"} 
@@ -119,23 +103,30 @@ function Map() {
             isActive={activeQuestId === '3'} 
             onClick={() => handleFlagClick('3')}
           />
+          <Modal isOpen={isTicTacToe} onClose={handleCloseTicTacToe} title={'Крестики нолики'}> 
+            <TicTacToe onComplete={handleCloseTicTacToe} />
+          </Modal>
+        </div>
+
+        <div id="rd7">
+          <FlagTask 
+            id={"4"} 
+            isCompleted={getQuestStatus('4')} 
+            isActive={activeQuestId === '4'} 
+            onClick={() => handleFlagClick('4')}
+          />
           <Modal isOpen={isAlchemyOpen} onClose={handleClose} title={'IT-Алхимия'}> 
             <Alchemy onComplete={handleClose} />
           </Modal>
-
         </div>
 
         <div id="rd5">
           <RoadContainer
             id={"3"}
-            isCompleted={getQuestStatus('5')}
-            isActive={activeQuestId === '5'}
+            isCompleted={getQuestStatus('3')}
+            isActive={activeQuestId ==='3'}
           />
-          <Modal isOpen={isBossOpen} onClose={handleClose} title={'Босс'}>
-            <Boss onComplete={handleClose}/>
-          </Modal>
         </div>
-
 
         <div id="rd4">
           <RoadContainer

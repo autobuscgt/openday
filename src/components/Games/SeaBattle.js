@@ -125,7 +125,7 @@ const Boss = ({onComplete}) => {
             if (newHits === 5) {
                 setResult("ПОБЕДА! Все лазейки злоумышленника уничтожены!");
                 log("ПОБЕДА! Все уязвимости устранены!");
-                updateQuestStatus('boss');
+                updateQuestStatus('seabattle');
             }
         } else {
             log(`ПРОМАХ в [${row},${col}]`);
