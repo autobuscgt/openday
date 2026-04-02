@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import './styles/modals/Alchemy.css'
 import './styles/modals/CenterDivModal.css'
@@ -29,7 +29,6 @@ function App() {
   const [init, setInit] = useState(false)
   const [isLoaded, setIsLoaded] =  useState(false)
   const [endIsOpen, setEndIsOpen] = useState(false)
-  const [isDev, setIsDev] = useState(false);
 
   useEffect(()=>{
     const already_loaded = localStorage.getItem('isLoaded') === 'true';
@@ -52,10 +51,11 @@ function App() {
     return null; 
   }
 
+  const {isDev} = useContext(pathContext);
   return (
   <PathProvider>
   <div>
-    <div className="map">
+    <div className={`map ${!isDev ? "" : "dev"}`}>
     <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>
     <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="2"/>
     <img src={blue_line} alt='синяя линия' className='background-line' />

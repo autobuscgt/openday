@@ -2,6 +2,12 @@
     font-family: MB;
     src: url('../assets/fonts/MB.ttf');
 }
+.map{
+    background-color: white;
+}
+.map.dev{
+    background-color: black;
+}
 
 .map-header{
     text-align: center;
