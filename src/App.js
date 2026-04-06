@@ -20,6 +20,7 @@ import End from './components/End';
 import DevMap from './components/DevMap';
 import { PathProvider } from './context/pathContext';
 import pathContext from './context/pathContext';
+import QuestTracker from './components/QuestTracker';
 
 function AppContent() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
@@ -82,7 +83,7 @@ function AppContent() {
             </Modal>
           </div>
         ) : ' '}
-        
+        <QuestTracker/>
         {isDev ? <DevMap /> : <Map />}
       </div>
     </div>

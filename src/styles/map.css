@@ -45,15 +45,16 @@
 
 .map-header h1 {
     background-color: var(--dark-grey);
-    border-bottom: 4px solid var(--green-color);
-    color: var(--green-color);
+    border-bottom: 4px solid var(--white-purple);
+    color: var(--white-purple);
     padding: 15px;
     border-radius: 15px;
 }
 
 .map-header[data-id="dev"] h1{
-    color: var(--white-purple);
-    border-bottom: 4px solid var(--white-purple);
+    color: var(--green-color);
+    border-bottom: 4px solid var(--green-color);
+
 }
 
 

@@ -17,10 +17,6 @@ export const QuestProvider = ({ children }) => {
         alchemy: false,
         findSecret: false,
         centerDiv: false,
-        seabattle: false,
-        question1: false,
-        question2: false,
-        question3: false,
     });
 
     const updateQuestStatus = (questName, isCompleted) => {
