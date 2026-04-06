@@ -16,7 +16,7 @@ function DevMap(){
     return (
       <div className="map-container" style={divStyle}>
       <div className='map-header' data-id="dev">
-        <h1>{'{__ПутьР@зработчик@_}'}</h1>
+        <h1>{'{__Путь р@зработчик@_}'}</h1>
       </div>
       <div className='road-container'>
         <div id='rd1'>

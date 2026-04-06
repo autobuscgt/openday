@@ -12,14 +12,13 @@
 }
 
 .reset-btn {
-  padding: 12px 24px;
+  font-family: MM;
+  padding: 10px 20px;
   border: none;
   border-radius: 10px;
   font-size: 1em;
-  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s ease;
-  text-transform: uppercase;
+  transition: 0.2s ease;
 }
 
 .reset-btn {

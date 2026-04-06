@@ -125,7 +125,7 @@ const CenterDivModal = () => {
                             </div>
                         </div>
 
-                        <div className="control-panel">
+                        <div className="control-panel" style={{padding:'15px'}}>
                             <h2>Управление Flexbox</h2>
 
                             <div className="control-section">
@@ -225,12 +225,12 @@ const CenterDivModal = () => {
                                 </div>
                             </div>
 
-                            <button
+                            {/* <button
                                 className="reset-btn"
                                 onClick={resetGame }
                             >
                                 {!showOffer ? "Начать заново" : "Продолжить"}
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>

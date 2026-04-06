@@ -131,9 +131,9 @@ const checkWinner = () => {
   return (
     <div >
       <div>
-       <div className="status">
+       {/* <div className="status">
           {getStatusMessage()}
-        </div>
+        </div> */}
 
         <div className="board">
           {board.map((cell, index) => (

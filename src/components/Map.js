@@ -92,7 +92,7 @@ function Map() {
   return (
     <div className="map-container" style={divStyle}>
       <div className='map-header'>
-        <h1>{'-._={ Дорожная карта }=_.-'}</h1>
+        <h1>{'-._={ Основной путь }=_.-'}</h1>
       </div>
       <div className='road-container'>
 
@@ -103,7 +103,7 @@ function Map() {
             isActive={activeQuestId === '3'} 
             onClick={() => handleFlagClick('3')}
           />
-          <Modal isOpen={isTicTacToe} onClose={handleCloseTicTacToe} title={'Крестики нолики'}> 
+          <Modal isOpen={isTicTacToe} onClose={handleCloseTicTacToe} title={'Крестики нолики'} questName={"tictactoe"}> 
             <TicTacToe onComplete={handleCloseTicTacToe} />
           </Modal>
         </div>
@@ -115,7 +115,7 @@ function Map() {
             isActive={activeQuestId === '4'} 
             onClick={() => handleFlagClick('4')}
           />
-          <Modal isOpen={isAlchemyOpen} onClose={handleClose} title={'IT-Алхимия'}> 
+          <Modal isOpen={isAlchemyOpen} onClose={handleClose} title={'IT-Алхимия'} questName={"alchemy"}> 
             <Alchemy onComplete={handleClose} />
           </Modal>
         </div>
@@ -143,7 +143,7 @@ function Map() {
             isActive={activeQuestId === '2'} 
             onClick={() => handleFlagClick('2')}
           />
-          <Modal isOpen={isCenterDivOpen} onClose={handleClose} title={'Центрирование дива'}> 
+          <Modal isOpen={isCenterDivOpen} onClose={handleClose} title={'Центрирование дива'} questName={"centerDiv"}> 
             <CenterDivModal onComplete={handleClose} />
           </Modal>
         </div>
@@ -163,7 +163,7 @@ function Map() {
             isActive={activeQuestId === '1'} 
             onClick={() => handleFlagClick('1')}
           />
-          <Modal isOpen={isFindSecretOpen} onClose={handleClose} title={'Найди секретный ключ'}> 
+          <Modal isOpen={isFindSecretOpen} onClose={handleClose} title={'Найди секретный ключ'} questName={"findSecret"}> 
             <FindSecret onComplete={handleClose} />
           </Modal>
         </div>
