@@ -7,7 +7,7 @@
     background-repeat: no-repeat;
     background-color: white;
     border-radius: 25px;
-    transition: 5s;
+    transition: 2s;
 }
 
 .inner-flag-container-item{
@@ -21,7 +21,7 @@
 
 .flag-container.completed{
     filter: saturate(1);
-    transition: 5s;
+    transition: 2s;
 }
 
 .flag-container[data-flag-id ="1"] {

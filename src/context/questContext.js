@@ -32,6 +32,7 @@ export const QuestProvider = ({ children }) => {
             alchemy: false,
             findSecret: false,
             centerDiv: false,
+            
             seabattle: false,
             question1: false,
             question2: false,

@@ -43,6 +43,9 @@ const Alchemy = ({onComplete}) => {
         "игра": "/images/игра.svg",
         "илюстраторр": "/images/илюстраторр.svg",
         "базаданных": "/images/базаданных.svg",
+        "Мкит": "images/mkit_logo.svg",
+        "мкит": "images/mkit_logo.svg",
+        "МКИТ": "images/mkit_logo.svg",
     });
 
     const allPossibleItems = [

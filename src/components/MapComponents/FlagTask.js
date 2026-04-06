@@ -2,7 +2,7 @@ import './FlagTask.css';
 
 const FlagTask = ({ id, isCompleted, isActive, onClick, item}) => {
   const handleFlagClick = () => {
-    if (isCompleted) {
+    if (isCompleted || !isActive) {
       return;
     }
     if (onClick) {
@@ -10,14 +10,14 @@ const FlagTask = ({ id, isCompleted, isActive, onClick, item}) => {
     }
     console.log(`Ничего не произошло`);
   };
-  
+
   return (
     <div 
       className={`flag-container ${isCompleted ? 'completed' : ''} ${isActive ? 'active' : ''}`}
       data-flag-id={id}
       onClick={handleFlagClick}
       style={{
-        cursor: isCompleted ? 'not-allowed' : 'pointer',
+        cursor: isCompleted || !isActive ? 'not-allowed' : 'pointer',
         opacity: isCompleted ? 0.6 : 1
       }}
     >

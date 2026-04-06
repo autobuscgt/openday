@@ -78,6 +78,7 @@ function AppContent() {
               isOpen={greetIsOpen} 
               onClose={() => setGreetIsOpen(false)} 
               title={'Инструкции'} 
+              textContent={"Приступить к выполнению задания"}
             >
               <Greet/>
             </Modal>

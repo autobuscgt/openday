@@ -99,7 +99,7 @@ function Map() {
       </div>
       <div className='road-container'>
 
-        <div id="rd6" aria-disabled>
+        <div id="rd6">
           <FlagTask 
             id={"3"} 
             isCompleted={getQuestStatus('3')} 

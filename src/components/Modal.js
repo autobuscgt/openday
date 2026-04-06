@@ -1,7 +1,7 @@
 import { useQuest } from '../context/questContext';
 import '../styles/style.css'
 
-function Modal({isOpen, onClose, title, children, questName}) {
+function Modal({isOpen, onClose, title, children, questName, textContent}) {
     const {completedQuests} = useQuest();
     if (!isOpen) return null;
     
@@ -14,8 +14,8 @@ function Modal({isOpen, onClose, title, children, questName}) {
                 </div>
                 {children} 
                 <div className="modal-footer">
-                    <button onClick={onClose} className={`close-btn ${isQuestCompleted ? "yes" : ""}`}>
-                        {isQuestCompleted ? "Завершить задание" : "Закрыть"}    
+                    <button onClick={onClose} className = {`close-btn ${isQuestCompleted ? "yes" : ""}`}>
+                        {isQuestCompleted ? "Завершить задание" : (textContent || "Закрыть")}    
                     </button>
                 </div>
             </div>
