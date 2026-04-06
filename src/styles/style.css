@@ -64,6 +64,7 @@ body{
 ============== Модальные окна =======
 */
 .modal-overlay {
+    user-select: none;
     z-index: 9999;
     position: fixed;
     top: 0;
@@ -155,6 +156,7 @@ body{
 ============== Лого =======
 */
 .logo{
+    -webkit-user-drag: none;
     background-color: var(--dark-grey);
     padding: 20px;
     position: fixed;
@@ -269,6 +271,8 @@ body{
 }
 
 .background-line{
+    -webkit-user-drag: none;
+    user-select: none;
     position: absolute;
     top: -60%;
     rotate: 10deg;

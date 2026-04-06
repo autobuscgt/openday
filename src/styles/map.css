@@ -3,7 +3,9 @@
     src: url('../assets/fonts/MB.ttf');
 }
 .map{
+    user-select: none;
     background-color: white;
+    -webkit-user-drag: none;
 }
 .map.dev{
     background-color: rgb(255, 255, 255);

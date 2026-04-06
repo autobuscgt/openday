@@ -260,6 +260,8 @@
 
 .alchemy-container{
     height: 700px;
+    -webkit-user-drag: drag;
+    user-select: text;
 }
 
 

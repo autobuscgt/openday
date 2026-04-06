@@ -19,6 +19,29 @@ function DevMap(){
   const [senior, setSenior] = useState(false);
   const [middle, setMiddle] = useState(false);
   const [junior, setJunior] = useState(false);
+
+
+  const handleFlagClick = (questId) => {
+  //   if (getQuestStatus(questId)) {
+  //     return;
+  //  }
+    switch(questId) {
+      case '1':
+        setJunior(true);
+        break;
+      case '2':
+        setMiddle(true);
+        break;
+      case '3':
+        setSenior(true);
+        break;
+      case '4':
+        setLead(true);
+      break;
+      default:
+        break;
+    }
+  };
     return (
       <div className="map-container" style={divStyle}>
       <div className='map-header' data-id="dev">
@@ -92,9 +115,9 @@ function DevMap(){
         <FlagTask
             id={'8'}
             item={'LEAD'}
-            isActive={true}
+            isActive={() => setLead(true)}
             isCompleted={true}
-            onClick={()=> setLead(true)}
+            onClick={()=> handleFlagClick('4')}
         />
         <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)}>
           <FIFO/>

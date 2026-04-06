@@ -27,7 +27,6 @@ const questMapping = {
   '2': 'findSecret',     // Поиск секрета
   '3': 'tictactoe',      // Крестики-нолики
   '4': 'alchemy',        // Алхимия
-  '5': 'seabattle',      // Морской бой
 };
 
 function Map() {
@@ -37,13 +36,11 @@ function Map() {
   const [isAlchemyOpen, setAlchemyIsOpen] = useState(false);
   const [isFindSecretOpen, setFindSecretIsOpen] = useState(false);
   const [isCenterDivOpen, setIsCenterDivOpen] = useState(false);
-  const [isBossOpen, setBossOpen] = useState(false);
 
   const handleClose = () => {
     setAlchemyIsOpen(false);
     setFindSecretIsOpen(false);
     setIsCenterDivOpen(false);
-    setBossOpen(false);
   }
 
   const handleCloseTicTacToe = () => {
@@ -84,9 +81,6 @@ function Map() {
       case '4':
         setAlchemyIsOpen(true);
       break;
-      case '5':
-        setBossOpen(true);
-        break;
       default:
         break;
     }
