@@ -1,7 +1,9 @@
 
 import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
-
+import Modal from './Modal';
+import FIFO from './DevPathComponents/firstBattle'
+import { useState } from 'react';
 
 const divStyle = {
   width: '100%',
@@ -13,6 +15,10 @@ const divStyle = {
 }
 
 function DevMap(){
+  const [lead, setLead] = useState(false);
+  const [senior, setSenior] = useState(false);
+  const [middle, setMiddle] = useState(false);
+  const [junior, setJunior] = useState(false);
     return (
       <div className="map-container" style={divStyle}>
       <div className='map-header' data-id="dev">
@@ -25,7 +31,11 @@ function DevMap(){
             item={'JUNIOR'}
             isActive={true}
             isCompleted={true}
-          />
+            onClick={() => setJunior(true)}
+          />        
+          <Modal title={'JUNIOR'} isOpen={junior} onClose={() => setJunior(false)}>
+            <FIFO/>
+          </Modal>
         </div>
         
         <div id='rd2'>
@@ -42,7 +52,11 @@ function DevMap(){
             item={'MIDDLE'}
             isActive={true}
             isCompleted={true}
+            onClick={()=> setMiddle(true)}
           />
+        <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}>
+          <FIFO/>
+        </Modal>
         </div>
         
         <div id='rd4'>
@@ -67,7 +81,11 @@ function DevMap(){
             item={'SENIOR'}
             isActive={true}
             isCompleted={true}
+            onClick={()=> setSenior(true)}
           />
+        <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)}>
+          <FIFO/>
+        </Modal>
         </div>
 
         <div id='rd7'>
@@ -76,7 +94,11 @@ function DevMap(){
             item={'LEAD'}
             isActive={true}
             isCompleted={true}
+            onClick={()=> setLead(true)}
         />
+        <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)}>
+          <FIFO/>
+        </Modal>
         </div>
       </div>
       

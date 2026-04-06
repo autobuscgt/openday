@@ -375,6 +375,7 @@ body{
 */
 
 .dev-container{
+    justify-content: center;
     padding: 10px 0px;
     display: grid;
     grid-template-columns: repeat(2,300px);

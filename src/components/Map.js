@@ -68,6 +68,9 @@ function Map() {
   const activeQuestId = getActiveQuest();
 
   const handleFlagClick = (questId) => {
+    if (getQuestStatus(questId)) {
+      return;
+   }
     switch(questId) {
       case '1':
         setIsCenterDivOpen(true);
@@ -96,12 +99,12 @@ function Map() {
       </div>
       <div className='road-container'>
 
-        <div id="rd6">
+        <div id="rd6" aria-disabled>
           <FlagTask 
             id={"3"} 
             isCompleted={getQuestStatus('3')} 
             isActive={activeQuestId === '3'} 
-            onClick={() => handleFlagClick('3')}
+            onClick={!getQuestStatus('3') ? () => handleFlagClick('3') : undefined}
           />
           <Modal isOpen={isTicTacToe} onClose={handleCloseTicTacToe} title={'Крестики нолики'} questName={"tictactoe"}> 
             <TicTacToe onComplete={handleCloseTicTacToe} />
@@ -113,7 +116,7 @@ function Map() {
             id={"4"} 
             isCompleted={getQuestStatus('4')} 
             isActive={activeQuestId === '4'} 
-            onClick={() => handleFlagClick('4')}
+            onClick={!getQuestStatus('4') ? () => handleFlagClick('4') : undefined}
           />
           <Modal isOpen={isAlchemyOpen} onClose={handleClose} title={'IT-Алхимия'} questName={"alchemy"}> 
             <Alchemy onComplete={handleClose} />
@@ -141,7 +144,7 @@ function Map() {
             id={"2"} 
             isCompleted={getQuestStatus('2')} 
             isActive={activeQuestId === '2'} 
-            onClick={() => handleFlagClick('2')}
+            onClick={!getQuestStatus('2') ? () => handleFlagClick('2') : undefined}
           />
           <Modal isOpen={isCenterDivOpen} onClose={handleClose} title={'Центрирование дива'} questName={"centerDiv"}> 
             <CenterDivModal onComplete={handleClose} />
@@ -161,7 +164,7 @@ function Map() {
             id={"1"} 
             isCompleted={getQuestStatus('1')} 
             isActive={activeQuestId === '1'} 
-            onClick={() => handleFlagClick('1')}
+            onClick={!getQuestStatus('1') ? () => handleFlagClick('1') : undefined}
           />
           <Modal isOpen={isFindSecretOpen} onClose={handleClose} title={'Найди секретный ключ'} questName={"findSecret"}> 
             <FindSecret onComplete={handleClose} />
