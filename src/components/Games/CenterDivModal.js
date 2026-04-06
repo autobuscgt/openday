@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuest } from '../../context/questContext';
-import '../../styles/modals/CenterDivModal.css'
+
 
 const CenterDivModal = () => {
     const [justifyContent, setJustifyContent] = useState('flex-start');
@@ -76,16 +76,14 @@ const CenterDivModal = () => {
     };
 
     return (
-        <div className='center-div-container'>
             <div onClick={(e) => e.stopPropagation()}>
-               <div className="game-container1">
-                    <div className="modal-question1">
+               <div className='center-div-container'>
+                    <div className="game-play-area">
+                    <div className="modal-question">
                         <p>К следующей точке ведёт куча проводов. Помоги сетевому пакету протиснуться к центральному проводу.</p>
                         <p>Используй CSS Flexbox, чтобы поместить блок в центр контейнера!</p>
                         <p> Цель: <i>justify-content: center, align-items: center</i></p>
                     </div>
-
-                    <div className="game-play-area">
                         <div className="playground-container">
                             <div className="playground-header">
                                 <span>Flex Container</span>
@@ -125,9 +123,12 @@ const CenterDivModal = () => {
                             </div>
                         </div>
 
-                        <div className="control-panel" style={{padding:'15px'}}>
-                            <h2>Управление Flexbox</h2>
 
+                    </div>
+
+                    
+                        <div className="control-panel">
+                            <h2>Управление Flexbox</h2>
                             <div className="control-section">
                                 <label className="control-label">
                                     <span className="label-icon">🔄</span>
@@ -224,18 +225,9 @@ const CenterDivModal = () => {
                                     ></div>
                                 </div>
                             </div>
-
-                            {/* <button
-                                className="reset-btn"
-                                onClick={resetGame }
-                            >
-                                {!showOffer ? "Начать заново" : "Продолжить"}
-                            </button> */}
                         </div>
-                    </div>
                 </div>
             </div>
-        </div>
     );
 };
 

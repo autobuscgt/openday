@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
-import './styles/modals/Alchemy.css'
-import './styles/modals/CenterDivModal.css'
-import './styles/modals/FindSecret.css'
-import './styles/modals/TicTacToe.css'
+
+import './styles/animations.css'
+import './styles/ticTacToe.css'
 import './styles/alchemy.css'
-import './styles/Animation.css'
 import './styles/style.css';
 import './styles/map.css';
 
@@ -16,19 +14,18 @@ import blue_line from './assets/blue_line.png'
 import green_line from './assets/green_line.svg'
 import Modal from './components/Modal';
 import Switcher from './components/Switcher';
-import End from './components/End';
 import DevMap from './components/DevMap';
 import { PathProvider } from './context/pathContext';
 import pathContext from './context/pathContext';
 import QuestTracker from './components/QuestTracker';
+import { useQuest } from './context/questContext';
 
 function AppContent() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
   const [init, setInit] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [endIsOpen, setEndIsOpen] = useState(false);
-
   const { isDev, setIsDev } = useContext(pathContext);
+  const {resetProgress} = useQuest()
 
   useEffect(() => {
     const already_loaded = localStorage.getItem('isLoaded') === 'true';
@@ -52,6 +49,9 @@ function AppContent() {
 
   return (
     <div>
+        <button onClick={resetProgress} style={{position:'fixed', right:'100px', bottom:'100px'}}>
+            Сбросить игру
+        </button>
       <div className={`map ${!isDev ? "" : "dev"}`}>
         <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>
         <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="2"/>
@@ -60,19 +60,19 @@ function AppContent() {
         
         <Switcher toggled={isDev} onClick={handleToggle}/>
         
-        <button 
+        {/* <button 
           style={{zIndex:'2', position:'absolute', bottom:'20px', right:'20px'}} 
           onClick={() => setEndIsOpen(true)}
         >
           END
         </button>
-        <End isOpen={endIsOpen} onClose={() => setEndIsOpen(false)}/>
+        <End isOpen={endIsOpen} onClose={() => setEndIsOpen(false)}/>  */}
         
         {isLoaded ? (
           <div className='instructions'>
             <button
               onClick={() => setGreetIsOpen(true)}
-              className='inst_btn'
+              className={`inst_btn ${isDev ? "dev" : "def"}`}
             />
             <Modal 
               isOpen={greetIsOpen} 
@@ -84,9 +84,11 @@ function AppContent() {
             </Modal>
           </div>
         ) : ' '}
+
         <QuestTracker/>
         {isDev ? <DevMap /> : <Map />}
       </div>
+
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import '../styles/map.css'
-import '../styles/Animation.css'
 
 import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
@@ -30,22 +29,12 @@ const questMapping = {
 };
 
 function Map() {
-  const { completedQuests } = useQuest();
+  const { completedQuests} = useQuest();
 
   const [isTicTacToe, setIsTicTacToe] = useState(false);
   const [isAlchemyOpen, setAlchemyIsOpen] = useState(false);
   const [isFindSecretOpen, setFindSecretIsOpen] = useState(false);
   const [isCenterDivOpen, setIsCenterDivOpen] = useState(false);
-
-  const handleClose = () => {
-    setAlchemyIsOpen(false);
-    setFindSecretIsOpen(false);
-    setIsCenterDivOpen(false);
-  }
-
-  const handleCloseTicTacToe = () => {
-    setIsTicTacToe(false);
-  }
 
   const getQuestStatus = (questId) => {
     const questName = questMapping[questId];
@@ -100,8 +89,8 @@ function Map() {
             isActive={activeQuestId === '3'} 
             onClick={!getQuestStatus('3') ? () => handleFlagClick('3') : undefined}
           />
-          <Modal isOpen={isTicTacToe} onClose={handleCloseTicTacToe} title={'Крестики нолики'} questName={"tictactoe"}> 
-            <TicTacToe onComplete={handleCloseTicTacToe} />
+          <Modal isOpen={isTicTacToe} onClose={()=> setIsTicTacToe(false)} title={'Крестики нолики'} questName={"tictactoe"}> 
+            <TicTacToe/>
           </Modal>
         </div>
 
@@ -112,8 +101,8 @@ function Map() {
             isActive={activeQuestId === '4'} 
             onClick={!getQuestStatus('4') ? () => handleFlagClick('4') : undefined}
           />
-          <Modal isOpen={isAlchemyOpen} onClose={handleClose} title={'IT-Алхимия'} questName={"alchemy"}> 
-            <Alchemy onComplete={handleClose} />
+          <Modal isOpen={isAlchemyOpen} onClose={()=>setAlchemyIsOpen(false)} title={'IT-Алхимия'} questName={"alchemy"}> 
+            <Alchemy onComplete={()=>setAlchemyIsOpen(false)} />
           </Modal>
         </div>
 
@@ -140,8 +129,8 @@ function Map() {
             isActive={activeQuestId === '2'} 
             onClick={!getQuestStatus('2') ? () => handleFlagClick('2') : undefined}
           />
-          <Modal isOpen={isCenterDivOpen} onClose={handleClose} title={'Центрирование дива'} questName={"centerDiv"}> 
-            <CenterDivModal onComplete={handleClose} />
+          <Modal isOpen={isCenterDivOpen} onClose={()=> setIsCenterDivOpen(false)} title={'Центрирование дива'} questName={"centerDiv"}> 
+            <CenterDivModal onComplete={()=> setIsCenterDivOpen(false)} />
           </Modal>
         </div>
 
@@ -160,11 +149,12 @@ function Map() {
             isActive={activeQuestId === '1'} 
             onClick={!getQuestStatus('1') ? () => handleFlagClick('1') : undefined}
           />
-          <Modal isOpen={isFindSecretOpen} onClose={handleClose} title={'Найди секретный ключ'} questName={"findSecret"}> 
-            <FindSecret onComplete={handleClose} />
+          <Modal isOpen={isFindSecretOpen} onClose={() => setFindSecretIsOpen(false)} title={'Найди секретный ключ'} questName={"findSecret"}> 
+            <FindSecret onComplete={() => setFindSecretIsOpen(false)} />
           </Modal>
         </div>
       </div>
+
     </div>
   );
 }

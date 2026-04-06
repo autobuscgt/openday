@@ -3,6 +3,11 @@ import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
 import Modal from './Modal';
 import FIFO from './DevPathComponents/firstBattle'
+import Middle from './DevPathComponents/secondBattle'
+import Senior from './DevPathComponents/thirdBattle'
+import Lead from './DevPathComponents/fourthBattle'
+
+
 import { useState } from 'react';
 import { useQuest } from '../context/questContext';
 
@@ -16,10 +21,10 @@ const divStyle = {
 }
 
 const questMapping = {
-  '1':'junior',
-  '2':'middle',
-  '3':'senior',
-  '4':'lead',
+  '5':'junior',
+  '6':'middle',
+  '7':'senior',
+  '8':'lead',
 }
 
 function DevMap(){
@@ -52,16 +57,16 @@ function DevMap(){
       return;
    }
     switch(questId) {
-      case '1':
+      case '5':
         setJunior(true);
         break;
-      case '2':
+      case '6':
         setMiddle(true);
         break;
-      case '3':
+      case '7':
         setSenior(true);
         break;
-      case '4':
+      case '8':
         setLead(true);
       break;
       default:
@@ -80,7 +85,7 @@ function DevMap(){
             id={'5'}
             isActive={activeQuestId === '5'}
             isCompleted={getQuestStatus('5')}
-            onClick={() => setJunior(true)}
+            onClick={() => handleFlagClick('5')}
           />        
           <Modal title={'JUNIOR'} isOpen={junior} onClose={() => setJunior(false)}>
             <FIFO/>
@@ -101,10 +106,10 @@ function DevMap(){
             item={'MIDDLE'}
             isActive={activeQuestId === '6'}
             isCompleted={getQuestStatus('6')}
-            onClick={()=> setMiddle(true)}
+            onClick={() => handleFlagClick('6')}
           />
         <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}>
-          <FIFO/>
+          <Middle/>
         </Modal>
         </div>
         
@@ -130,10 +135,10 @@ function DevMap(){
             item={'SENIOR'}
             isActive={activeQuestId === '7'}
             isCompleted={getQuestStatus('7')}
-            onClick={()=> setSenior(true)}
+            onClick={() => handleFlagClick('7')}
           />
         <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)}>
-          <FIFO/>
+          <Senior/>
         </Modal>
         </div>
 
@@ -143,10 +148,10 @@ function DevMap(){
             item={'LEAD'}
             isActive={activeQuestId === '8'}
             isCompleted={getQuestStatus('8')}
-            onClick={()=> handleFlagClick('4')}
+            onClick={()=> handleFlagClick('8')}
         />
         <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)}>
-          <FIFO/>
+          <Lead/>
         </Modal>
         </div>
       </div>

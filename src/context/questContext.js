@@ -1,5 +1,4 @@
-import { useContext, createContext, useState, useMemo } from "react";
-
+import { useContext, createContext, useState, useMemo, useEffect } from "react";
 
 const QuestContext = createContext();
 
@@ -11,13 +10,32 @@ export const useQuest = () => {
     return context;
 };
 
-export const QuestProvider = ({ children }) => {
-    const [completedQuests, setCompletedQuests] = useState({
+const loadProgressFromStorage = () => {
+    const savedProgress = localStorage.getItem('questProgress');
+    if (savedProgress) {
+        return JSON.parse(savedProgress);
+    }
+    return {
         tictactoe: false,
         alchemy: false,
         findSecret: false,
         centerDiv: false,
-    });
+        junior: false,
+        middle: false,
+        senior: false,
+        lead: false,
+    };
+};
+
+const saveProgressToStorage = (progress) => {
+    localStorage.setItem('questProgress', JSON.stringify(progress));
+};
+
+export const QuestProvider = ({ children }) => {
+    const [completedQuests, setCompletedQuests] = useState(loadProgressFromStorage);
+    useEffect(() => {
+        saveProgressToStorage(completedQuests);
+    }, [completedQuests]);
 
     const updateQuestStatus = (questName, isCompleted) => {
         setCompletedQuests(prev => ({
@@ -27,17 +45,18 @@ export const QuestProvider = ({ children }) => {
     };
 
     const resetProgress = () => {
-        setCompletedQuests({
+        const resetState = {
             tictactoe: false,
             alchemy: false,
             findSecret: false,
             centerDiv: false,
-            
-            seabattle: false,
-            question1: false,
-            question2: false,
-            question3: false,
-        });
+            junior: false,
+            middle: false,
+            senior: false,
+            lead: false,
+        };
+        setCompletedQuests(resetState);
+        saveProgressToStorage(resetState);
     };
 
     const value = useMemo(() => ({

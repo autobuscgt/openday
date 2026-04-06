@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import '../../styles/modals/TicTacToe.css';
 import { useQuest } from '../../context/questContext';
 
 const TicTacToe = ({onComplete}) => {
@@ -158,7 +157,7 @@ const checkWinner = () => {
           ))}
         </div>
 
-        <div className="game-controls">
+        <div className="game-controls" game-id="tictactoe">
           <button className="reset-btn" onClick={resetGame}>
             Новая игра
           </button>

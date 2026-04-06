@@ -1,6 +1,7 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 /*
 ============== Шрифты ==============
@@ -10,16 +11,22 @@
     src: url('../assets/fonts/MM.ttf');
 }
 
+@font-face {
+    font-family: MB;
+    src: url('../assets/fonts/MB.ttf');
+}
+
 /*
 ============== Базовые стили =======
 */
+
 body{
     overflow-x: hidden;
 }
 
 :root{
     --border-radius: 600px;
-    --border-square-radius: 15px;
+    --border-square-radius: 10px;
     --def-padding: 15px;
     --def-margin: 15px;
     --white-purple:#6392F7;
@@ -30,6 +37,7 @@ body{
     --green-color : #63C574;
     --red-color: #EF3C3C;
     --orange-color: #F48445;
+    --game-padding: 10px 0.5rem;
 }
 /*
 ============== Кнопка инструкции =======
@@ -42,15 +50,23 @@ body{
     border: none;
     width: 51px;
     height: 51px;
-    background-image: url('../assets/instruction_icon.svg');
-    background-color: white;
+    background-image: url('../assets/instruction_icon.png');
     background-position: center;
     background-size: cover;
     transition: all 0.2s ease;
 }
+
 .inst_btn:hover{
-    background-image: url('../assets/instruction_icon_hover.svg');
+    background-image: url('../assets/instruction_icon_hover.png');
     transition: all 0.2s ease;
+    background-color: #ffffff;
+}
+.inst_btn.dev{
+    background-image: url('../assets/instruction_icon_green.png');
+}
+.inst_btn.dev:hover{
+    background-color: #363636;
+    background-image: url('../assets/instruction_icon_green_hover.png');
 }
 
 .close-btn{
@@ -63,6 +79,7 @@ body{
 /*
 ============== Модальные окна =======
 */
+
 .modal-overlay {
     user-select: none;
     z-index: 9999;
@@ -71,18 +88,18 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(13px);
 }
 
 .modal-content {
     z-index: 99999;
     font-family: MM;
     background-color: white;
-    padding: 15px;
+    padding: 10px;
     border-radius: var(--border-square-radius);
     max-width: 90%;
     text-align: left;
@@ -136,7 +153,7 @@ body{
     background-color: var(--white-grey);
     padding: 15px;
     border-radius: var(--border-square-radius);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .modal-question p {
@@ -153,8 +170,9 @@ body{
 }
 
 /*
-============== Лого =======
+============== Лого ==============
 */
+
 .logo{
     -webkit-user-drag: none;
     background-color: var(--dark-grey);
@@ -168,8 +186,9 @@ body{
 }
 
 /*
-============== Конечная анимация =======
+============== Анимация после прохождения уровней ==============
 */
+
 .end-inner-items-container{
     overflow: hidden;
     backdrop-filter: blur(5px);
@@ -225,25 +244,26 @@ body{
     scale: 1.2;
     animation-delay: 4s;
 }
+
 .mkit_cube[cube-id="2"]{
     background-color:  var(--orange-color);
     rotate: 67deg;
     top: 40%;
     right: 5%;
-
     scale: 1.7;
     animation-delay: 4.5s;
 }
+
 .mkit_cube[cube-id="3"]{
     background-color: var(--red-color);
     rotate: -60deg;
     top: 35%;
     left: 7%;
     scale: 1.2;
-
     animation-delay: 3s;
 
 }
+
 .mkit_cube[cube-id="4"]{
     background-color: var(--green-color);
     rotate: 37deg;
@@ -254,93 +274,9 @@ body{
 }
 
 /*
-============== Серые точки + Задние линии =======
+============== Смена пути в свитчере =======
 */
-.background-dots[data-dots="1"]{
-    position: absolute;
-    width: 230px;
-    right: 25px;
-    bottom: 10px;
-}
-.background-dots[data-dots="2"]{
-    position: absolute;
-    width: 230px;
-    left: 25px;
-    transform: translateY(50%);
-    top: 20%;
-}
 
-.background-line{
-    -webkit-user-drag: none;
-    user-select: none;
-    position: absolute;
-    top: -60%;
-    rotate: 10deg;
-    scale: 0.7;
-    right: -28%;
-
-}
-
-/*
-============== Анимации =======
-*/
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(245, 87, 108, 0.7);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 0 0 10px rgba(245, 87, 108, 0);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(245, 87, 108, 0);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes expand {
-    0%{}
-    100%{            
-        left: 0;
-    }
-}
-
-@keyframes transparent-transition {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-@keyframes MKIT_frames{
-    0%
-    {
-        transform: scale(1.7) skew(5deg) rotate(50deg);
-    }
-    100%
-    {
-        transform: scale(1) skew(0deg) rotate(0deg);
-        opacity: 1;
-    }
-}
-
-/*
-============== Смена пути =======
-*/
 .switch-container{
     width: 100px;
     display: flex;
@@ -353,10 +289,12 @@ body{
     top: 10px;
     transition: 0.5s;
 }
+
 .switch-container.dev{
     background-color: var(--green-color);
     transition: 0.5s;
 }
+
 .switch-btn{
     position: relative;
     left: 5px;
@@ -375,7 +313,7 @@ body{
 }
 
 /*
-============== Выбор пути =======
+============== Выбор пути в инструкции =======
 */
 
 .dev-container{
@@ -395,21 +333,229 @@ body{
     min-width: 300px;
     min-height: 300px;
 }
+
 .choosen-path[path-id="1"]{
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     background-image: url('../assets/path/dev_path_ico.svg');
 }
+
 .choosen-path[path-id="1"]:hover{
     transition: all 0.2s ease-in-out;
     background-image: url('../assets/path/dev_path_ico_hover.svg');
 }
+
 .choosen-path[path-id="2"]{
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     background-image: url('../assets/path/default_path_ico.svg');
 }
+
 .choosen-path[path-id="2"]:hover{
     transition: all 0.2s ease-in-out;
     background-image: url('../assets/path/default_path_ico_hover.svg');
 }
+
+/*
+============== СТИЛИ ИГР =======
+*/
+
+
+.game-controls[game-id="findSecret"]{
+    background-color: var(--dark-grey);
+    display: flex;
+    padding: var(--game-padding);
+}
+
+.game-controls[game-id="tictactoe"]{
+    justify-content: left;
+    padding: 10px 0px;
+}
+
+.game-controls[game-id="tictactoe"] button{
+    width: 100%;
+}
+
+.control-panel{
+    width: 100%;
+    height: 100%;
+    background-color: var(--white-grey);
+    color: rgb(28, 28, 28);
+    padding: var(--game-padding);
+    border-radius: 10px;
+}
+
+.system-element{
+    border-radius: 15px;
+    background-color: var(--dark-grey);
+    padding: 10px;
+    color: white;
+}
+
+.system-element.selected{
+    background-color: var(--white-purple);
+    color: var(--dark-grey);
+}
+
+.control-panel-container{
+    width: 100%;
+    height: 100%;
+}
+.elements-container{
+    border-radius: 10px;
+    height: 500px;
+    position: relative;
+    background-color: #76CAFF;
+    background-image: 
+    linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.control-group input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  outline: none;
+}
+
+.control-group{
+    font-size: large;
+    width: 100%;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--green-color); 
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.04);
+}
+
+
+.find-secret-modal-container{
+    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.game-footer{
+    position: relative;
+    bottom: 40px;
+    z-index: 3;
+    background-color: var(--dark-grey);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.game-footer .reset-btn{
+    background-color: var(--dark-grey);
+}
+.button-group{
+    margin: 10px 0px;
+}
+.button-group button{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border: 0px;
+    background-color: var(--green-color);
+    color: var(--dark-grey);
+    font-family: MB;
+    cursor: pointer;
+    transition:0.2s;
+}
+.button-group button:hover{
+    opacity: 0.8;
+    transform: scale(1.04);
+    transition:0.2s;
+}
+.button-group span{
+    margin: 0px 10px;
+}
+.reset-element-btn{
+    width: 100%;
+    background-color: var(--orange-color);
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--dark-grey);
+    font-family: MM;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.reset-element-btn:hover{
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.flex-playground {
+    border-radius: 10px;
+    background-color: #76CAFF;
+    background-image: 
+    linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+.floating-block {
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+}
+.center-div-container{
+    display: grid;
+    grid-template-columns: repeat(2,600px);
+    column-gap: 20px;
+}
+
+.slider-container {
+    width: 100%;
+    margin: 20px 0;
+    transition: 0.2s;
+}
+.css-slider {
+    width: 100%;
+    margin: 10px 0;
+    transition: 0.2s;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.slider-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    flex: 1;
+    padding: 5px;
+    cursor: pointer;
+    background: #f0f0f0;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.slider-label.active {
+    background: var(--white-purple);
+    color: white;
+    transition: 0.2s;
+}
+
+

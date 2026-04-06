@@ -1,5 +1,5 @@
 
-function End({isEnd, isOpen, onClose}) {
+function End({ isOpen, onClose}) {
     if (!isOpen) return null;
     return (
     <div className="end-animation-container">

@@ -1,18 +1,18 @@
 import { useQuest } from "../../context/questContext";
 
-function FIFO(){
+function Middle(){
     const {updateQuestStatus, completedQuests} = useQuest();
     const completeLvl = () => {
-        updateQuestStatus('junior', true);
+        updateQuestStatus('middle', true);
         console.log(completedQuests);
     }
     return (
         <div>
-            Junior
+            Middle
             <button onClick={completeLvl}>
                 Пройти уровень
             </button>
         </div>
     )
 }
-export default FIFO;
+export default Middle;
