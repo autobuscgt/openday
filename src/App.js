@@ -49,7 +49,7 @@ function AppContent() {
 
   return (
     <div>
-        <button onClick={resetProgress} style={{position:'fixed', right:'100px', bottom:'100px'}}>
+        <button onClick={resetProgress} style={{position:'fixed', right:'100px', bottom:'100px',zIndex:'29292992'}}>
             Сбросить игру
         </button>
       <div className={`map ${!isDev ? "" : "dev"}`}>

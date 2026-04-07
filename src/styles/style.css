@@ -558,4 +558,26 @@ body{
     transition: 0.2s;
 }
 
+.control-btn {
+    background-color: var(--white-purple);
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: MM;
+}
 
+.buttons{
+    display: grid;
+    margin: 10px 0px;
+    gap: 10px;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.floating-block.transforming{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family: MB;
+}

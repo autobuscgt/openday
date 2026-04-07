@@ -114,9 +114,6 @@ const CenterDivModal = () => {
                                         <div className="offer-content">
                                             <span className="offer-icon">Успех!</span>
 
-                                            <button className="accept-offer">
-                                                Вёрстка — это просто, если знать правила
-                                            </button>
                                         </div>
                                     )}
                                 </div>
