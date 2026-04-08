@@ -1,14 +1,40 @@
-@font-face {
-    font-family: MB;
-    src: url('../assets/fonts/MB.ttf');
-}
-.map{
-    background-color: white;
-}
-.map.dev{
-    background-color: rgb(255, 255, 255);
+
+/*
+============== Серые точки + Задние линии =======
+*/
+.background-dots{
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
+.background-line{
+    transition: 1s ease;
+    -webkit-user-drag: none;
+    user-select: none;
+    position: absolute;
+    top: -60%;
+    rotate: 10deg;
+    scale: 0.7;
+    right: -28%;
+
+}
+
+.background-dots[data-dots="1"]{
+    transition: 1s ease;
+    position: absolute;
+    width: 230px;
+    right: 25px;
+    bottom: 10px;
+}
+
+.background-dots[data-dots="2"]{
+    transition: 1s ease;
+    position: absolute;
+    width: 230px;
+    left: 25px;
+    transform: translateY(50%);
+    top: 20%;
+}
 
 .map.dev .background-dots[data-dots="1"]{
     position: absolute;
@@ -16,12 +42,14 @@
     left: 35px;
     bottom: 150px;
 }
+
 .map.dev .background-dots[data-dots="2"]{
     position: absolute;
     top: 0px;
     right: 35px;
     left: auto;
 }
+
 .map.dev img[data-dots="3"]{
     display: block;
     position: absolute;
@@ -29,6 +57,23 @@
     rotate: 0deg;
     scale: 0.7;
     left: -20%;
+}
+/*
+============== Карта =======
+*/
+
+.map{
+    min-height: 100vh;
+    height: 100%;
+    user-select: none;
+    background-color: white;
+    -webkit-user-drag: none;
+    transition: 1s;
+}
+
+.map.dev{
+    background-color: #363636;
+    transition: 1s;
 }
 
 .map-header{
@@ -42,21 +87,21 @@
     pointer-events: none;
     font-family: MB;
 }
-
 .map-header h1 {
     background-color: var(--dark-grey);
-    border-bottom: 4px solid var(--green-color);
-    color: var(--green-color);
+    border-bottom: 4px solid var(--white-purple);
+    color: var(--white-purple);
     padding: 15px;
     border-radius: 15px;
 }
-
 .map-header[data-id="dev"] h1{
-    color: var(--white-purple);
-    border-bottom: 4px solid var(--white-purple);
+    color: var(--green-color);
+    border-bottom: 4px solid var(--green-color);
+
 }
-
-
+/*
+============== Контейнер для флагов =======
+*/
 .goal-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -76,29 +121,3 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
-.white_purple_outline{
-    z-index: 5;
-    border-top: 4px solid rgb(234, 255, 0);
-    border-bottom: 4px solid rgb(234, 255, 0);
-    border-radius: 15px;
-    position: absolute;
-    bottom: -192px;
-    left: 626px;
-    width: 210px;
-    height: 220px;
-    animation: 2.5s pulse infinite ease-in;
-}
-
-
-@keyframes pulse {  
-    0% {  
-        transform: scale(1);  
-    }  
-    50% { 
-        transform: scale(1.04);  
-
-    }  
-    100% {  
-        transform: scale(1);  
-    }  
-}  

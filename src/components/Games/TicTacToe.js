@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import '../../styles/modals/TicTacToe.css';
 import { useQuest } from '../../context/questContext';
 
 const TicTacToe = ({onComplete}) => {
@@ -55,52 +54,62 @@ const checkWinner = () => {
     setIsXNext(false);
   };
 
-  const makeAIMove = () => {
-    setTimeout(() => {
-      if (!gameActive || winner) return;
+ const makeAIMove = () => {
+  setTimeout(() => {
+    // Убираем проверку !isXNext, оставляем только gameActive и winner
+    if (!gameActive || winner) return;
+    
+    // Дополнительно проверяем, что ход действительно за AI (O)
+    // и что на доске есть ходы
+    const availableMoves = board.reduce((acc, cell, index) => 
+      cell === null ? [...acc, index] : acc, []);
+    
+    if (availableMoves.length === 0) return;
 
-      const availableMoves = board.reduce((acc, cell, index) => 
-        cell === null ? [...acc, index] : acc, []);
-      
-      if (availableMoves.length === 0) return;
+    // Проверяем, что последний ход был сделан игроком (X)
+    // Для этого можно проверить, что isXNext === false (сейчас очередь O)
+    // Но чтобы избежать проблем с замыканием, используем актуальное состояние
+    if (isXNext) return; // Если очередь X, AI не ходит
 
-      let moveIndex;
+    let moveIndex;
 
+    for (let move of availableMoves) {
+      const testBoard = [...board];
+      testBoard[move] = 'O';
+      if (checkWin(testBoard, 'O')) {
+        moveIndex = move;
+        break;
+      }
+    }
+    if (moveIndex === undefined) {
       for (let move of availableMoves) {
         const testBoard = [...board];
-        testBoard[move] = 'O';
-        if (checkWin(testBoard, 'O')) {
+        testBoard[move] = 'X';
+        if (checkWin(testBoard, 'X')) {
           moveIndex = move;
           break;
         }
       }
-      if (moveIndex === undefined) {
-        for (let move of availableMoves) {
-          const testBoard = [...board];
-          testBoard[move] = 'X';
-          if (checkWin(testBoard, 'X')) {
-            moveIndex = move;
-            break;
-          }
-        }
+    }
+
+    if (moveIndex === undefined) {
+      if (availableMoves.includes(4)) {
+        moveIndex = 4;
+      } else {
+        const randomIndex = Math.floor(Math.random() * availableMoves.length);
+        moveIndex = availableMoves[randomIndex];
       }
+    }
 
-      if (moveIndex === undefined) {
-        if (availableMoves.includes(4)) {
-          moveIndex = 4;
-        } else {
-          const randomIndex = Math.floor(Math.random() * availableMoves.length);
-          moveIndex = availableMoves[randomIndex];
-        }
-      }
+    // Финальная проверка перед обновлением
+    if (!gameActive || winner) return;
 
-      const newBoard = [...board];
-      newBoard[moveIndex] = 'O';
-      setBoard(newBoard);
-      setIsXNext(true);
-    }, 300);
-  };
-
+    const newBoard = [...board];
+    newBoard[moveIndex] = 'O';
+    setBoard(newBoard);
+    setIsXNext(true);
+  }, 300);
+};
   const checkWin = (board, player) => {
     return winningCombinations.some(combo => 
       combo.every(index => board[index] === player)
@@ -131,9 +140,9 @@ const checkWinner = () => {
   return (
     <div >
       <div>
-       <div className="status">
+       {/* <div className="status">
           {getStatusMessage()}
-        </div>
+        </div> */}
 
         <div className="board">
           {board.map((cell, index) => (
@@ -148,7 +157,7 @@ const checkWinner = () => {
           ))}
         </div>
 
-        <div className="game-controls">
+        <div className="game-controls" game-id="tictactoe">
           <button className="reset-btn" onClick={resetGame}>
             Новая игра
           </button>

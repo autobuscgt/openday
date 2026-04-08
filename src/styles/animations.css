@@ -1,0 +1,57 @@
+/*
+============== Анимации =======
+*/
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(245, 87, 108, 0.7);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 10px rgba(245, 87, 108, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(245, 87, 108, 0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes expand {
+    0%{}
+    100%{            
+        left: 0;
+    }
+}
+
+@keyframes transparent-transition {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes MKIT_frames{
+    0%
+    {
+        transform: scale(1.7) skew(5deg) rotate(50deg);
+    }
+    100%
+    {
+        transform: scale(1) skew(0deg) rotate(0deg);
+        opacity: 1;
+    }
+}

@@ -1,7 +1,15 @@
 
 import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
+import Modal from './Modal';
+import FIFO from './DevPathComponents/firstBattle'
+import Middle from './DevPathComponents/secondBattle'
+import Senior from './DevPathComponents/thirdBattle'
+import Lead from './DevPathComponents/fourthBattle'
 
+
+import { useState } from 'react';
+import { useQuest } from '../context/questContext';
 
 const divStyle = {
   width: '100%',
@@ -12,20 +20,76 @@ const divStyle = {
   alignItems: 'center'
 }
 
+const questMapping = {
+  '5':'junior',
+  '6':'middle',
+  '7':'senior',
+  '8':'lead',
+}
+
 function DevMap(){
+  const {completedQuests} = useQuest();
+
+  const [lead, setLead] = useState(false);
+  const [senior, setSenior] = useState(false);
+  const [middle, setMiddle] = useState(false);
+  const [junior, setJunior] = useState(false);
+
+  const getQuestStatus = (questId) => {
+    const questName = questMapping[questId];
+    return completedQuests[questName] || false;
+  };
+
+    const getActiveQuest = () => {
+    for (let i = 5; i <= 9; ++i) {
+      const questName = questMapping[i];
+      if (!completedQuests[questName]) {
+        return i.toString();
+      }
+    }
+    return null;
+  };
+
+  const activeQuestId = getActiveQuest();
+
+  const handleFlagClick = (questId) => {
+    if (getQuestStatus(questId)) {
+      return;
+   }
+    switch(questId) {
+      case '5':
+        setJunior(true);
+        break;
+      case '6':
+        setMiddle(true);
+        break;
+      case '7':
+        setSenior(true);
+        break;
+      case '8':
+        setLead(true);
+      break;
+      default:
+        break;
+    }
+  };
     return (
       <div className="map-container" style={divStyle}>
       <div className='map-header' data-id="dev">
-        <h1>{'{__ПутьР@зработчик@_}'}</h1>
+        <h1>{'{__Путь р@зработчик@_}'}</h1>
       </div>
       <div className='road-container'>
         <div id='rd1'>
           <FlagTask
-            id={'5'}
             item={'JUNIOR'}
-            isActive={true}
-            isCompleted={true}
-          />
+            id={'5'}
+            isActive={activeQuestId === '5'}
+            isCompleted={getQuestStatus('5')}
+            onClick={() => handleFlagClick('5')}
+          />        
+          <Modal title={'JUNIOR'} isOpen={junior} onClose={() => setJunior(false)}>
+            <FIFO/>
+          </Modal>
         </div>
         
         <div id='rd2'>
@@ -40,9 +104,13 @@ function DevMap(){
         <FlagTask
             id={'6'}
             item={'MIDDLE'}
-            isActive={true}
-            isCompleted={true}
+            isActive={activeQuestId === '6'}
+            isCompleted={getQuestStatus('6')}
+            onClick={() => handleFlagClick('6')}
           />
+        <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}>
+          <Middle/>
+        </Modal>
         </div>
         
         <div id='rd4'>
@@ -65,18 +133,26 @@ function DevMap(){
         <FlagTask
             id={'7'}
             item={'SENIOR'}
-            isActive={true}
-            isCompleted={true}
+            isActive={activeQuestId === '7'}
+            isCompleted={getQuestStatus('7')}
+            onClick={() => handleFlagClick('7')}
           />
+        <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)}>
+          <Senior/>
+        </Modal>
         </div>
 
         <div id='rd7'>
         <FlagTask
             id={'8'}
             item={'LEAD'}
-            isActive={true}
-            isCompleted={true}
+            isActive={activeQuestId === '8'}
+            isCompleted={getQuestStatus('8')}
+            onClick={()=> handleFlagClick('8')}
         />
+        <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)}>
+          <Lead/>
+        </Modal>
         </div>
       </div>
       

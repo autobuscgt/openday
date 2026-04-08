@@ -1,4 +1,8 @@
+import { useContext } from "react"
+import pathContext from "../context/pathContext"
+
 function Greet() {
+    const {isDev, toggleMode} = useContext(pathContext);
     return (
     <div className=''>
         <div style={{fontFamily:'MM'}}>
@@ -8,8 +12,10 @@ function Greet() {
             <p>Для того, чтобы переача данных прошла успешно от отправителя к адресату, нужно правильно настроить для него маршрут. Перед вами карта. Сопроводите пакет от точки "А" к точке "Б", пройдя все заботы и проблемы.</p>
             
             <div className='dev-container'>
-                    <div className='choosen-path' path-id="2" />
-                    <div className='choosen-path' path-id="1"/>
+                <h1 style={!isDev ? {color:'var(--white-purple)'} : {color:'var(--green-color)'}}>
+                    Если хочешь выбрать другой путь, кликни на карточку
+                </h1>
+                <div className='choosen-path' path-id={!isDev ? "1" : "2"} onClick={toggleMode}/>
             </div>
         </div>
   </div>

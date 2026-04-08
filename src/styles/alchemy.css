@@ -1,8 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 .main {
     display: flex;
@@ -106,9 +102,6 @@
     /* Сохраняем пропорции */
 }
 
-
-
-
 .openItem {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -131,7 +124,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    overflow-y: auto; /* Добавляем скролл если много элементов */
+    overflow-y: auto;
 }
 
 .openItem {
@@ -260,6 +253,8 @@
 
 .alchemy-container{
     height: 700px;
+    -webkit-user-drag: drag;
+    user-select: text;
 }
 
 

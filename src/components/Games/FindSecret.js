@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useQuest } from '../../context/questContext';
-import '../../styles/modals/FindSecret.css';
 
 const systemIcons = {
     server: '🖥️',
@@ -214,15 +213,13 @@ const FindSecret = () => {
     return (
         <div className="find-secret-modal-container">
             <div className="find-secret-modal" onClick={(e) => e.stopPropagation()}>
-                <h2 style={{color:'var(--white-purple)'}}>Поиск секретного ключа</h2>
-
                 <div className="modal-question">
                     <p>Секретный ключ для расшифровки данных потерялся. Секретный файл (🔐), который хранит все ключи, необходимо найти среди множества элементов информационной системы.</p>
                     <p>Используйте панель управления справа, чтобы изменять CSS-свойства и найти его!</p>
                     <p><strong>Подсказка:</strong> Секретный файл должен быть поверх всех остальных элементов (самый большой z-index)</p>
                 </div>
 
-                <div className="elements-container" style={{ position: 'relative', minHeight: '400px' }}>
+                <div className="elements-container" style={{ position: 'relative'}}>
                     {elements.map((element) => (
                         <div
                             key={element.id}
@@ -245,9 +242,16 @@ const FindSecret = () => {
                             <div className="element-zindex">z-index: {cssProperties.zIndex[element.id] || element.initialZIndex}</div>
                         </div>
                     ))}
+                
+                
                 </div>
 
-                {selectedElement !== null && !found && (
+
+            
+            </div>
+            <div className='control-panel-container'>
+
+            
                     <div className="control-panel">
                         <h3>Управление элементом</h3>
 
@@ -286,19 +290,6 @@ const FindSecret = () => {
                         </div>
 
                         <div className="control-group">
-                            <label>Масштаб (Scale):</label>
-                            <input
-                                type="range"
-                                min="0.5"
-                                max="2"
-                                step="0.1"
-                                value={parseFloat(cssProperties.transform[selectedElement]?.match(/scale\(([^)]+)\)/)?.[1] || 1)}
-                                onChange={(e) => updateTransform(selectedElement, 'scale', parseFloat(e.target.value))}
-                            />
-                            <span>{parseFloat(cssProperties.transform[selectedElement]?.match(/scale\(([^)]+)\)/)?.[1] || 1).toFixed(1)}</span>
-                        </div>
-
-                        <div className="control-group">
                             <label>Размытие (Blur):</label>
                             <input
                                 type="range"
@@ -323,31 +314,20 @@ const FindSecret = () => {
                         </div>
 
                         <button className="reset-element-btn" onClick={resetElement}>
-                            Сбросить для этого элемента
+                            Сбросить настройки для этого элемента
                         </button>
+                        {found && <h2 style={{color:'var(--green-color)'}}>Ключ найден! Задание выполнено!</h2>}
                     </div>
-                )}
-            </div>
-
-            <div className="game-footer">
-                <div className="game-stats">
-                    <span className="info-message">Попыток: {attempts}</span>
-                    {found && <span className="victory">Ключ найден! Задание выполнено!</span>}
-                </div>
-
-                <div className="game-controls">
+                        <div className="game-footer">
                     {!found && (
                         <button className="reset-btn" onClick={resetGame}>
-                            Новая игра
+                            Новая игра ⟳ 
                         </button>
                     )}
-                    {found && (
-                        <button className="reset-btn" onClick={handleCompleteQuest}>
-                            Завершить задание
-                        </button>
-                    )}
-                </div>
             </div>
+
+            </div>
+
         </div>
     );
 };

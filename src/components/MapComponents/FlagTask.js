@@ -2,19 +2,26 @@ import './FlagTask.css';
 
 const FlagTask = ({ id, isCompleted, isActive, onClick, item}) => {
   const handleFlagClick = () => {
+    if (isCompleted || !isActive) {
+      return;
+    }
     if (onClick) {
       onClick();
-    } else {
-      console.log(`Флаг ${id} нажат`);
     }
+    console.log(`Ничего не произошло`);
   };
+
   return (
     <div 
       className={`flag-container ${isCompleted ? 'completed' : ''} ${isActive ? 'active' : ''}`}
       data-flag-id={id}
       onClick={handleFlagClick}
+      style={{
+        cursor: isCompleted || !isActive ? 'not-allowed' : 'pointer',
+        opacity: isCompleted ? 0.6 : 1
+      }}
     >
-    <div className='inner-flag-container-item'>{item}</div>  
+      <div className='inner-flag-container-item'>{item}</div>  
     </div>
   );
 };
