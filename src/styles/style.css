@@ -581,3 +581,48 @@ body{
     display: flex;
     font-family: MB;
 }
+
+.computer-cards-container{
+    display: grid;
+    width: 1500px;
+    grid-template-columns: 40% 60%;
+    justify-items: center;
+    align-items: center;
+}
+.junior-game-field{
+    background-color: var(--dark-grey);
+    padding: 20px;
+    width: 90%;
+    color: white;
+    border-radius: 25px;
+}
+.computer-card-container{
+    
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+.computer-card{
+    background-color: var(--white-purple);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 140px;
+    border-radius: 25px;
+    cursor: grab;
+    align-items: center;
+    justify-content: center;
+}
+.junior-game-field h1{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.computer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
