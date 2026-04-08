@@ -5,6 +5,7 @@ function Lead(){
     const completeLvl = () => {
         updateQuestStatus('lead', true);
     }
+
     return (
         <div>
             Lead
