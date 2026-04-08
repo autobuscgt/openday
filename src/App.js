@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import './styles/animations.css'
 import './styles/ticTacToe.css'
+import './styles/modals/FindSecret.css'
 import './styles/alchemy.css'
 import './styles/style.css';
 import './styles/map.css';
