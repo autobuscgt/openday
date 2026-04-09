@@ -3,10 +3,10 @@ import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
 import Modal from './Modal';
 
-import ComputerBuilder from './DevPathComponents/firstBattle'
-import Middle from './DevPathComponents/secondBattle'
-import Senior from './DevPathComponents/thirdBattle'
-import Lead from './DevPathComponents/fourthBattle'
+import ComputerBuilder from './DevPathComponents/Junior'
+import Middle from './DevPathComponents/Middle'
+import Senior from './DevPathComponents/Senior'
+import Lead from './DevPathComponents/Lead'
 
 import { useState } from 'react';
 import { useQuest } from '../context/questContext';
@@ -27,8 +27,8 @@ const questMapping = {
   '8':'lead',
 }
 
-const mock_text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum, risus vel tristique posuere, lacus lectus lacinia urna, at rhoncus erat neque id ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse consequat commodo sem sed vehicula. Morbi ac interdum leo. Aenean tristique dictum ornare. Nullam ipsum lectus, lacinia eu consectetur quis, euismod a enim. Phasellus id eleifend libero, vel tristique metus. Sed magna sapien, dignissim in justo ac, varius laoreet risus. In id felis porta, porta felis ut, dapibus libero. In ut fermentum nunc. Sed et est diam. Maecenas id urna nec nunc ornare vulputate vitae fermentum arcu. Ut magna velit, consequat nec velit nec, elementum malesuada ex. Fusce ac justo congue, mattis tortor vel, consequat erat. \n
-Nam consectetur velit ex, sed aliquet velit sagittis tincidunt. Proin non diam at eros feugiat rutrum ut ac tortor. Aenean justo diam, cursus eget placerat nec, convallis a tortor. Nam auctor tortor ut sapien egestas, at efficitur libero suscipit. Sed convallis lorem risus, sit amet tempor velit vestibulum mattis. Etiam quis porttitor ipsum. In accumsan libero vel eros ullamcorper accumsan.\n`
+const mock_text = `Для того чтобы собрать компьютер, нужно перетаскивать комплектующие в соответствующие контейнеры`
+
 function DevMap(){
   const {completedQuests} = useQuest();
 
@@ -116,8 +116,8 @@ function DevMap(){
             isCompleted={getQuestStatus('6')}
             onClick={() => handleFlagClick('6')}
           />
-        <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}>
-          <Middle/>
+        <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}  questName={'middle'}>
+          <Middle isOpen={middle} onClose={() => setMiddle(false)}/>
         </Modal>
         </div>
         
@@ -145,8 +145,8 @@ function DevMap(){
             isCompleted={getQuestStatus('7')}
             onClick={() => handleFlagClick('7')}
           />
-        <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)}>
-          <Senior/>
+        <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)} questName={'senior'}>
+          <Senior isOpen={senior} onClose={()=> setSenior(false)}/>
         </Modal>
         </div>
 
@@ -159,7 +159,7 @@ function DevMap(){
             onClick={()=> handleFlagClick('8')}
         />
         <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)}>
-          <Lead/>
+          <Lead isOpen={lead} onClose={()=> setLead(false)}/>
         </Modal>
         </div>
       </div>

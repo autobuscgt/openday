@@ -30,6 +30,7 @@ body{
     --def-padding: 15px;
     --def-margin: 15px;
     --white-purple:#6392F7;
+    --light-blue:#9DBBFA;
     --white-blue: #76CAFF;
     --dark-grey: #232323;
     --white-grey: #E8E8E8;
@@ -70,6 +71,7 @@ body{
 }
 
 .close-btn{
+    font-size: 1rem;
     background-color: var(--white-purple);
 }
 .close-btn.yes{
@@ -602,7 +604,7 @@ body{
     max-height: 700px;
     display: grid;
     min-width: 1000px;
-    grid-template-columns: 35% 60%;
+    grid-template-columns: 35% 65%;
     justify-items: center;
     align-items: center;
     
@@ -611,7 +613,7 @@ body{
 .junior-game{
     background-color: var(--dark-grey);
     padding: 20px;
-    width: 90%;
+    width: 100%;
     color: white;
     border-radius: 25px;
     font-size: 1rem;
@@ -632,22 +634,16 @@ body{
 .computer-card{
     color: var(--white-grey);
     background-color: var(--white-purple);
-    width: 100%;
+    width: 150px;
     display: flex;
     flex-direction: column;
-    height: 140px;
+    height: 150px;
     border-radius: 25px;
     cursor: grab;
     align-items: center;
     justify-content: center;
 }
 
-
-.computer-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-}
 
 .complete-lvl{
     width: 100%;
@@ -672,8 +668,8 @@ body{
     align-items: center;
     background-image: url('../components/DevPathComponents/images/PC_CASE.svg');
     background-position: center;
-    background-size: 56%;
-    background-position-x: 41%;
+    background-size: 87%;
+    background-position-x: 5px;
     background-repeat: no-repeat;
 }
 .junior-game-field{
@@ -720,7 +716,7 @@ body{
     background-size: cover;
     border-radius: 10px;
     z-index: 6;
-    background-color: #D9D9D9;
+    background-color: var(--white-purple);
 }
 
 .computer-component[component-data="power_unit"]{
@@ -737,12 +733,12 @@ body{
     grid-column: 2/3;
     grid-row: 2/3;
     z-index: 6;
-    background-color: var(--dark-grey);
+    background-color: var(--light-blue);
     height: 100px;
     width: 100px;
     border-radius: 25px;
     padding: 15px;
-    border: 10px solid #5B5B5B;
+    border: 10px solid rgba(0, 0, 0, 0.5);
 }
 
 .computer-component[component-data="videocard"]{
@@ -754,7 +750,7 @@ body{
     z-index: 7;
     width: 400px;
     height: 70px;
-    background-color: #5B5B5B;
+    background-color: var(--light-blue);
 }
 
 .computer-component[component-data="motherboard"]{
@@ -763,7 +759,7 @@ body{
     z-index: 5;
     grid-row: 1/5;
     grid-column: 1/5;
-    background-color: #D9D9D9;
+    background-color: var(--white-purple);
 }
 
 .computer-component[component-data="ram"]{
@@ -775,9 +771,56 @@ body{
     width: 30px;
     position: relative;
     z-index: 7;
-    background-color: #5B5B5B;
+    background-color: var(--light-blue);
 }
 
 .computer-component:hover{
     opacity: 0.9;
+}
+
+.submit-button{
+    background-color: var(--orange-color);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    font-family: MM;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.2s;
+}
+.submit-button.green-btn{
+    background-color: var(--green-color);
+}
+
+.submit-button:hover{
+    transition: 0.2s;
+    opacity: 0.8;
+}
+.modal-close{
+    width: 40%;
+    margin-right: 5px;
+    background-color: var(--dark-grey);
+    border: 0;
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.2s;
+}
+.modal-close:hover{
+    transition: 0.2s;
+    opacity: 0.7;
+}
+.double-btn{
+    display: flex;
+}
+
+.consoleW{
+    width: 100%;
+    height: 200px;
 }
