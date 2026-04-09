@@ -120,6 +120,13 @@ body{
     text-align: left;
 }
 
+.modal-header-example-text{
+    margin: 10px 0px;
+    background-color: var(--white-grey);
+    padding: 10px 0.5rem;
+    border-radius: 10px;
+}
+
 .modal-footer button{
     width: 100%;
     height: 45px;
@@ -580,4 +587,188 @@ body{
     align-items: center;
     display: flex;
     font-family: MB;
+}
+
+.computer-cards-container{
+    max-height: 700px;
+    display: grid;
+    min-width: 1000px;
+    grid-template-columns: 35% 60%;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+.junior-game{
+    background-color: var(--dark-grey);
+    padding: 20px;
+    width: 90%;
+    color: white;
+    border-radius: 25px;
+    font-size: 1rem;
+    text-align: center;
+}
+.junior-game h1{
+    margin: 15px 0px;
+    font-family: MB;
+}
+
+.computer-card-container{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+.computer-card{
+    color: var(--white-grey);
+    background-color: var(--white-purple);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 140px;
+    border-radius: 25px;
+    cursor: grab;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.computer-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.complete-lvl{
+    width: 100%;
+    background-color: var(--white-purple);
+    border: 0;
+    padding: 15px;
+    border-radius: 15px;
+    font-family: MM;
+    color: white;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.complete-lvl:hover{
+    background-color: var(--green-color);
+    transition: 0.2s;
+}
+.computer-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../components/DevPathComponents/images/PC_CASE.svg');
+    background-position: center;
+    background-size: 56%;
+    background-position-x: 41%;
+    background-repeat: no-repeat;
+}
+.junior-game-field{
+
+    background-color: #363636;
+    border: 10px solid var(--dark-grey);
+    padding: 10px;
+    border-radius: 15px; 
+
+    max-width: 550px;
+    display: grid;
+    grid-template-columns: repeat(6,100px);
+    gap: 5px;
+    grid-template-rows: repeat(5,70px);
+}
+
+.cpu_completed{
+    background-image: url('../components/DevPathComponents/images/CPU.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.videocard_completed{
+    background-color: white;
+}
+.ram_completed{
+    background-color: white;
+}
+.motherboard_completed{
+    background-color: var(--white-purple);
+}
+.hdd_completed{
+    background-color: white;
+}
+
+.computer-component[component-data="hdd"]{
+    grid-column: 4;
+    grid-row: 6;
+    bottom: 0px;
+    width: 200px;
+    height: 50px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    z-index: 6;
+    background-color: #D9D9D9;
+}
+
+.computer-component[component-data="power_unit"]{
+    background-repeat: no-repeat;
+    background-color: var(--white-purple);
+    border-radius: 10px;
+    grid-column: 1/4;
+    grid-row: 5/7;
+    z-index: 6;
+    
+}
+
+.computer-component[component-data="cpu"]{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    z-index: 6;
+    background-color: var(--dark-grey);
+    height: 100px;
+    width: 100px;
+    border-radius: 25px;
+    padding: 15px;
+    border: 10px solid #5B5B5B;
+}
+
+.computer-component[component-data="videocard"]{
+    position: relative;
+    grid-row: 4;
+    bottom: 40px;
+    grid-column: 1/4;
+    border-radius: 0px 10px 10px 0px;
+    z-index: 7;
+    width: 400px;
+    height: 70px;
+    background-color: #5B5B5B;
+}
+
+.computer-component[component-data="motherboard"]{
+    right: auto;
+    border-radius: 10px;
+    z-index: 5;
+    grid-row: 1/5;
+    grid-column: 1/5;
+    background-color: #D9D9D9;
+}
+
+.computer-component[component-data="ram"]{
+    grid-column: 4/5;
+    grid-row: 1/4;
+    margin-top: 10px;
+    height: 150px;
+    border-radius: 5px;
+    width: 30px;
+    position: relative;
+    z-index: 7;
+    background-color: #5B5B5B;
+}
+
+.computer-component:hover{
+    opacity: 0.9;
 }
