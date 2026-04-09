@@ -118,7 +118,8 @@ else{
                     className="submit-button"
                     onClick={handleReset}
                     >
-                    "Сбросить изменения" </button>
+                    Сбросить изменения
+                    </button>
                 </div>}
             </div>
         </div>

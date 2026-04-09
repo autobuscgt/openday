@@ -779,6 +779,7 @@ body{
 }
 
 .submit-button{
+    background-color: var(--orange-color);
     width: 100%;
     border: 0;
     padding: 15px;

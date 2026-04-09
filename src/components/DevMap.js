@@ -4,9 +4,9 @@ import RoadContainer from './MapComponents/RoadContainer';
 import Modal from './Modal';
 
 import ComputerBuilder from './DevPathComponents/Junior'
-import Middle from './DevPathComponents/secondBattle'
+import Middle from './DevPathComponents/Middle'
 import Senior from './DevPathComponents/Senior'
-import Lead from './DevPathComponents/fourthBattle'
+import Lead from './DevPathComponents/Lead'
 
 import { useState } from 'react';
 import { useQuest } from '../context/questContext';
@@ -159,7 +159,7 @@ function DevMap(){
             onClick={()=> handleFlagClick('8')}
         />
         <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)}>
-          <Lead/>
+          <Lead isOpen={lead} onClose={()=> setLead(false)}/>
         </Modal>
         </div>
       </div>

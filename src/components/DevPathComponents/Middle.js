@@ -264,8 +264,8 @@ const Middle = ({ isOpen, onClose }) => {
                     <div className='double-btn'>
                         <button className="modal-close" onClick={handleClose}>Назад ←</button>
                         <button
-                            className="submit-button"
-                            onClick={() => setStart(true)}
+                           className="submit-button green-btn" 
+                        onClick={() => setStart(true)}
                         >
                             Начать игру
                         </button>

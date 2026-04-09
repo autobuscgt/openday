@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import '../App.css';
-import { useQuest } from '../context/QuestContext';
+import { useQuest } from '../../context/questContext';
 
-const FindBug2 = ({ isOpen, onClose }) => {
+const Lead = ({ isOpen, onClose }) => {
     const [code, setCode] = useState(`function calculateSum(a, b) {
   return a + b;
 }
@@ -10,7 +9,7 @@ const FindBug2 = ({ isOpen, onClose }) => {
 return(calculateSum(6, '10')); `);
     const [outText, setOutText] = useState(610);
     const [success, setSuccess] = useState(false);
-        const { updateQuestStatus } = useQuest();
+    const { updateQuestStatus } = useQuest();
 
     const executeCode = useCallback((codeString) => {
         try {
@@ -41,7 +40,7 @@ return(calculateSum(6, '10')); `);
             setOutText(result);
             if (outText === 16) {
                 setSuccess(true)
-                updateQuestStatus("FindBug2", true)
+                updateQuestStatus("lead", true)
             }
         } catch (error) {
             setOutText(`Ошибка: ${error.message}`);
@@ -68,12 +67,8 @@ return(calculateSum(6, '10')); `);
         };
 
     return (
-        <div className="modal-overlay" >
+        <div>
             <div className="console-content">
-                <button className="modal-close" onClick={handleClose}>×</button>
-
-                <h2 className="modal-title">Задание</h2>
-
                 <div className="modal-question" onCopy={(e) => e.preventDefault()}>
                     <p>Необходимо посчитать длину пакета в байтах, чтобы рассчитать примерное время передачи.</p>
                     <p>Вам представлен код с ошибкой. Ожидается что вернется число 16, но по какой-то причине выводится 610.</p>
@@ -107,13 +102,13 @@ return(calculateSum(6, '10')); `);
                 </div>
                 {<button
                     className="submit-button"
-                    onClick={success ? handleClose : handleReset}
+                    onClick={handleReset}
                 >
-                    {success ? "Отлично! Ошибка исправлена!" : "Сбросить изменения"}
+                Сбросить изменения
                 </button>}
             </div>
         </div>
     );
 };
 
-export default FindBug2;
+export default Lead;
