@@ -5,7 +5,7 @@ import Modal from './Modal';
 
 import ComputerBuilder from './DevPathComponents/firstBattle'
 import Middle from './DevPathComponents/secondBattle'
-import Senior from './DevPathComponents/thirdBattle'
+import Senior from './DevPathComponents/Senior'
 import Lead from './DevPathComponents/fourthBattle'
 
 import { useState } from 'react';
@@ -116,8 +116,8 @@ function DevMap(){
             isCompleted={getQuestStatus('6')}
             onClick={() => handleFlagClick('6')}
           />
-        <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}>
-          <Middle/>
+        <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}  questName={'middle'}>
+          <Middle isOpen={middle} onClose={() => setMiddle(false)}/>
         </Modal>
         </div>
         
@@ -145,8 +145,8 @@ function DevMap(){
             isCompleted={getQuestStatus('7')}
             onClick={() => handleFlagClick('7')}
           />
-        <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)}>
-          <Senior/>
+        <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)} questName={'senior'}>
+          <Senior isOpen={senior} onClose={()=> setSenior(false)}/>
         </Modal>
         </div>
 

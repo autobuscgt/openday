@@ -180,8 +180,7 @@ useEffect(()=> {
                         picture={"powet_unit_completed"}
                         isFilled={slots.power_unit}/> 
                         
-                </div> 
-                
+                </div>  
             </div> : 
                 <div style={{color:'var(--dark-grey)', fontSize:'19px', transition:'0.2s'}}>Поздравляю, вы собрали все комплектующие!</div> }
                 {/* <button onClick={completeLvl} className="complete-lvl"> Пройти уровень </button> */}

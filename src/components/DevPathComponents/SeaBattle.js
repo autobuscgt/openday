@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { useQuest } from "../../context/questContext";
+import '../App.css';
+import { useQuest } from '../context/QuestContext';
 
-const Middle = ({ isOpen, onClose }) => {
+const Boss = ({ isOpen, onClose }) => {
     const [result, setResult] = useState("");
     const [hit, setHits] = useState(0);
     const [start, setStart] = useState(false);
@@ -125,7 +126,7 @@ const Middle = ({ isOpen, onClose }) => {
             if (newHits === 5) {
                 setResult("ПОБЕДА! Все лазейки злоумышленника уничтожены!");
                 log("ПОБЕДА! Все уязвимости устранены!");
-                updateQuestStatus('middle', true);
+                updateQuestStatus('boss');
             }
         } else {
             log(`ПРОМАХ в [${row},${col}]`);
@@ -194,19 +195,16 @@ const Middle = ({ isOpen, onClose }) => {
         onClose();
     };
 
-    function walkTh(){
-        updateQuestStatus('middle',true)
-    }
-
     if (!isOpen) return null;
 
     return (
         <div className="modal-overlay" onClick={handleClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                
-                <h1 className='modal-header'>
-                    Морской бой
-                </h1>
+                <button className="modal-close" onClick={handleClose}>×</button>
+
+                <h2 className="modal-title">
+                    Внимание! Злоумышленник пытается перехватить пакет!
+                </h2>
 
                 {!start && (
                     <div className="modal-question">
@@ -261,21 +259,16 @@ const Middle = ({ isOpen, onClose }) => {
                 </div>
 
                 {!start && (
-                    <div className='double-btn'>
-                        <button className="modal-close" onClick={handleClose}>Назад ←</button>
-                        <button
-                            className="submit-button"
-                            onClick={() => setStart(true)}
-                        >
-                            Начать игру
-                        </button>
-                    </div>
+                    <button
+                        className="submit-button"
+                        onClick={() => setStart(true)}
+                    >
+                        Начать игру
+                    </button>
                 )}
-
-                <button onClick={walkTh}>Пройти игру</button>
             </div>
         </div>
     );
 };
 
-export default Middle;
+export default Boss;
