@@ -779,7 +779,6 @@ body{
 }
 
 .submit-button{
-    background-color: var(--orange-color);
     width: 100%;
     border: 0;
     padding: 15px;
@@ -791,6 +790,10 @@ body{
     opacity: 1;
     transition: 0.2s;
 }
+.submit-button.green-btn{
+    background-color: var(--green-color);
+}
+
 .submit-button:hover{
     transition: 0.2s;
     opacity: 0.8;

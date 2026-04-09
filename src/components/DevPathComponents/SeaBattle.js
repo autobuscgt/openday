@@ -260,10 +260,10 @@ const Boss = ({ isOpen, onClose }) => {
 
                 {!start && (
                     <button
-                        className="submit-button"
+                        className="submit-button green-btn" 
                         onClick={() => setStart(true)}
                     >
-                        Начать игру
+                        Начать иг
                     </button>
                 )}
             </div>

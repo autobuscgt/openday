@@ -3,7 +3,7 @@ import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
 import Modal from './Modal';
 
-import ComputerBuilder from './DevPathComponents/firstBattle'
+import ComputerBuilder from './DevPathComponents/Junior'
 import Middle from './DevPathComponents/secondBattle'
 import Senior from './DevPathComponents/Senior'
 import Lead from './DevPathComponents/fourthBattle'
