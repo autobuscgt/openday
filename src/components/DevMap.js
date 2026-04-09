@@ -90,11 +90,11 @@ function DevMap(){
             onClick={() => handleFlagClick('5')}
           />        
           <Modal 
-          title={'Собери компьютер!'} 
-          isOpen={junior} 
-          onClose={() => setJunior(false)}
-          questName={'junior'}
-          textUnder={mock_text}
+            title={'Собери компьютер!'} 
+            isOpen={junior} 
+            onClose={() => setJunior(false)}
+            questName={'junior'}
+            textUnder={mock_text}
           >
             <ComputerBuilder/>
           </Modal>
@@ -117,7 +117,7 @@ function DevMap(){
             onClick={() => handleFlagClick('6')}
           />
         <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}  questName={'middle'}>
-          <Middle isOpen={middle} onClose={() => setMiddle(false)}/>
+          <Middle/>
         </Modal>
         </div>
         
@@ -146,7 +146,7 @@ function DevMap(){
             onClick={() => handleFlagClick('7')}
           />
         <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)} questName={'senior'}>
-          <Senior isOpen={senior} onClose={()=> setSenior(false)}/>
+          <Senior/>
         </Modal>
         </div>
 
@@ -159,7 +159,7 @@ function DevMap(){
             onClick={()=> handleFlagClick('8')}
         />
         <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)}>
-          <Lead isOpen={lead} onClose={()=> setLead(false)}/>
+          <Lead/>
         </Modal>
         </div>
       </div>

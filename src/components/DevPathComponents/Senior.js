@@ -6,11 +6,11 @@ const Senior = ({ isOpen, onClose }) => {
     const [code, setCode] = useState(`
     const a = 50;
     const b = 150;
-    if(a < b){
-        return 'Переменная a больше b'
-    }
-    else{
-    return 'Переменная b больше a'
+        if(a < b){
+            return 'Переменная a больше b'
+        }
+        else{
+            return 'Переменная b больше a'
     }`);
     const [outText, setOutText] = useState('Переменная a больше b');
     const [success, setSuccess] = useState(false);
