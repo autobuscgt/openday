@@ -72,6 +72,7 @@ const Middle = ({ isOpen, onClose }) => {
 
     const generatePc = useCallback(() => {
         const newPc = [];
+        console.log(newPc);
         while (newPc.length < 5) {
             const row = Math.floor(Math.random() * fieldSize);
             const col = Math.floor(Math.random() * fieldSize);
@@ -199,7 +200,7 @@ const Middle = ({ isOpen, onClose }) => {
     }
 
     if (!isOpen) return null;
-
+    
     return (
         <div className="modal-overlay" onClick={handleClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>

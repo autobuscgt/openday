@@ -697,6 +697,9 @@ body{
     background-color: white;
 }
 .ram_completed{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     background-color: white;
 }
 .motherboard_completed{
