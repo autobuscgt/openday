@@ -10,7 +10,6 @@ import hardware from './images/hardware.png'
 import mb from './images/mb.png'
 import vd from './images/vd.png'
 import power_unit from './images/power_unit.png'
-
 import purple_box from './images/purple_box.svg'
 
 
@@ -50,7 +49,7 @@ const DraggableCard = ({card, onDrop}) => {
         }}
         >
         <img src={card.img} draggable="false" alt={card.type} />
-        <div>{card.name}</div>
+        <div style={{fontSize:'10px'}}>{card.name}</div>
         </div>
     )
 }
@@ -135,8 +134,8 @@ useEffect(()=> {
                 </div>
 
             </div>
-            <div className="computer-container" data-side="right" id="drop-box">
-                <div className="junior-game-field">
+            {!isComplete ? <div className="computer-container" data-side="right" id="drop-box">
+                 <div className="junior-game-field">
                         <DropZone 
                             slotLabel={"Процессор"} 
                             slotType={"cpu"} 
@@ -181,8 +180,10 @@ useEffect(()=> {
                         picture={"powet_unit_completed"}
                         isFilled={slots.power_unit}/> 
                         
-                </div>
-            </div>
+                </div> 
+                
+            </div> : 
+                <div style={{color:'var(--dark-grey)', fontSize:'19px', transition:'0.2s'}}>Поздравляю, вы собрали все комплектующие!</div> }
                 {/* <button onClick={completeLvl} className="complete-lvl"> Пройти уровень </button> */}
         </div>
 

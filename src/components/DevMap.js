@@ -27,8 +27,8 @@ const questMapping = {
   '8':'lead',
 }
 
-const mock_text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum, risus vel tristique posuere, lacus lectus lacinia urna, at rhoncus erat neque id ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse consequat commodo sem sed vehicula. Morbi ac interdum leo. Aenean tristique dictum ornare. Nullam ipsum lectus, lacinia eu consectetur quis, euismod a enim. Phasellus id eleifend libero, vel tristique metus. Sed magna sapien, dignissim in justo ac, varius laoreet risus. In id felis porta, porta felis ut, dapibus libero. In ut fermentum nunc. Sed et est diam. Maecenas id urna nec nunc ornare vulputate vitae fermentum arcu. Ut magna velit, consequat nec velit nec, elementum malesuada ex. Fusce ac justo congue, mattis tortor vel, consequat erat. \n
-Nam consectetur velit ex, sed aliquet velit sagittis tincidunt. Proin non diam at eros feugiat rutrum ut ac tortor. Aenean justo diam, cursus eget placerat nec, convallis a tortor. Nam auctor tortor ut sapien egestas, at efficitur libero suscipit. Sed convallis lorem risus, sit amet tempor velit vestibulum mattis. Etiam quis porttitor ipsum. In accumsan libero vel eros ullamcorper accumsan.\n`
+const mock_text = `Для того чтобы собрать компьютер, нужно перетаскивать комплектующие в соответствующие контейнеры`
+
 function DevMap(){
   const {completedQuests} = useQuest();
 
