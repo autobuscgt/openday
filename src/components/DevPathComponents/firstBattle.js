@@ -1,21 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuest } from "../../context/questContext";
 import { game_cards } from "./assets";
 import {DndProvider, useDrag, useDrop} from 'react-dnd'
 import {HTML5Backend} from 'react-dnd-html5-backend'
 
-import POWER_UNIT from './images/PU.svg';
 import CPU from './images/CPU.svg';
-import white_box from './images/white-box.svg'
+
+import hardware from './images/hardware.png'
 import mb from './images/mb.png'
+import vd from './images/vd.png'
+import power_unit from './images/power_unit.png'
+
 import purple_box from './images/purple_box.svg'
+
 
 const slotImages = {
     cpu: CPU,
-    videocard: purple_box,
+    videocard: vd,
     ram: purple_box,
-    hdd: white_box,
-    power_unit: POWER_UNIT,
+    hdd: hardware,
+    power_unit: power_unit,
     motherboard: mb,
 }
 
@@ -99,7 +103,7 @@ const [slots, setSlots] = useState({
         power_unit:false,
         ram:false,
         hdd:false
-    })
+})
 
 const handleDrop = (slotType, item) => {
     setSlots(prev => ({
@@ -109,15 +113,16 @@ const handleDrop = (slotType, item) => {
     console.log(`Установлен ${item.type} в слот ${slotType}`);
 };
 
-const isComplete = Object.values(slots).every(slot => slot !== null);
+const isComplete = Object.values(slots).every(slot => slot === true);
 
-const completeLvl = () => {
+
+useEffect(()=> {
     if(isComplete){
         updateQuestStatus('junior', true);
-    } else{
-        alert('Сначала заверши сборку ПК!')
-    }     
-}
+        alert('Поздравляю, вы собрали компутер!')
+    }
+}, [slots, isComplete])
+
     return (
         <DndProvider backend={HTML5Backend}>
         <div className="computer-cards-container">

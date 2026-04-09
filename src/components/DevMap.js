@@ -93,6 +93,7 @@ function DevMap(){
           title={'Собери компьютер!'} 
           isOpen={junior} 
           onClose={() => setJunior(false)}
+          questName={'junior'}
           textUnder={mock_text}
           >
             <ComputerBuilder/>
