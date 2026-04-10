@@ -275,5 +275,7 @@
 }
 /* завершенные элементы */
 .competed_element{
-    background-color: green;
+    background-color: rgb(60, 209, 60) !important;
+    user-select: none;
+    cursor: no-drop;
 }

@@ -47,7 +47,7 @@ const Alchemy = ({onComplete}) => {
     ];
 
     const [checkAvalibal,setAvailible] = useState({
-        'код':['сайт','бэкенд','софт'],
+        'код':['сайт'],
         'дизайн':['стиль','сайт'],
         'сайт':['интернет-магазин','приложение'],
         'сервер':['бэкенд','сеть','интернет'],
@@ -330,7 +330,7 @@ const Alchemy = ({onComplete}) => {
                               console.log(item),
                                 <div
                                     key={item}
-                                    className="item open"
+                                    className={`item open ${checkAvalibal[item] == 0 ? "competed_element" : "" }`}
                                     draggable
                                     onDragStart={(e) => handleListDragStart(e, item)}
                                 >
