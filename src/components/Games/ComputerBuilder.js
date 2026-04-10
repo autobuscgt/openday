@@ -118,7 +118,6 @@ const isComplete = Object.values(slots).every(slot => slot === true);
 useEffect(()=> {
     if(isComplete){
         updateQuestStatus('middle', true);
-        alert('Поздравляю, вы собрали компутер!')
     }
 }, [slots, isComplete])
 
