@@ -224,7 +224,6 @@ body{
     align-items: center;
     z-index: 10000;
     font-size: 9.6rem;
-    left: -100%;
     animation: expand 2s forwards ease;
 }
 

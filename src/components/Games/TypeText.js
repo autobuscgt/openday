@@ -27,7 +27,6 @@ const TypeText = ({onClose}) => {
 
     const [textToType, setTextToType] = useState(initialText);
 
-    // Очистка таймера при размонтировании
     useEffect(() => {
         return () => {
             if (timeInterval) {
@@ -36,7 +35,6 @@ const TypeText = ({onClose}) => {
         };
     }, [timeInterval]);
 
-    // Обработка таймера
     useEffect(() => {
         if (timer === 0 && taskStarted) {
             clearInterval(timeInterval);
@@ -103,19 +101,17 @@ const TypeText = ({onClose}) => {
         if (!taskStarted) return;
 
         if (text.trim() === textToType[1].trim()) {
-            // Правильный ответ
             if (currentTaskIndex === allText.length - 1) {
-                // Все задания выполнены
                 setResult("Ура! Все задания выполнены! Пакет нашёл новый путь и продолжает движение");
                 setButtonText("Задание выполнено!");
                 setTaskStarted(false);
-                updateQuestStatus('typeText', true);
+                updateQuestStatus('lead', true);
+                onClose();
                 if (timeInterval) {
                     clearInterval(timeInterval);
                     setTimeInterval(null);
                 }
             } else {
-                // Переход к следующему заданию
                 setResult("Отлично! Переходим к следующему этапу'");
                 setCurrentTaskIndex(prev => prev + 1);
                 setTaskStarted(false);
@@ -137,7 +133,6 @@ const TypeText = ({onClose}) => {
             setTimeInterval(null);
         }
         setCurrentTaskIndex(0);
-        updateQuestStatus("lead",true)
         setTimer(35);
         setText('');
         setTextToType(initialText);
