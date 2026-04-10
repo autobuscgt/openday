@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useQuest } from "../../context/questContext";
 
-const SeaBattle = ({ isOpen, onClose }) => {
+const Middle = ({ isOpen, onClose }) => {
     const [result, setResult] = useState("");
     const [hit, setHits] = useState(0);
     const [start, setStart] = useState(false);
@@ -279,4 +279,4 @@ const SeaBattle = ({ isOpen, onClose }) => {
     );
 };
 
-export default SeaBattle;
+export default Middle;

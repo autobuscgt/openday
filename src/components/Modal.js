@@ -1,4 +1,5 @@
-import { useQuest } from '../../context/questContext';  
+import { useQuest } from '../context/questContext';
+import '../styles/style.css'
 
 function Modal({isOpen, onClose, title, children, questName, textContent, textUnder}) {
     const {completedQuests} = useQuest();

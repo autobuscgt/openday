@@ -4,13 +4,13 @@ import { game_cards } from "./assets";
 import {DndProvider, useDrag, useDrop} from 'react-dnd'
 import {HTML5Backend} from 'react-dnd-html5-backend'
 
-import CPU from '../DevPathComponents/images/CPU.svg';
+import CPU from './images/CPU.svg';
 
-import hardware from '../DevPathComponents/images/hardware.png'
-import mb from '../DevPathComponents/images/mb.png'
-import vd from '../DevPathComponents/images/vd.png'
-import power_unit from '../DevPathComponents/images/power_unit.png'
-import ram_pic from '../DevPathComponents/images/ram.png'
+import hardware from './images/hardware.png'
+import mb from './images/mb.png'
+import vd from './images/vd.png'
+import power_unit from './images/power_unit.png'
+import ram_pic from './images/ram.png'
 
 
 const slotImages = {
@@ -117,7 +117,8 @@ const isComplete = Object.values(slots).every(slot => slot === true);
 
 useEffect(()=> {
     if(isComplete){
-        updateQuestStatus('middle', true);
+        updateQuestStatus('junior', true);
+        alert('Поздравляю, вы собрали компутер!')
     }
 }, [slots, isComplete])
 
