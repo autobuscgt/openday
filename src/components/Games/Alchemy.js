@@ -47,7 +47,7 @@ const Alchemy = ({onComplete}) => {
     ];
 
     const [checkAvalibal,setAvailible] = useState({
-        'код':['сайт'],
+        'код':['сайт', 'бэкенд','софт'],
         'дизайн':['стиль','сайт'],
         'сайт':['интернет-магазин','приложение'],
         'сервер':['бэкенд','сеть','интернет'],
@@ -330,8 +330,8 @@ const Alchemy = ({onComplete}) => {
                               console.log(item),
                                 <div
                                     key={item}
-                                    className={`item open ${checkAvalibal[item] == 0 ? "competed_element" : "" }`}
-                                    draggable
+                                    className={`item open ${checkAvalibal[item] == 0 ? "competed_element" : ""}`}
+                                    draggable = {checkAvalibal[item] == 0 ? false : true}
                                     onDragStart={(e) => handleListDragStart(e, item)}
                                 >
                                 <div className='item-card-img-container'>
