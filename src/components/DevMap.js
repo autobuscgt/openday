@@ -1,12 +1,12 @@
 
 import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
-import Modal from './Modal';
+import Modal from './CommonComponents/Modal';
 
-import ComputerBuilder from './DevPathComponents/Junior'
-import Middle from './DevPathComponents/Middle'
-import Senior from './DevPathComponents/Senior'
-import Lead from './DevPathComponents/Lead'
+import ComputerBuilder from './Games/ComputerBuilder'
+import FindSecret from './Games/FindSecret'
+import TypeText from './Games/TypeText'
+import FindBug610 from './Games/FindBug610'
 
 import { useState } from 'react';
 import { useQuest } from '../context/questContext';
@@ -96,7 +96,7 @@ function DevMap(){
             questName={'junior'}
             textUnder={mock_text}
           >
-            <ComputerBuilder/>
+            <FindSecret/>
           </Modal>
         </div>
         
@@ -117,7 +117,7 @@ function DevMap(){
             onClick={() => handleFlagClick('6')}
           />
         <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}  questName={'middle'}>
-          <Middle isOpen={middle} onClose={()=> setMiddle(false)}/>
+          <ComputerBuilder/>
         </Modal>
         </div>
         
@@ -146,7 +146,7 @@ function DevMap(){
             onClick={() => handleFlagClick('7')}
           />
         <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)} questName={'senior'}>
-          <Senior isOpen={senior} onClose={()=> setSenior(false)}/>
+          <FindBug610 isOpen={senior} onClose={()=> setSenior(false)}/>
         </Modal>
         </div>
 
@@ -159,7 +159,7 @@ function DevMap(){
             onClick={()=> handleFlagClick('8')}
         />
         <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)} questName={'lead'}>
-          <Lead/>
+          <TypeText onClose={() => setLead(false)} />
         </Modal>
         </div>
       </div>

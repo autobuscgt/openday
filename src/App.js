@@ -8,14 +8,17 @@ import './styles/style.css';
 import './styles/map.css';
 
 import Map from './components/Map';
-import Greet from './components/Greet';
+import DevMap from './components/DevMap';
+
+import Greet from './components/CommonComponents/Greet';
+import Modal from './components/CommonComponents/Modal';
+import Switcher from './components/CommonComponents/Switcher';
+
 import mkit_logo from './assets/mkit_logo.svg';
 import grey_dots from './assets/grey_dots.svg';
 import blue_line from './assets/blue_line.png'
 import green_line from './assets/green_line.svg'
-import Modal from './components/Modal';
-import Switcher from './components/Switcher';
-import DevMap from './components/DevMap';
+
 import { PathProvider } from './context/pathContext';
 import pathContext from './context/pathContext';
 import QuestTracker from './components/QuestTracker';
