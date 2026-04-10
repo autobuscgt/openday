@@ -273,3 +273,7 @@
     height: 100%;
     width: 100%;
 }
+/* завершенные элементы */
+.competed_element{
+    background-color: green;
+}

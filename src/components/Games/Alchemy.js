@@ -7,19 +7,15 @@ const Alchemy = ({onComplete}) => {
     const [recipes, setRecipes] = useState({
         "код,дизайн": "Сайт",
         "код,сервер": "Бэкенд",
-        "дизайн,сервер": "Дашборд",
         "код,код": "Софт",
         "дизайн,дизайн": "Стиль",
         "сервер,сервер": "Сеть",
         "сайт,бэкенд": "Интернет-магазин",
         "сайт,стиль": "Приложение",
-        "бэкенд,сеть": "Облако",
         "софт,сеть": "Синхронизация",
         "сеть,сервер": "Интернет",
         "приложение,бэкенд": "API",
-        "интернет-магазин,сеть": "Маркетплейс",
         "приложение,сеть": "Игра",
-        "приложение,стиль": "Илюстраторр",
         "api,бэкенд": "БазаДанных",
     });
     
@@ -29,19 +25,15 @@ const Alchemy = ({onComplete}) => {
         "сервер": "/images/сервер.svg",
         "сайт": "/images/сайт.svg",
         "бэкенд": "/images/бэкенд.svg",
-        "дашборд": "/images/дашборд.svg",
         "софт": "/images/софт.svg",
         "стиль": "/images/стиль.svg",
         "сеть": "/images/сеть.svg",
         "интернет-магазин": "/images/интернет-магазин.svg",
         "приложение": "/images/приложение.svg",
-        "облако": "/images/облако.svg",
         "синхронизация": "/images/синхронизация.svg",
         "интернет": "/images/интернет.svg",
         "api": "/images/API.svg",
-        "маркетплейс": "/images/маркетплейс.svg",
         "игра": "/images/игра.svg",
-        "илюстраторр": "/images/илюстраторр.svg",
         "базаданных": "/images/базаданных.svg",
         "Мкит": "images/mkit_logo.svg",
         "мкит": "images/mkit_logo.svg",
@@ -49,10 +41,40 @@ const Alchemy = ({onComplete}) => {
     });
 
     const allPossibleItems = [
-        'код', 'дизайн', 'сервер', 'сайт', 'бэкенд', 'дашборд',
-        'софт', 'стиль', 'сеть', 'интернет-магазин', 'приложение',
-        'облако', 'синхронизация', 'интернет', 'api', 'маркетплейс','базаданных','илюстраторр','игра'
+        'код', 'дизайн', 'сервер', 'сайт', 'бэкенд',
+        'софт', 'стиль', 'сеть', 'приложение',
+        'интернет', 'синхронизация', 'интернет', 'api','интернет-магазин','игра'
     ];
+
+    const [checkAvalibal,setAvailible] = useState({
+        'код':['сайт','бэкенд','софт'],
+        'дизайн':['стиль','сайт'],
+        'сайт':['интернет-магазин','приложение'],
+        'сервер':['бэкенд','сеть','интернет'],
+        'бэкенд':['интернет-магазин',,'api','базаданных'],
+        'софт':['синхронизация'],
+        'стиль':['приложение'],
+        'сеть':['синхронизация','интернет','игра'],
+        'интернет-магазин':[],
+        'приложение':['api','игра'],
+        'синхронизация':[],
+        'интернет':[],
+        'api':['базаданных'],
+        'игра':[],
+        'базаданных':[],
+    })
+
+    function checkingCompletedItems(itemName){
+        setAvailible(prevState =>{
+            const newState = {...prevState}
+            for(let key in newState){
+                if(newState[key].includes(itemName)){
+                    newState[key].splice(newState[key].findIndex(item => item === itemName),1)
+                }
+            }
+            return newState
+        })
+    }
 
     const secretElement = ['МКИТ']
 
@@ -101,6 +123,7 @@ const Alchemy = ({onComplete}) => {
             setAvailableItems([...new Set(availableItems)]);
             setAvailableItems(prev => [...prev, normalizedName]);
         }
+        checkingCompletedItems(itemName)
     }, [availableItems]);
 
     // Создание предмета на поле
@@ -121,7 +144,7 @@ const Alchemy = ({onComplete}) => {
         if (!['код', 'дизайн', 'сервер'].includes(normalizedId)) {
             addToAvailableItems(normalizedId);
         }
-
+        
         return newItem;
     }, [addToAvailableItems]);
 
