@@ -1,9 +1,9 @@
-import RAM from '../DevPathComponents/images/RAM.svg';
-import VIDEO_CARD from '../DevPathComponents/images/VIDEOCARD.svg';
-import HDD from '../DevPathComponents/images/HDD.svg';
-import POWER_UNIT from '../DevPathComponents/images/PU.svg';
-import CPU from '../DevPathComponents/images/CPU.svg';
-import MOTHERBOARD from '../DevPathComponents/images/MotherBoard.svg';
+import RAM from './images/RAM.svg';
+import VIDEO_CARD from './images/VIDEOCARD.svg';
+import HDD from './images/HDD.svg';
+import POWER_UNIT from './images/PU.svg';
+import CPU from './images/CPU.svg';
+import MOTHERBOARD from './images/MotherBoard.svg';
 
 export const game_cards = [
     {id: 1, type: 'ram', img: RAM, name:'{ Оперативная память }'},

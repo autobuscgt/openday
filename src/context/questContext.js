@@ -18,7 +18,7 @@ const loadProgressFromStorage = () => {
     return {
         tictactoe: false,
         alchemy: false,
-        findBug: false,
+        findSecret: false,
         centerDiv: false,
         junior: false,
         middle: false,
@@ -48,7 +48,7 @@ export const QuestProvider = ({ children }) => {
         const resetState = {
             tictactoe: false,
             alchemy: false,
-            findBug: false,
+            findSecret: false,
             centerDiv: false,
             junior: false,
             middle: false,

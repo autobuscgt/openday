@@ -1,8 +1,8 @@
-import { useEffect, useState, useCallback } from 'react';
-import { useQuest } from '../../context/questContext';
+import { useEffect, useState, useCallback, useRef } from 'react';
+import '../App.css';
+import { useQuest } from '../context/QuestContext';
 
-
-const TypeText = ({onClose}) => {
+const TypeText = ({ isOpen, onClose }) => {
     const [text, setText] = useState('');
     const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
     const [taskStarted, setTaskStarted] = useState(false);
@@ -47,7 +47,7 @@ const TypeText = ({onClose}) => {
                 if (currentTaskIndex === allText.length - 1) {
                     setResult("Ура! Все задания выполнены! Пакет нашёл новый путь и продолжает движение");
                     setButtonText("Задание выполнено!");
-                    updateQuestStatus('lead', true);
+                    updateQuestStatus('typeText', true);
                 } else {
                     setResult("Отлично! Переходим к следующему заданию");
                     setButtonText("Следующее задание");
@@ -145,13 +145,16 @@ const TypeText = ({onClose}) => {
         setButtonText("Старт");
         onClose();
     };
+
+    if (!isOpen) return null;
+
     return (
         <div className="modal-overlay" onClick={handleClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <div className='modal-header'>
+                <button className="modal-close" onClick={handleClose}>×</button>
 
-                    <h1>Маршрут</h1>
-                </div>
+                <h2 className="modal-title">Настройка маршрута</h2>
+
                 <div className="modal-question" onCopy={(e) => e.preventDefault()}>
                     <p>{textToType[0]}</p>
                     {taskStarted && (
@@ -176,7 +179,6 @@ const TypeText = ({onClose}) => {
                             />
                             <button
                                 className="submit-button"
-                                isOrange="true"
                                 onClick={handleSubmit}
                                 style={{ marginBottom: '10px' }}
                             >
@@ -193,18 +195,14 @@ const TypeText = ({onClose}) => {
                         Оставшееся время: {timer} сек
                     </div>
                 )}
-                <div className='double-btn'>
-                    <button className="close-btn" onClick={handleClose}>Закрыть</button>
-                    <button
-                        className="submit-button"
-                        isOrange="false"
-                        onClick={buttonText === "Задание выполнено!" ? handleClose : startTask}
-                        disabled={taskStarted && currentTaskIndex < allText.length}
-                    >
-                        {buttonText}
-                    </button>
-                </div>
 
+                <button
+                    className="submit-button"
+                    onClick={buttonText === "Задание выполнено!" ? handleClose : startTask}
+                    disabled={taskStarted && currentTaskIndex < allText.length}
+                >
+                    {buttonText}
+                </button>
             </div>
         </div>
     );
