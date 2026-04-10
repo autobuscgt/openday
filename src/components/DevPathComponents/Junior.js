@@ -10,13 +10,13 @@ import hardware from './images/hardware.png'
 import mb from './images/mb.png'
 import vd from './images/vd.png'
 import power_unit from './images/power_unit.png'
-import purple_box from './images/purple_box.svg'
+import ram_pic from './images/ram.png'
 
 
 const slotImages = {
     cpu: CPU,
     videocard: vd,
-    ram: purple_box,
+    ram: ram_pic,
     hdd: hardware,
     power_unit: power_unit,
     motherboard: mb,

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useQuest } from '../../context/questContext';
 
-const Lead = ({ isOpen, onClose }) => {
+const Lead = () => {
     const [code, setCode] = useState(`function calculateSum(a, b) {
   return a + b;
 }
@@ -48,12 +48,11 @@ return(calculateSum(6, '10')); `);
         }
     }, [code, outText]);
 
-    if (!isOpen) return null;
+
 
     const handleClose = () => {
         handleReset()
         setSuccess(false)
-        onClose();
     };
 
     const handleReset = () => {

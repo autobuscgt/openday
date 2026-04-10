@@ -30,11 +30,11 @@ const checkWinner = () => {
     for (let combo of winningCombinations) {
         const [a, b, c] = combo;
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            setGameActive(false); 
             setWinner(board[a]);
             if (board[a] === "X") { 
                 updateQuestStatus("tictactoe", true); 
             }
-            setGameActive(false);
             return;
         }
     }
@@ -54,62 +54,60 @@ const checkWinner = () => {
     setIsXNext(false);
   };
 
- const makeAIMove = () => {
-  setTimeout(() => {
-    // Убираем проверку !isXNext, оставляем только gameActive и winner
-    if (!gameActive || winner) return;
-    
-    // Дополнительно проверяем, что ход действительно за AI (O)
-    // и что на доске есть ходы
-    const availableMoves = board.reduce((acc, cell, index) => 
-      cell === null ? [...acc, index] : acc, []);
-    
-    if (availableMoves.length === 0) return;
-
-    // Проверяем, что последний ход был сделан игроком (X)
-    // Для этого можно проверить, что isXNext === false (сейчас очередь O)
-    // Но чтобы избежать проблем с замыканием, используем актуальное состояние
-    if (isXNext) return; // Если очередь X, AI не ходит
-
-    let moveIndex;
-
-    for (let move of availableMoves) {
-      const testBoard = [...board];
-      testBoard[move] = 'O';
-      if (checkWin(testBoard, 'O')) {
-        moveIndex = move;
-        break;
-      }
-    }
-    if (moveIndex === undefined) {
+  const makeAIMove = () => {
+    setTimeout(() => {
+      // Убедитесь, что игра активна и нет победителя
+      if (!gameActive || winner) return;
+  
+      const availableMoves = board.reduce((acc, cell, index) => 
+        cell === null ? [...acc, index] : acc, []);
+      
+      if (availableMoves.length === 0) return;
+  
+      let moveIndex;
+  
+      // Проверка на выигрышный ход для ИИ
       for (let move of availableMoves) {
         const testBoard = [...board];
-        testBoard[move] = 'X';
-        if (checkWin(testBoard, 'X')) {
+        testBoard[move] = 'O'; // ИИ делает ход
+        if (checkWin(testBoard, 'O')) {
           moveIndex = move;
           break;
         }
       }
-    }
-
-    if (moveIndex === undefined) {
-      if (availableMoves.includes(4)) {
-        moveIndex = 4;
-      } else {
-        const randomIndex = Math.floor(Math.random() * availableMoves.length);
-        moveIndex = availableMoves[randomIndex];
+  
+      // Проверка на выигрышный ход для игрока
+      if (moveIndex === undefined) {
+        for (let move of availableMoves) {
+          const testBoard = [...board];
+          testBoard[move] = 'X'; // Игрок делает ход
+          if (checkWin(testBoard, 'X')) {
+            moveIndex = move;
+            break;
+          }
+        }
       }
-    }
-
-    // Финальная проверка перед обновлением
-    if (!gameActive || winner) return;
-
-    const newBoard = [...board];
-    newBoard[moveIndex] = 'O';
-    setBoard(newBoard);
-    setIsXNext(true);
-  }, 300);
-};
+  
+      // Если нет выигрышного хода, ИИ делает ход по умолчанию
+      if (moveIndex === undefined) {
+        if (availableMoves.includes(4)) {
+          moveIndex = 4; // Центр
+        } else {
+          const randomIndex = Math.floor(Math.random() * availableMoves.length);
+          moveIndex = availableMoves[randomIndex];
+        }
+      }
+  
+      // Финальная проверка перед обновлением
+      if (!gameActive || winner) return;
+  
+      const newBoard = [...board];
+      newBoard[moveIndex] = 'O';
+      setBoard(newBoard);
+      setIsXNext(true); // Следующий ход игрока (X)
+    }, 300);
+  };
+  
   const checkWin = (board, player) => {
     return winningCombinations.some(combo => 
       combo.every(index => board[index] === player)
