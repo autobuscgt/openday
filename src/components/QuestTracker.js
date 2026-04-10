@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQuest } from "../context/questContext";
-import End from "./End";
+import End from "./CommonComponents/End";
 
 function QuestTracker(){
     const [showAnimation, setShowAnimation] = useState(false);

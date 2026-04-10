@@ -1,13 +1,18 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useQuest } from '../../context/questContext';
 
-const Lead = () => {
-    const [code, setCode] = useState(`function calculateSum(a, b) {
-  return a + b;
-}
 
-return(calculateSum(6, '10')); `);
-    const [outText, setOutText] = useState(610);
+const FindBug2 = ({ isOpen, onClose }) => {
+    const [code, setCode] = useState(`
+    const a = 50;
+    const b = 150;
+        if(a < b){
+            return 'Переменная a больше b'
+        }
+        else{
+            return 'Переменная b больше a'
+    }`);
+    const [outText, setOutText] = useState('Переменная a больше b');
     const [success, setSuccess] = useState(false);
     const { updateQuestStatus } = useQuest();
 
@@ -38,9 +43,9 @@ return(calculateSum(6, '10')); `);
         try {
             const result = executeCode(code);
             setOutText(result);
-            if (outText === 16) {
+            if (outText === "Переменная b больше a") {
                 setSuccess(true)
-                updateQuestStatus("lead", true)
+                updateQuestStatus("senior", true)
             }
         } catch (error) {
             setOutText(`Ошибка: ${error.message}`);
@@ -48,29 +53,37 @@ return(calculateSum(6, '10')); `);
         }
     }, [code, outText]);
 
-
+    if (!isOpen) return null;
 
     const handleClose = () => {
         handleReset()
         setSuccess(false)
+        onClose();
     };
 
     const handleReset = () => {
-        setCode(`function calculateSum(a, b) {
-        return a + b;
-        }
-
-        return(calculateSum(6, '10')); `)
-                const result = executeCode(code);
-                setOutText(result);
-        };
+        setCode(`const a = 50;
+const b = 150;
+if(a < b){
+    return 'Переменная a больше b'
+}
+else{
+   return 'Переменная b больше a'
+}`)
+        const result = executeCode(code);
+        setOutText(result);
+    };
 
     return (
         <div>
             <div className="console-content">
+              
+                
+
+
                 <div className="modal-question" onCopy={(e) => e.preventDefault()}>
-                    <p>Необходимо посчитать длину пакета в байтах, чтобы рассчитать примерное время передачи.</p>
-                    <p>Вам представлен код с ошибкой. Ожидается что вернется число 16, но по какой-то причине выводится 610.</p>
+                    <p>В сетевом пакете оказалось слишком много данных. Помогите их сократить.</p>
+                    <p>Вам представлен код с ошибкой. Исправьте его, чтобы в окне вывода появлялось правильное сообщение.</p>
                 </div>
 
                 <div className='console-line'>
@@ -99,15 +112,18 @@ return(calculateSum(6, '10')); `);
                         />
                     </section>
                 </div>
-                {<button
+                {
+                    <div className='double-btn'>
+                    <button
                     className="submit-button"
                     onClick={handleReset}
-                >
-                Сбросить изменения
-                </button>}
+                    >
+                    Сбросить изменения
+                    </button>
+                </div>}
             </div>
         </div>
     );
 };
 
-export default Lead;
+export default FindBug2;

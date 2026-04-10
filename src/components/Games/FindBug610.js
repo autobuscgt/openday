@@ -1,18 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useQuest } from '../../context/questContext';
 
+const FindBug610 = () => {
+    const [code, setCode] = useState(`function calculateSum(a, b) {
+  return a + b;
+}
 
-const Senior = ({ isOpen, onClose }) => {
-    const [code, setCode] = useState(`
-    const a = 50;
-    const b = 150;
-        if(a < b){
-            return 'Переменная a больше b'
-        }
-        else{
-            return 'Переменная b больше a'
-    }`);
-    const [outText, setOutText] = useState('Переменная a больше b');
+return(calculateSum(6, '10')); `);
+    const [outText, setOutText] = useState(610);
     const [success, setSuccess] = useState(false);
     const { updateQuestStatus } = useQuest();
 
@@ -43,7 +38,7 @@ const Senior = ({ isOpen, onClose }) => {
         try {
             const result = executeCode(code);
             setOutText(result);
-            if (outText === "Переменная b больше a") {
+            if (outText === 16) {
                 setSuccess(true)
                 updateQuestStatus("senior", true)
             }
@@ -53,37 +48,29 @@ const Senior = ({ isOpen, onClose }) => {
         }
     }, [code, outText]);
 
-    if (!isOpen) return null;
+
 
     const handleClose = () => {
         handleReset()
         setSuccess(false)
-        onClose();
     };
 
     const handleReset = () => {
-        setCode(`const a = 50;
-const b = 150;
-if(a < b){
-    return 'Переменная a больше b'
-}
-else{
-   return 'Переменная b больше a'
-}`)
-        const result = executeCode(code);
-        setOutText(result);
-    };
+        setCode(`function calculateSum(a, b) {
+        return a + b;
+        }
+
+        return(calculateSum(6, '10')); `)
+                const result = executeCode(code);
+                setOutText(result);
+        };
 
     return (
         <div>
             <div className="console-content">
-              
-                
-
-
                 <div className="modal-question" onCopy={(e) => e.preventDefault()}>
-                    <p>В сетевом пакете оказалось слишком много данных. Помогите их сократить.</p>
-                    <p>Вам представлен код с ошибкой. Исправьте его, чтобы в окне вывода появлялось правильное сообщение.</p>
+                    <p>Необходимо посчитать длину пакета в байтах, чтобы рассчитать примерное время передачи.</p>
+                    <p>Вам представлен код с ошибкой. Ожидается что вернется число 16, но по какой-то причине выводится 610.</p>
                 </div>
 
                 <div className='console-line'>
@@ -112,18 +99,16 @@ else{
                         />
                     </section>
                 </div>
-                {
-                    <div className='double-btn'>
-                    <button
+                {<button
                     className="submit-button"
+                    isOrange="true"
                     onClick={handleReset}
-                    >
-                    Сбросить изменения
-                    </button>
-                </div>}
+                >
+                Сбросить изменения
+                </button>}
             </div>
         </div>
     );
 };
 
-export default Senior;
+export default FindBug610;

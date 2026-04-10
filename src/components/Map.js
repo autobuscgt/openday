@@ -10,7 +10,7 @@ import Alchemy from './Games/Alchemy';
 import TicTacToe from './Games/TicTacToe';
 import CenterDivModal from './Games/CenterDivModal';
 import FindSecret from './Games/FindSecret';
-import Modal from './Modal';
+import Modal from './CommonComponents/Modal';
 
 const divStyle = {
   width: '100%',
