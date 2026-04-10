@@ -94,7 +94,7 @@ const FindSecret = () => {
 
             if (isOnTop && !found) {
                 setFound(true);
-                updateQuestStatus('findSecret', true);
+                updateQuestStatus('junior', true);
             }
         }
     }, [cssProperties.zIndex, secretId, elements, found, updateQuestStatus]);

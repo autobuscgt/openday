@@ -1,12 +1,12 @@
 
 import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
-import Modal from './Modal';
+import Modal from './CommonComponents/Modal';
 
-import ComputerBuilder from './DevPathComponents/Junior'
-import Middle from './DevPathComponents/Middle'
-import Senior from './DevPathComponents/Senior'
-import Lead from './DevPathComponents/Lead'
+import ComputerBuilder from './Games/ComputerBuilder'
+import FindSecret from './Games/FindSecret'
+import TypeText from './Games/TypeText'
+import FindBug610 from './Games/FindBug610'
 
 import { useState } from 'react';
 import { useQuest } from '../context/questContext';
@@ -83,7 +83,7 @@ function DevMap(){
       <div className='road-container'>
         <div id='rd1'>
           <FlagTask
-            item={'JUNIOR'}
+            item={<h3 style={{color:'var(--red-color)'}}>Junior</h3>}
             id={'5'}
             isActive={activeQuestId === '5'}
             isCompleted={getQuestStatus('5')}
@@ -96,7 +96,7 @@ function DevMap(){
             questName={'junior'}
             textUnder={mock_text}
           >
-            <ComputerBuilder/>
+            <FindSecret/>
           </Modal>
         </div>
         
@@ -111,13 +111,13 @@ function DevMap(){
         <div id='rd3'>
         <FlagTask
             id={'6'}
-            item={'MIDDLE'}
+            item={<h3 style={{color:'var(--green-color)'}}>Middle</h3>}
             isActive={activeQuestId === '6'}
             isCompleted={getQuestStatus('6')}
             onClick={() => handleFlagClick('6')}
           />
         <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}  questName={'middle'}>
-          <Middle isOpen={middle} onClose={()=> setMiddle(false)}/>
+          <ComputerBuilder/>
         </Modal>
         </div>
         
@@ -140,26 +140,26 @@ function DevMap(){
         <div id='rd6'>
         <FlagTask
             id={'7'}
-            item={'SENIOR'}
+            item={<h3 style={{color:'var(--white-purple)'}}>Senior</h3>}
             isActive={activeQuestId === '7'}
             isCompleted={getQuestStatus('7')}
             onClick={() => handleFlagClick('7')}
           />
         <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)} questName={'senior'}>
-          <Senior isOpen={senior} onClose={()=> setSenior(false)}/>
+          <FindBug610 isOpen={senior} onClose={()=> setSenior(false)}/>
         </Modal>
         </div>
 
         <div id='rd7'>
         <FlagTask
             id={'8'}
-            item={'LEAD'}
+            item={<h3 style={{color:'var(--orange-color)'}}>Lead</h3>}
             isActive={activeQuestId === '8'}
             isCompleted={getQuestStatus('8')}
             onClick={()=> handleFlagClick('8')}
         />
         <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)} questName={'lead'}>
-          <Lead/>
+          <TypeText onClose={() => setLead(false)} />
         </Modal>
         </div>
       </div>

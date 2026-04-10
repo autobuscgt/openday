@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useQuest } from '../../context/questContext';
 
 
-const Senior = ({ isOpen, onClose }) => {
+const FindBug2 = () => {
     const [code, setCode] = useState(`
     const a = 50;
     const b = 150;
@@ -45,7 +45,7 @@ const Senior = ({ isOpen, onClose }) => {
             setOutText(result);
             if (outText === "Переменная b больше a") {
                 setSuccess(true)
-                updateQuestStatus("senior", true)
+                updateQuestStatus("findBug", true)
             }
         } catch (error) {
             setOutText(`Ошибка: ${error.message}`);
@@ -53,12 +53,9 @@ const Senior = ({ isOpen, onClose }) => {
         }
     }, [code, outText]);
 
-    if (!isOpen) return null;
-
     const handleClose = () => {
         handleReset()
         setSuccess(false)
-        onClose();
     };
 
     const handleReset = () => {
@@ -112,18 +109,17 @@ else{
                         />
                     </section>
                 </div>
-                {
-                    <div className='double-btn'>
                     <button
                     className="submit-button"
+                    isOrange="true"
                     onClick={handleReset}
                     >
                     Сбросить изменения
                     </button>
-                </div>}
+
             </div>
         </div>
     );
 };
 
-export default Senior;
+export default FindBug2;

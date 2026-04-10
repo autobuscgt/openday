@@ -8,14 +8,17 @@ import './styles/style.css';
 import './styles/map.css';
 
 import Map from './components/Map';
-import Greet from './components/Greet';
+import DevMap from './components/DevMap';
+
+import Greet from './components/CommonComponents/Greet';
+import Modal from './components/CommonComponents/Modal';
+import Switcher from './components/CommonComponents/Switcher';
+
 import mkit_logo from './assets/mkit_logo.svg';
 import grey_dots from './assets/grey_dots.svg';
 import blue_line from './assets/blue_line.png'
 import green_line from './assets/green_line.svg'
-import Modal from './components/Modal';
-import Switcher from './components/Switcher';
-import DevMap from './components/DevMap';
+
 import { PathProvider } from './context/pathContext';
 import pathContext from './context/pathContext';
 import QuestTracker from './components/QuestTracker';
@@ -25,6 +28,7 @@ function AppContent() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
   const [init, setInit] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isResetOpen, setIsResetOpen] = useState(false);
   const { isDev, setIsDev } = useContext(pathContext);
   const {resetProgress} = useQuest()
 
@@ -39,6 +43,10 @@ function AppContent() {
     }
     setInit(true);
   }, []);
+
+  const handleReset = ()=> {
+      resetProgress()
+  }
 
   const handleToggle = () => {
     setIsDev(prevState => !prevState);
@@ -58,8 +66,12 @@ function AppContent() {
 
   return (
     <div>
-        <button onClick={resetProgress} style={{position:'fixed', right:'100px', bottom:'100px',zIndex:'29292992'}}>
-            Сбросить игру
+        <button onClick={handleReset} className='reset_all_levels'>
+         
+          <Modal>
+
+          </Modal>
+            Сбросить игру полностью
         </button>
       <div className={`map ${!isDev ? "" : "dev"}`}>
         <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>

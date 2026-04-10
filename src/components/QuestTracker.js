@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useQuest } from "../context/questContext";
-import End from "./End";
+import End from "./CommonComponents/End";
 
 function QuestTracker(){
     const [showAnimation, setShowAnimation] = useState(false);
     const {completedQuests} = useQuest();
     
-    const mainQuests = ["tictactoe","centerDiv","findSecret","alchemy"];
+    const mainQuests = ["centerDiv","findBug","alchemy"];
     const devQuests = ["junior","middle","senior","lead"];
 
     const completedCount = mainQuests.filter(quest => completedQuests[quest]).length;
