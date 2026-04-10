@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useQuest } from '../../context/questContext';
 
-const FindBug610 = () => {
+const Lead = () => {
     const [code, setCode] = useState(`function calculateSum(a, b) {
   return a + b;
 }
@@ -40,7 +40,7 @@ return(calculateSum(6, '10')); `);
             setOutText(result);
             if (outText === 16) {
                 setSuccess(true)
-                updateQuestStatus("senior", true)
+                updateQuestStatus("lead", true)
             }
         } catch (error) {
             setOutText(`Ошибка: ${error.message}`);
@@ -101,7 +101,6 @@ return(calculateSum(6, '10')); `);
                 </div>
                 {<button
                     className="submit-button"
-                    isOrange="true"
                     onClick={handleReset}
                 >
                 Сбросить изменения
@@ -111,4 +110,4 @@ return(calculateSum(6, '10')); `);
     );
 };
 
-export default FindBug610;
+export default Lead;

@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import pathContext from "../../context/pathContext"
+import pathContext from "../context/pathContext"
 
 function Greet() {
     const {isDev, toggleMode} = useContext(pathContext);
