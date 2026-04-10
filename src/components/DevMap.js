@@ -83,7 +83,7 @@ function DevMap(){
       <div className='road-container'>
         <div id='rd1'>
           <FlagTask
-            item={'JUNIOR'}
+            item={<h3 style={{color:'var(--red-color)'}}>Junior</h3>}
             id={'5'}
             isActive={activeQuestId === '5'}
             isCompleted={getQuestStatus('5')}
@@ -111,7 +111,7 @@ function DevMap(){
         <div id='rd3'>
         <FlagTask
             id={'6'}
-            item={'MIDDLE'}
+            item={<h3 style={{color:'var(--green-color)'}}>Middle</h3>}
             isActive={activeQuestId === '6'}
             isCompleted={getQuestStatus('6')}
             onClick={() => handleFlagClick('6')}
@@ -140,7 +140,7 @@ function DevMap(){
         <div id='rd6'>
         <FlagTask
             id={'7'}
-            item={'SENIOR'}
+            item={<h3 style={{color:'var(--white-purple)'}}>Senior</h3>}
             isActive={activeQuestId === '7'}
             isCompleted={getQuestStatus('7')}
             onClick={() => handleFlagClick('7')}
@@ -153,7 +153,7 @@ function DevMap(){
         <div id='rd7'>
         <FlagTask
             id={'8'}
-            item={'LEAD'}
+            item={<h3 style={{color:'var(--orange-color)'}}>Lead</h3>}
             isActive={activeQuestId === '8'}
             isCompleted={getQuestStatus('8')}
             onClick={()=> handleFlagClick('8')}

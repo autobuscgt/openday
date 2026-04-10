@@ -7,7 +7,6 @@ import { useQuest } from '../context/questContext';
 import { useState } from 'react';
 
 import Alchemy from './Games/Alchemy';
-import TicTacToe from './Games/TicTacToe';
 import CenterDivModal from './Games/CenterDivModal';
 import FindBug2 from './Games/FindBug2'
 import Modal from './CommonComponents/Modal';

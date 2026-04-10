@@ -82,7 +82,18 @@
     border-radius: 25px;
     animation: 2s pulse3 ease-in infinite;
 }
-
+.flag-container[data-flag-id ="5"].active{
+    filter: saturate(1);
+}
+.flag-container[data-flag-id ="6"].active{
+    filter: saturate(1);
+}
+.flag-container[data-flag-id ="7"].active{
+    filter: saturate(1);
+}
+.flag-container[data-flag-id ="8"].active{
+    filter: saturate(1);    
+}
 .path-container{
     background-size: contain;
     background-repeat: no-repeat;

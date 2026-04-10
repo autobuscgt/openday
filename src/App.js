@@ -28,6 +28,7 @@ function AppContent() {
   const [greetIsOpen, setGreetIsOpen] = useState(false);
   const [init, setInit] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isResetOpen, setIsResetOpen] = useState(false);
   const { isDev, setIsDev } = useContext(pathContext);
   const {resetProgress} = useQuest()
 
@@ -42,6 +43,10 @@ function AppContent() {
     }
     setInit(true);
   }, []);
+
+  const handleReset = ()=> {
+      resetProgress()
+  }
 
   const handleToggle = () => {
     setIsDev(prevState => !prevState);
@@ -61,8 +66,12 @@ function AppContent() {
 
   return (
     <div>
-        <button onClick={resetProgress} style={{position:'fixed', right:'100px', bottom:'100px',zIndex:'29292992'}}>
-            Сбросить игру
+        <button onClick={handleReset} className='reset_all_levels'>
+         
+          <Modal>
+
+          </Modal>
+            Сбросить игру полностью
         </button>
       <div className={`map ${!isDev ? "" : "dev"}`}>
         <img src={grey_dots} alt='серые точки' className='background-dots' data-dots="1"/>
