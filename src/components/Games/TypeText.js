@@ -137,6 +137,7 @@ const TypeText = ({onClose}) => {
             setTimeInterval(null);
         }
         setCurrentTaskIndex(0);
+        updateQuestStatus("lead",true)
         setTimer(35);
         setText('');
         setTextToType(initialText);
