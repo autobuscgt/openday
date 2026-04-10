@@ -117,7 +117,7 @@ function DevMap(){
             onClick={() => handleFlagClick('6')}
           />
         <Modal title={'MIDDLE'} isOpen={middle} onClose={() => setMiddle(false)}  questName={'middle'}>
-          <Middle/>
+          <Middle isOpen={middle} onClose={()=> setMiddle(false)}/>
         </Modal>
         </div>
         
@@ -146,7 +146,7 @@ function DevMap(){
             onClick={() => handleFlagClick('7')}
           />
         <Modal title={'SENIOR'} isOpen={senior} onClose={() => setSenior(false)} questName={'senior'}>
-          <Senior/>
+          <Senior isOpen={senior} onClose={()=> setSenior(false)}/>
         </Modal>
         </div>
 
@@ -158,7 +158,7 @@ function DevMap(){
             isCompleted={getQuestStatus('8')}
             onClick={()=> handleFlagClick('8')}
         />
-        <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)}>
+        <Modal title={'LEAD'} isOpen={lead} onClose={() => setLead(false)} questName={'lead'}>
           <Lead/>
         </Modal>
         </div>
