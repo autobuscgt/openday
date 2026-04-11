@@ -70,9 +70,11 @@ src/
 
 Цветовая схема определена в глобальных стилях:
 
+<img width="1347" height="168" alt="Colors" src="https://github.com/user-attachments/assets/6d4bd49c-9f4b-463f-8bef-ca32c0d00e47" />
+
 --white-blue: #76CAFF; <br/>
---dark-grey: #363636; <br/>
 --white-grey: #E8E8E8; <br/>
+--dark-grey: #363636; <br/>
 --primary-color: #F9F9F9; <br/>
 --white-purple: #6392F7; <br/>
 --light-blue: #9DBBFA; <br/>
