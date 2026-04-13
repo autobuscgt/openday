@@ -22,13 +22,13 @@ const divStyle = {
 }
 
 const questMapping = {
-  //'1': 'question4',
-  '1': 'centerDiv',
-  '2': 'question5',
-  '3': 'findBug',
-  '4': 'question6',
-  '5': 'alchemy',
-  //'7': 'question7',
+  '1': 'question4',
+  '2': 'centerDiv',
+  '3': 'question5',
+  '4': 'findBug',
+  '5': 'question6',
+  '6': 'alchemy',
+  '7': 'question7',
 };
 
 function Map() {
@@ -84,27 +84,27 @@ function Map() {
       return;
     }
     switch (questId) {
-      // case '1':
-      //   setQuestion4(true);
-      //   break;
       case '1':
-        setIsCenterDivOpen(true);
+        setQuestion4(true);
         break;
       case '2':
-        setQuestion5(true);
+        setIsCenterDivOpen(true);
         break;
       case '3':
-        setIsFindBug(true);
+        setQuestion5(true);
         break;
       case '4':
-        setQuestion6(true);
+        setIsFindBug(true);
         break;
       case '5':
+        setQuestion6(true);
+        break;
+      case '6':
         setAlchemyIsOpen(true);
         break;
-      // case '7':
-      //   setQuestion7(true);
-      //   break;
+      case '7':
+        setQuestion7(true);
+        break;
       default:
         break;
     }
@@ -130,14 +130,24 @@ function Map() {
             <TicTacToe/>
           </Modal>
         </div> */}
-
+        <div id="rd5">
+          <RoadContainer
+            isActive={activeQuestId === '7'}
+            isCompleted={getQuestStatus('7')}
+            onClick={() => handleFlagClick('7')}
+            id={"3"}
+          />
+          <Modal title={'Вопрос!'} isOpen={question7} onClose={() => setQuestion7(false)} questName={'question7'}>
+            <QuestionModal question={questionData[3].question} options={questionData[3].options} correctAnswer={questionData[3].correctAnswer} index={7} />
+          </Modal>
+        </div>
 
         <div id="rd6">
           <FlagTask
-            id={"3"}
-            isCompleted={getQuestStatus('5')}
-            isActive={activeQuestId === '5'}
-            onClick={!getQuestStatus('5') ? () => handleFlagClick('5') : undefined}
+            id={"4"}
+            isCompleted={getQuestStatus('6')}
+            isActive={activeQuestId === '6'}
+            onClick={!getQuestStatus('6') ? () => handleFlagClick('6') : undefined}
           />
 
           <Modal isOpen={isAlchemyOpen} onClose={() => setAlchemyIsOpen(false)} title={'IT-Алхимия'} questName={"alchemy"}>
@@ -157,22 +167,22 @@ function Map() {
 
         <div id="rd4">
           <RoadContainer
-            isActive={activeQuestId === '4'}
-            isCompleted={getQuestStatus('4')}
-            onClick={() => handleFlagClick('4')}
+            isActive={activeQuestId === '5'}
+            isCompleted={getQuestStatus('5')}
+            onClick={() => handleFlagClick('5')}
             id={"2"}
           />
           <Modal title={'Вопрос!'} isOpen={question6} onClose={() => setQuestion6(false)} questName={'question6'}>
-            <QuestionModal question={questionData[2].question} options={questionData[2].options} correctAnswer={questionData[2].correctAnswer} index={6}/>
+            <QuestionModal question={questionData[2].question} options={questionData[2].options} correctAnswer={questionData[2].correctAnswer} index={6} />
           </Modal>
         </div>
 
         <div id="rd3">
           <FlagTask
-            id={"2"}
-            isCompleted={getQuestStatus('3')}
-            isActive={activeQuestId === '3'}
-            onClick={!getQuestStatus('3') ? () => handleFlagClick('3') : undefined}
+            id={"3"}
+            isCompleted={getQuestStatus('4')}
+            isActive={activeQuestId === '4'}
+            onClick={!getQuestStatus('4') ? () => handleFlagClick('4') : undefined}
           />
           <Modal isOpen={findBug} onClose={() => setIsFindBug(false)} title={'Найди баг'} questName={"findBug"}>
             <FindBug2 />
@@ -181,25 +191,37 @@ function Map() {
 
         <div id="rd2">
           <RoadContainer
-            isActive={activeQuestId === '2'}
-            isCompleted={getQuestStatus('2')}
-            onClick={() => handleFlagClick('2')}
+            isActive={activeQuestId === '3'}
+            isCompleted={getQuestStatus('3')}
+            onClick={() => handleFlagClick('3')}
             id={"1"}
           />
           <Modal title={'Вопрос!'} isOpen={question5} onClose={() => setQuestion5(false)} questName={'question5'}>
-            <QuestionModal question={questionData[1].question} options={questionData[1].options} correctAnswer={questionData[1].correctAnswer} index={5}/>
+            <QuestionModal question={questionData[1].question} options={questionData[1].options} correctAnswer={questionData[1].correctAnswer} index={5} />
           </Modal>
         </div>
 
         <div id="rd1">
           <FlagTask
-            id={"1"}
-            isCompleted={getQuestStatus('1')}
-            isActive={activeQuestId === '1'}
-            onClick={!getQuestStatus('1') ? () => handleFlagClick('1') : undefined}
+            id={"2"}
+            isCompleted={getQuestStatus('2')}
+            isActive={activeQuestId === '2'}
+            onClick={!getQuestStatus('2') ? () => handleFlagClick('2') : undefined}
           />
           <Modal isOpen={isCenterDivOpen} onClose={() => setIsCenterDivOpen(false)} title={'Центрирование дива'} questName={"centerDiv"}>
             <CenterDivModal />
+          </Modal>
+        </div>
+
+         <div id="rd0">
+          <RoadContainer
+            isActive={activeQuestId === '1'}
+            isCompleted={getQuestStatus('1')}
+            onClick={() => handleFlagClick('1')}
+            id={"0"}
+          />
+          <Modal title={'Вопрос!'} isOpen={question4} onClose={() => setQuestion4(false)} questName={'question4'}>
+            <QuestionModal question={questionData[0].question} options={questionData[0].options} correctAnswer={questionData[0].correctAnswer} index={4} />
           </Modal>
         </div>
 
