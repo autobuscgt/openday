@@ -1,0 +1,44 @@
+.textarea {
+    width: 100%;
+    padding: 10px;
+    font-family: 'monospace';
+    margin-bottom: 10px
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background-color: #6392F7;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button:active {
+  transform: translateY(1px);
+}
+
+.message {
+  padding: 2px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+}

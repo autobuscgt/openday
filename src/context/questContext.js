@@ -18,12 +18,19 @@ const loadProgressFromStorage = () => {
     return {
         tictactoe: false,
         alchemy: false,
-        findBug: false,
+        findSecret: false,
         centerDiv: false,
         junior: false,
         middle: false,
         senior: false,
         lead: false,
+        question1: false,
+        question2: false,
+        question3: false,
+        question4: false,
+        question5: false,
+        question6: false,
+        question7: false,
     };
 };
 
@@ -48,12 +55,19 @@ export const QuestProvider = ({ children }) => {
         const resetState = {
             tictactoe: false,
             alchemy: false,
-            findBug: false,
+            findSecret: false,
             centerDiv: false,
             junior: false,
             middle: false,
             senior: false,
             lead: false,
+            question1: false,
+            question2: false,
+            question3: false,
+            question4: false,
+            question5: false,
+            question6: false,
+            question7: false,
         };
         setCompletedQuests(resetState);
         saveProgressToStorage(resetState);
@@ -67,7 +81,7 @@ export const QuestProvider = ({ children }) => {
 
     return (
         <QuestContext.Provider value={value}>
-            {children} 
+            {children}
         </QuestContext.Provider>
     );
 };

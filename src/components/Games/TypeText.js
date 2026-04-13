@@ -1,8 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useQuest } from '../../context/questContext';
 
-
-const TypeText = ({onClose}) => {
+const TypeText = () => {
     const [text, setText] = useState('');
     const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
     const [taskStarted, setTaskStarted] = useState(false);
@@ -46,7 +45,7 @@ const TypeText = ({onClose}) => {
             if (text.trim() === textToType[1].trim()) {
                 if (currentTaskIndex === allText.length - 1) {
                     setResult("Ура! Все задания выполнены! Пакет нашёл новый путь и продолжает движение");
-                    setButtonText("Задание выполнено!");
+                    setButtonText(false);
                     updateQuestStatus('lead', true);
                 } else {
                     setResult("Отлично! Переходим к следующему заданию");
@@ -78,7 +77,7 @@ const TypeText = ({onClose}) => {
         }
 
         setText('');
-        
+
         if (currentTaskIndex < allText.length) {
             setTextToType(allText[currentTaskIndex]);
             setTaskStarted(true);
@@ -109,14 +108,14 @@ const TypeText = ({onClose}) => {
                 setResult("Ура! Все задания выполнены! Пакет нашёл новый путь и продолжает движение");
                 setButtonText("Задание выполнено!");
                 setTaskStarted(false);
-                updateQuestStatus('typeText', true);
+                updateQuestStatus('lead', true);
                 if (timeInterval) {
                     clearInterval(timeInterval);
                     setTimeInterval(null);
                 }
             } else {
                 // Переход к следующему заданию
-                setResult("Отлично! Переходим к следующему этапу'");
+                setResult("Отлично! Переходим к следующему этапу");
                 setCurrentTaskIndex(prev => prev + 1);
                 setTaskStarted(false);
                 setText('');
@@ -131,83 +130,59 @@ const TypeText = ({onClose}) => {
         }
     }, [taskStarted, text, textToType, currentTaskIndex, allText.length, timeInterval, updateQuestStatus]);
 
-    const handleClose = () => {
-        if (timeInterval) {
-            clearInterval(timeInterval);
-            setTimeInterval(null);
-        }
-        setCurrentTaskIndex(0);
-        updateQuestStatus("lead",true)
-        setTimer(35);
-        setText('');
-        setTextToType(initialText);
-        setResult('');
-        setTaskStarted(false);
-        setButtonText("Старт");
-        onClose();
-    };
+
     return (
-        <div className="modal-overlay" onClick={handleClose}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <div className='modal-header'>
-
-                    <h1>Маршрут</h1>
-                </div>
-                <div className="modal-question" onCopy={(e) => e.preventDefault()}>
-                    <p>{textToType[0]}</p>
-                    {taskStarted && (
-                        <p><strong>Команда для ввода:</strong> {textToType[1]}</p>
-                    )}
-                </div>
-
-                <section>
-                    {taskStarted ? (
-                        <>
-                            <textarea
-                                value={text}
-                                onChange={(e) => setText(e.target.value)}
-                                rows={3}
-                                style={{ 
-                                    width: '100%', 
-                                    padding: '10px', 
-                                    fontFamily: 'monospace',
-                                    marginBottom: '10px'
-                                }}
-                                placeholder="Введите команду..."
-                            />
-                            <button
-                                className="submit-button"
-                                isOrange="true"
-                                onClick={handleSubmit}
-                                style={{ marginBottom: '10px' }}
-                            >
-                                Проверить
-                            </button>
-                        </>
-                    ) : (
-                        result && <p className="info-message">{result}</p>
-                    )}
-                </section>
-
+        <div>
+            <div className="modal-question" onCopy={(e) => e.preventDefault()}>
+                <p>{textToType[0]}</p>
                 {taskStarted && (
-                    <div className="info-message" style={{ marginTop: '10px' }}>
-                        Оставшееся время: {timer} сек
-                    </div>
+                    <p><strong>Команда для ввода:</strong> {textToType[1]}</p>
                 )}
-                <div className='double-btn'>
-                    <button className="close-btn" onClick={handleClose}>Закрыть</button>
-                    <button
-                        className="submit-button"
-                        isOrange="false"
-                        onClick={buttonText === "Задание выполнено!" ? handleClose : startTask}
-                        disabled={taskStarted && currentTaskIndex < allText.length}
-                    >
-                        {buttonText}
-                    </button>
-                </div>
-
             </div>
+
+            <section>
+                {taskStarted ? (
+                    <>
+                        <textarea
+                            value={text}
+                            onChange={(e) => setText(e.target.value)}
+                            rows={3}
+                            style={{
+                                width: '100%',
+                                padding: '10px',
+                                fontFamily: 'monospace',
+                                marginBottom: '10px'
+                            }}
+                            placeholder="Введите команду..."
+                        />
+                        <button
+                            className="submit-button"
+                            onClick={handleSubmit}
+                            style={{ marginBottom: '10px' }}
+                        >
+                            Проверить
+                        </button>
+                    </>
+                ) : (
+                    result && <p className="message">{result}</p>
+                )}
+            </section>
+
+            {taskStarted && (
+                <div className="message" style={{ marginTop: '10px' }}>
+                    Оставшееся время: {timer} сек
+                </div>
+            )}
+
+            {buttonText && <button
+                className="submit-button"
+                onClick={startTask}
+                disabled={taskStarted && currentTaskIndex < allText.length}
+            >
+                {buttonText}
+            </button>}
         </div>
+
     );
 };
 
