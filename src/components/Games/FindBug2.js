@@ -3,8 +3,7 @@ import { useQuest } from '../../context/questContext';
 
 
 const FindBug2 = () => {
-    const [code, setCode] = useState(`
-    const a = 50;
+    const [code, setCode] = useState(`const a = 50;
     const b = 150;
         if(a < b){
             return 'Переменная a больше b'
@@ -74,10 +73,6 @@ else{
     return (
         <div>
             <div className="console-content">
-              
-                
-
-
                 <div className="modal-question" onCopy={(e) => e.preventDefault()}>
                     <p>В сетевом пакете оказалось слишком много данных. Помогите их сократить.</p>
                     <p>Вам представлен код с ошибкой. Исправьте его, чтобы в окне вывода появлялось правильное сообщение.</p>

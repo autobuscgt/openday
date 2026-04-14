@@ -9,6 +9,7 @@ import './styles/findBug.css'
 import './styles/alchemy.css'
 import './styles/map.css';
 import './styles/typeText.css'
+import './styles/centerDiv.css'
 
 import Map from './components/Map';
 import DevMap from './components/DevMap';

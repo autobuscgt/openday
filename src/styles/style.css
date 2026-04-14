@@ -3,6 +3,7 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
 /*
 ============== Шрифты ==============
 */
@@ -16,34 +17,40 @@
     src: url('../assets/fonts/MB.ttf');
 }
 
+@font-face {
+    font-family: PM;
+    src: url('../assets/fonts/PM.otf');
+}
+
 /*
 ============== Базовые стили =======
 */
 
-body{
+body {
     overflow-x: hidden;
 }
 
-:root{
+:root {
     --border-radius: 600px;
     --border-square-radius: 10px;
     --def-padding: 15px;
     --def-margin: 15px;
-    --white-purple:#6392F7;
-    --light-blue:#9DBBFA;
+    --white-purple: #6392F7;
+    --light-blue: #9DBBFA;
     --white-blue: #76CAFF;
     --dark-grey: #232323;
     --white-grey: #E8E8E8;
     --primary-color: #F9F9F9;
-    --green-color : #63C574;
+    --green-color: #63C574;
     --red-color: #EF3C3C;
     --orange-color: #F48445;
     --game-padding: 10px 0.5rem;
 }
+
 /*
 ============== Кнопка инструкции =======
 */
-.inst_btn{
+.inst_btn {
     position: fixed;
     bottom: 10px;
     left: 10px;
@@ -57,38 +64,42 @@ body{
     transition: all 0.2s ease;
 }
 
-.inst_btn:hover{
+.inst_btn:hover {
     background-image: url('../assets/instruction_icon_hover.png');
     transition: all 0.2s ease;
     background-color: #ffffff;
 }
 
-.inst_btn.dev{
+.inst_btn.dev {
     background-image: url('../assets/instruction_icon_green.png');
 }
- 
-.inst_btn.dev:hover{
+
+.inst_btn.dev:hover {
     background-color: #363636;
     background-image: url('../assets/instruction_icon_green_hover.png');
 }
 
-.close-btn{
+.close-btn {
     border: 0;
     border-radius: 5px;
     color: white;
     font-family: MM;
     font-size: 1rem;
     background-color: var(--white-purple);
-    transition:0.2s all;
+    transition: 0.2s all;
     cursor: pointer;
 }
-.close-btn.yes{
+
+.close-btn.yes {
     background-color: var(--green-color);
 }
-.close-btn:hover{
+
+.close-btn:hover {
     opacity: 0.8;
-    transition:0.2s all;;
+    transition: 0.2s all;
+    ;
 }
+
 /*
 ============== Модальные окна =======
 */
@@ -119,28 +130,29 @@ body{
     color: var(--dark-grey);
 }
 
-.modal-content h2{
+.modal-content h2 {
     font-family: MB;
     color: var(--dark-grey);
 }
 
-.modal-header{
+.modal-header {
+    margin-top: 5px;
     margin-bottom: var(--def-margin);
     padding-bottom: var(--def-padding);
     color: var(--white-purple);
     border-bottom: 3px solid var(--white-purple);
-    font-family: MB;
+    font-family: PM;
     text-align: left;
 }
 
-.modal-header-example-text{
+.modal-header-example-text {
     margin: 10px 0px;
     background-color: var(--white-grey);
     padding: 10px 0.5rem;
     border-radius: 10px;
 }
 
-.modal-footer button{
+.modal-footer button {
     width: 100%;
     height: 45px;
     margin-top: var(--def-padding);
@@ -149,14 +161,16 @@ body{
     color: white;
     border-radius: var(--border-square-radius);
     transition: 0.2s;
-    font-family: MM;
+    font-family: PM;
+    font-size: 15px;
 }
 
-.modal-footer button:hover{
+.modal-footer button:hover {
     opacity: 0.8;
     transition: 0.2s;
     cursor: pointer;
 }
+
 .modal-title {
     margin-bottom: var(--def-margin);
     padding-bottom: var(--def-padding);
@@ -166,6 +180,7 @@ body{
     text-align: left;
     font-size: 1.5rem;
 }
+
 /*
 ============== Модальные окна (вопросы) =======
 */
@@ -192,7 +207,7 @@ body{
 ============== Лого ==============
 */
 
-.logo{
+.logo {
     -webkit-user-drag: none;
     background-color: var(--dark-grey);
     padding: 20px;
@@ -208,12 +223,12 @@ body{
 ============== Анимация после прохождения уровней ==============
 */
 
-.end-inner-items-container{
+.end-inner-items-container {
     overflow: hidden;
     backdrop-filter: blur(5px);
     background-color: var(--white-grey);
     font-family: MB;
-    color:var(--dark-grey);
+    color: var(--dark-grey);
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -227,7 +242,7 @@ body{
     animation: expand 2s forwards ease;
 }
 
-.end-inner-items-container p{
+.end-inner-items-container p {
     animation: transparent-transition 1s forwards ease-in;
     animation-delay: 2.5s;
     font-family: MM;
@@ -237,10 +252,10 @@ body{
     width: 100%;
     color: var(--white-purple);
     text-align: center;
-    
+
 }
 
-.mkit_cube{
+.mkit_cube {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -255,7 +270,7 @@ body{
     animation: MKIT_frames 1s ease forwards;
 }
 
-.mkit_cube[cube-id="1"]{
+.mkit_cube[cube-id="1"] {
     background-color: var(--white-purple);
     rotate: 45deg;
     top: 65%;
@@ -264,8 +279,8 @@ body{
     animation-delay: 4s;
 }
 
-.mkit_cube[cube-id="2"]{
-    background-color:  var(--orange-color);
+.mkit_cube[cube-id="2"] {
+    background-color: var(--orange-color);
     rotate: 67deg;
     top: 40%;
     right: 5%;
@@ -273,7 +288,7 @@ body{
     animation-delay: 4.5s;
 }
 
-.mkit_cube[cube-id="3"]{
+.mkit_cube[cube-id="3"] {
     background-color: var(--red-color);
     rotate: -60deg;
     top: 35%;
@@ -283,7 +298,7 @@ body{
 
 }
 
-.mkit_cube[cube-id="4"]{
+.mkit_cube[cube-id="4"] {
     background-color: var(--green-color);
     rotate: 37deg;
     top: 75%;
@@ -296,7 +311,7 @@ body{
 ============== Смена пути в свитчере =======
 */
 
-.switch-container{
+.switch-container {
     width: 100px;
     display: flex;
     align-items: center;
@@ -309,12 +324,12 @@ body{
     transition: 0.5s;
 }
 
-.switch-container.dev{
+.switch-container.dev {
     background-color: var(--green-color);
     transition: 0.5s;
 }
 
-.switch-btn{
+.switch-btn {
     position: relative;
     left: 5px;
     width: 35px;
@@ -326,7 +341,7 @@ body{
     cursor: pointer;
 }
 
-.switch-btn.dev{
+.switch-btn.dev {
     left: 60px;
     transition: 0.5s;
 }
@@ -335,7 +350,7 @@ body{
 ============== Выбор пути в инструкции =======
 */
 
-.dev-container{
+.dev-container {
     justify-content: center;
     flex-direction: column;
     padding: 20px 0px;
@@ -344,7 +359,7 @@ body{
     min-height: 200px;
 }
 
-.choosen-path{
+.choosen-path {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -353,24 +368,24 @@ body{
     min-height: 300px;
 }
 
-.choosen-path[path-id="1"]{
+.choosen-path[path-id="1"] {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     background-image: url('../assets/path/dev_path_ico.svg');
 }
 
-.choosen-path[path-id="1"]:hover{
+.choosen-path[path-id="1"]:hover {
     transition: all 0.2s ease-in-out;
     background-image: url('../assets/path/dev_path_ico_hover.svg');
 }
 
-.choosen-path[path-id="2"]{
+.choosen-path[path-id="2"] {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     background-image: url('../assets/path/default_path_ico.svg');
 }
 
-.choosen-path[path-id="2"]:hover{
+.choosen-path[path-id="2"]:hover {
     transition: all 0.2s ease-in-out;
     background-image: url('../assets/path/default_path_ico_hover.svg');
 }
@@ -379,99 +394,17 @@ body{
 ============== СТИЛИ ИГР =======
 */
 
-.flex-playground {
-    border-radius: 10px;
-    background-color: #76CAFF;
-    background-image: 
-    linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px);
-    background-size: 30px 30px;
-}
-.floating-block {
-    width: 100px;
-    height: 100px;
-    font-size: 60px;
-}
-.center-div-container{
-    display: grid;
-    grid-template-columns: repeat(2,600px);
-    column-gap: 20px;
-}
-
-.slider-container {
-    width: 100%;
-    margin: 20px 0;
-    transition: 0.2s;
-}
-.css-slider {
-    width: 100%;
-    margin: 10px 0;
-    transition: 0.2s;
-}
-
-.slider-labels {
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    margin-top: 10px;
-    transition: 0.2s;
-}
-
-.slider-label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 55px;
-    flex: 1;
-    padding: 5px;
-    cursor: pointer;
-    background: #f0f0f0;
-    border-radius: 10px;
-    font-size: 14px;
-    transition: 0.2s;
-}
-
-.slider-label.active {
-    background: var(--white-purple);
-    color: white;
-    transition: 0.2s;
-}
-
-.control-btn {
-    background-color: var(--white-purple);
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-family: MM;
-}
-
-.buttons{
-    display: grid;
-    margin: 10px 0px;
-    gap: 10px;
-    grid-template-columns: repeat(2,1fr);
-}
-
-.floating-block.transforming{
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-family: MB;
-}
-
-.computer-cards-container{
+.computer-cards-container {
     max-height: 700px;
     display: grid;
     min-width: 1000px;
     grid-template-columns: 35% 65%;
     justify-items: center;
     align-items: center;
-    
+
 }
 
-.junior-game{
+.junior-game {
     background-color: var(--dark-grey);
     padding: 20px;
     width: 100%;
@@ -480,19 +413,21 @@ body{
     font-size: 1rem;
     text-align: center;
 }
-.junior-game h1{
+
+.junior-game h1 {
     margin: 15px 0px;
     font-family: MB;
 }
 
-.computer-card-container{
+.computer-card-container {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-items: center;
 }
-.computer-card{
+
+.computer-card {
     color: var(--white-grey);
     background-color: var(--white-purple);
     width: 150px;
@@ -506,7 +441,7 @@ body{
 }
 
 
-.complete-lvl{
+.complete-lvl {
     width: 100%;
     background-color: var(--white-purple);
     border: 0;
@@ -517,11 +452,13 @@ body{
     transition: 0.2s;
     cursor: pointer;
 }
-.complete-lvl:hover{
+
+.complete-lvl:hover {
     background-color: var(--green-color);
     transition: 0.2s;
 }
-.computer-container{
+
+.computer-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -533,44 +470,48 @@ body{
     background-position-x: 5px;
     background-repeat: no-repeat;
 }
-.junior-game-field{
+
+.junior-game-field {
 
     background-color: #363636;
     border: 10px solid var(--dark-grey);
     padding: 10px;
-    border-radius: 15px; 
+    border-radius: 15px;
 
     max-width: 550px;
     display: grid;
-    grid-template-columns: repeat(6,100px);
+    grid-template-columns: repeat(6, 100px);
     gap: 5px;
-    grid-template-rows: repeat(5,70px);
+    grid-template-rows: repeat(5, 70px);
 }
 
-.cpu_completed{
+.cpu_completed {
     background-image: url('../components/DevPathComponents/images/CPU.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.videocard_completed{
+.videocard_completed {
     background-color: white;
 }
-.ram_completed{
+
+.ram_completed {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     background-color: white;
 }
-.motherboard_completed{
+
+.motherboard_completed {
     background-color: var(--white-purple);
 }
-.hdd_completed{
+
+.hdd_completed {
     background-color: white;
 }
 
-.computer-component[component-data="hdd"]{
+.computer-component[component-data="hdd"] {
     grid-column: 4;
     grid-row: 6;
     bottom: 0px;
@@ -583,17 +524,17 @@ body{
     background-color: var(--white-purple);
 }
 
-.computer-component[component-data="power_unit"]{
+.computer-component[component-data="power_unit"] {
     background-repeat: no-repeat;
     background-color: var(--white-purple);
     border-radius: 10px;
     grid-column: 1/4;
     grid-row: 5/7;
     z-index: 6;
-    
+
 }
 
-.computer-component[component-data="cpu"]{
+.computer-component[component-data="cpu"] {
     grid-column: 2/3;
     grid-row: 2/3;
     z-index: 6;
@@ -605,7 +546,7 @@ body{
     border: 10px solid rgba(0, 0, 0, 0.5);
 }
 
-.computer-component[component-data="videocard"]{
+.computer-component[component-data="videocard"] {
     position: relative;
     grid-row: 4;
     bottom: 40px;
@@ -617,7 +558,7 @@ body{
     background-color: var(--light-blue);
 }
 
-.computer-component[component-data="motherboard"]{
+.computer-component[component-data="motherboard"] {
     right: auto;
     border-radius: 10px;
     z-index: 5;
@@ -626,7 +567,7 @@ body{
     background-color: var(--white-purple);
 }
 
-.computer-component[component-data="ram"]{
+.computer-component[component-data="ram"] {
     grid-column: 4/5;
     grid-row: 1/4;
     margin-top: 10px;
@@ -638,11 +579,11 @@ body{
     background-color: var(--light-blue);
 }
 
-.computer-component:hover{
+.computer-component:hover {
     opacity: 0.9;
 }
 
-.submit-button{
+.submit-button {
     background-color: var(--white-purple);
     width: 100%;
     border: 0;
@@ -656,20 +597,20 @@ body{
     transition: 0.2s;
 }
 
-.submit-button[isOrange="true"]{
+.submit-button[isOrange="true"] {
     background-color: var(--orange-color);
 }
 
-.submit-button[isOrange="false"]{
+.submit-button[isOrange="false"] {
     background-color: var(--green-color);
-}    
+}
 
-.submit-button:hover{
+.submit-button:hover {
     transition: 0.2s;
     opacity: 0.8;
 }
 
-.modal-close{
+.modal-close {
     width: 40%;
     margin-right: 5px;
     background-color: var(--dark-grey);
@@ -682,23 +623,25 @@ body{
     opacity: 1;
     transition: 0.2s;
 }
-.modal-close:hover{
+
+.modal-close:hover {
     transition: 0.2s;
     opacity: 0.7;
 }
-.double-btn{
+
+.double-btn {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
 
-.consoleW{
+.consoleW {
     width: 100%;
     height: 200px;
     font-size: 1rem;
 }
 
-.reset_all_levels{
+.reset_all_levels {
     background-color: var(--orange-color);
     border-radius: 5px;
     border: 0;
@@ -707,14 +650,14 @@ body{
     height: 100px;
     position: fixed;
     color: white;
-    right:20px;
+    right: 20px;
     cursor: pointer;
-    bottom:20px;
-    z-index:99999999;
-    transition:0.2s;
+    bottom: 20px;
+    z-index: 99999999;
+    transition: 0.2s;
 }
 
-.reset_all_levels:hover{
+.reset_all_levels:hover {
     background-color: var(--red-color);
-    transition:0.2s;
+    transition: 0.2s;
 }
