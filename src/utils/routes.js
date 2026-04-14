@@ -1,12 +1,12 @@
 import App from "../App";
-import DevMap from "../components/DevMap";
+import TestGames from "../components/TestGames";
 import { DEFAULT_PATH, DEV_PATH } from "./consts";
 
 export const routes = [
     {path:DEFAULT_PATH,
     Component: App},
     {path:DEV_PATH,
-    Component: DevMap},
+    Component: TestGames},
     {path:'*',
     Component: App},
 ]
