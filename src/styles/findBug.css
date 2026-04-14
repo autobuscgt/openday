@@ -1,4 +1,4 @@
-.console-line {
+/* .console-line {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -23,7 +23,7 @@
   font-family: monospace;
   border: 1px solid #0f0;
   border-radius: 4px;
-}
+} */
 
 .console-label {
   text-align: center;

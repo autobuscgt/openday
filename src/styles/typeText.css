@@ -5,7 +5,7 @@
     margin-bottom: 10px
 }
 
-.submit-button {
+/* .submit-button {
   width: 100%;
   padding: 14px;
   margin-top: 10px;
@@ -25,7 +25,7 @@
 
 .submit-button:active {
   transform: translateY(1px);
-}
+} */
 
 .message {
   padding: 2px;

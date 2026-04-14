@@ -58,6 +58,7 @@ const QuestionModal = ({question, options, correctAnswer, index }) => {
 
         <button
           className="submit-button"
+          
           onClick={handleSubmit}
         >
           Ответить
