@@ -154,10 +154,7 @@
     pointer-events: none; /* Чтобы drag работал */
 }
 
-.item.open {
-    background-color: white;
-    border: 3px solid var(--red-color);
-}
+
 
 /* Для пустых ячеек или заглушек */
 .item.placeholder {
@@ -276,7 +273,15 @@
 }
 /* завершенные элементы */
 .competed_element{
-    border: 3px var(--green-color) solid !important;
+    box-shadow: 0px 0px 5px 0px var(--red-color) !important;
+    background-color: #ffbdbd !important;
+    border: 2px solid var(--red-color) !important;
     user-select: none;
     cursor: no-drop;
+}
+
+.item.open {
+    border: 2px var(--green-color) solid ;
+    box-shadow: 0px 0px 5px 0px var(--green-color) ;
+    background-color: #c0fdca ;
 }
