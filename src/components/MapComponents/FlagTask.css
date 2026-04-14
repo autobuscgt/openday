@@ -40,19 +40,6 @@
     background-image: url('../../assets/goals/goal\ 4.svg');
 }
 
-.flag-container[data-flag-id ="5"]{
-    /* background-image: url('../../assets/dev_map/JUNIOR.svg'); */
-}
-.flag-container[data-flag-id ="6"]{
-    /* background-image: url('../../assets/dev_map/MIDDLE.svg'); */
-}
-.flag-container[data-flag-id ="7"]{
-    /* background-image: url('../../assets/dev_map/SENIOR.svg'); */
-}
-.flag-container[data-flag-id ="8"]{
-    /* background-image: url('../../assets/dev_map/LEAD.svg'); */
-}
-
 
 .flag-container[data-flag-id ="2"].active{
     cursor: pointer;
@@ -102,6 +89,11 @@
     filter: saturate(0);
     background-size: 70%;
     transition: 5s;
+}
+
+.path-container.active{
+    filter: saturate(1);
+    animation: road_pulse 1s infinite ease-in-out;
 }
 
 .path-container.completed{
@@ -208,3 +200,6 @@
     100%{ scale: 1;}
 }
 
+@keyframes road_pulse {
+    0%{opacity:0.6;} 50%{opacity: 1;} 100%{opacity:0.6;}
+}
