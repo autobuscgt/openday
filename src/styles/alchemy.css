@@ -156,6 +156,7 @@
 
 .item.open {
     background-color: white;
+    border: 3px solid var(--red-color);
 }
 
 /* Для пустых ячеек или заглушек */
@@ -275,7 +276,7 @@
 }
 /* завершенные элементы */
 .competed_element{
-    background-color: rgb(60, 209, 60) !important;
+    border: 3px var(--green-color) solid !important;
     user-select: none;
     cursor: no-drop;
 }

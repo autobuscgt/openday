@@ -62,8 +62,17 @@ const Alchemy = ({onComplete}) => {
         'api':['базаданных'],
         'игра':[],
         'базаданных':[],
+        'мкит':[]
     })
 
+    // заверешнные элементы уходят в начало
+    function completedToStart(updatedState){
+        setAvailableItems(prevState =>{
+            let completed = prevState.filter(item => updatedState[item]?.length === 0)
+            let notCompleted = prevState.filter(item => updatedState[item]?.length > 0)
+            return completed.concat(notCompleted)
+        })
+    }
     function checkingCompletedItems(itemName){
         setAvailible(prevState =>{
             const newState = {...prevState}
@@ -72,8 +81,9 @@ const Alchemy = ({onComplete}) => {
                     newState[key].splice(newState[key].findIndex(item => item === itemName),1)
                 }
             }
+            completedToStart(newState)
             return newState
-        })
+        })  
     }
 
     const secretElement = ['МКИТ']
@@ -293,7 +303,7 @@ const Alchemy = ({onComplete}) => {
     };
 
     // Обработка начала перетаскивания из списка
-    const handleListDragStart = (e, item) => {
+    const handleListDragStart = (e, item) => { 
         e.dataTransfer.setData('text/plain', item);
     };
 
