@@ -273,15 +273,14 @@
 }
 /* завершенные элементы */
 .competed_element{
-    box-shadow: 0px 0px 5px 0px var(--red-color) !important;
-    background-color: #ffbdbd !important;
-    border: 2px solid var(--red-color) !important;
+    border: 2px var(--green-color) solid !important;
+    box-shadow: 0px 0px 5px 0px var(--green-color) !important;
+    background-color: #76ff94 !important;
     user-select: none;
     cursor: no-drop;
 }
 
 .item.open {
-    border: 2px var(--green-color) solid ;
-    box-shadow: 0px 0px 5px 0px var(--green-color) ;
-    background-color: #c0fdca ;
+    border: 2px solid white;
+    background-color: white;
 }

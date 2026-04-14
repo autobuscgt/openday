@@ -228,7 +228,6 @@ body {
 
 .end-inner-items-container {
     overflow: hidden;
-    backdrop-filter: blur(5px);
     background-color: var(--white-grey);
     font-family: MB;
     color: var(--dark-grey);
@@ -241,8 +240,10 @@ body {
     align-items: center;
     z-index: 10000;
     font-size: 9.6rem;
-    left: -100%;
-    animation: expand 2s forwards ease;
+    left: 0;
+    animation: expand 3s forwards ease;
+    opacity: 0;
+    animation-delay: 2s; 
 }
 
 .end-inner-items-container p {

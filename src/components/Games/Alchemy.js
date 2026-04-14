@@ -105,11 +105,8 @@ const Alchemy = ({onComplete}) => {
         if (allCollected && !showCompletionMessage) {
             setShowCompletionMessage(true);
             updateQuestStatus('alchemy', true);
-
-            setTimeout(() => {
-                setShowCompletionMessage(false);
-            }, 5000);
         }
+
     }, [availableItems, allPossibleItems, showCompletionMessage]);
 
     // Функция для нормализации имени (приведение к нижнему регистру)

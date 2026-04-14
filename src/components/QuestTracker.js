@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useQuest } from "../context/questContext";
 import End from "./CommonComponents/End";
+import congratulations from '../assets/congratulations.gif'
+import congratulations2 from '../assets/congratulations2.gif'
 
 function QuestTracker(){
     const [showAnimation, setShowAnimation] = useState(false);
@@ -19,10 +21,29 @@ function QuestTracker(){
         if(allMainCompleted || allDevCompleted){
             setShowAnimation(true)
         }
-    },[allMainCompleted, showAnimation, allDevCompleted])
+    },[allMainCompleted, allDevCompleted]) 
     return (
         <div>
-            {allMainCompleted || allDevCompleted ? <End isOpen={showAnimation} onClose={()=> setShowAnimation(false)}/> : ""}
+        {allMainCompleted ? 
+            <End 
+            isOpen={showAnimation} 
+            message={'Вы прошли все испытания, попробуйте путь разработчика'}
+            imgProp={congratulations2}
+            doStyle={false}
+            onClose={()=> setShowAnimation(false)}/> 
+        : null
+        }
+
+        {allDevCompleted ? 
+            <End 
+            message={'ВЫ НАСТОЯЩИЙ ХАКЕР'}
+            isDev={true}
+            isOpen={showAnimation} 
+            doStyle={true}
+            imgProp={congratulations}
+            onClose={()=> setShowAnimation(false)}/> 
+        : null
+        }
         </div>
     )
 }
