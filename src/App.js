@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 
+import './styles/style.css';
 import './styles/animations.css'
 import './styles/ticTacToe.css'
-// import './styles/findSecret.css'
+import './styles/findSecret.css'
+import './styles/question.css'
+import './styles/findBug.css'
 import './styles/alchemy.css'
-import './styles/style.css';
 import './styles/map.css';
+import './styles/typeText.css'
 
 import Map from './components/Map';
 import DevMap from './components/DevMap';

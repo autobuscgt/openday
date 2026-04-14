@@ -40,19 +40,6 @@
     background-image: url('../../assets/goals/goal\ 4.svg');
 }
 
-.flag-container[data-flag-id ="5"]{
-    /* background-image: url('../../assets/dev_map/JUNIOR.svg'); */
-}
-.flag-container[data-flag-id ="6"]{
-    /* background-image: url('../../assets/dev_map/MIDDLE.svg'); */
-}
-.flag-container[data-flag-id ="7"]{
-    /* background-image: url('../../assets/dev_map/SENIOR.svg'); */
-}
-.flag-container[data-flag-id ="8"]{
-    /* background-image: url('../../assets/dev_map/LEAD.svg'); */
-}
-
 
 .flag-container[data-flag-id ="2"].active{
     cursor: pointer;
@@ -104,6 +91,11 @@
     transition: 5s;
 }
 
+.path-container.active{
+    filter: saturate(1);
+    animation: road_pulse 1s infinite ease-in-out;
+}
+
 .path-container.completed{
     filter: saturate(1);
     transition: 5s;
@@ -137,6 +129,17 @@
     background-position-y: 10px;
     background-position-x: 20px;
     background-image: url('../../assets/dev_map/roads/green_road_from_left_to_right.svg');
+}
+
+.path-container[data-road-id="0"]{
+    background-position-x: 120px;
+    background-image: url('../../assets/roads/green_blue.svg');
+}
+
+#rd0{    
+    grid-row: 5;  
+     grid-column: 1 / 3; 
+    height: 152px;
 }
 
 #rd1{    
@@ -197,3 +200,6 @@
     100%{ scale: 1;}
 }
 
+@keyframes road_pulse {
+    0%{opacity:0.6;} 50%{opacity: 1;} 100%{opacity:0.6;}
+}
