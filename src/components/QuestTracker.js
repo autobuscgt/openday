@@ -14,15 +14,12 @@ function QuestTracker(){
 
     const allMainCompleted = completedCount === mainQuests.length;
     const allDevCompleted = completedDevCount === devQuests.length;
-    
-    console.log(allMainCompleted);
+
     useEffect(()=> {
         if(allMainCompleted || allDevCompleted){
-            setTimeout(()=>{
-                setShowAnimation(true)
-            }, 3000)
+            setShowAnimation(true)
         }
-    },[allMainCompleted,showAnimation, allDevCompleted])
+    },[allMainCompleted, showAnimation, allDevCompleted])
     return (
         <div>
             {allMainCompleted || allDevCompleted ? <End isOpen={showAnimation} onClose={()=> setShowAnimation(false)}/> : ""}

@@ -66,8 +66,8 @@ return(calculateSum(6, '10')); `);
         };
 
     return (
-        <div>
-            <div className="console-content">
+
+            <div>
                 <div className="modal-question" onCopy={(e) => e.preventDefault()}>
                     <p>Необходимо посчитать длину пакета в байтах, чтобы рассчитать примерное время передачи.</p>
                     <p>Вам представлен код с ошибкой. Ожидается что вернется число 16, но по какой-то причине выводится 610.</p>
@@ -107,7 +107,7 @@ return(calculateSum(6, '10')); `);
                 Сбросить изменения
                 </button>}
             </div>
-        </div>
+
     );
 };
 

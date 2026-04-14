@@ -46,7 +46,9 @@ const TypeText = () => {
                 if (currentTaskIndex === allText.length - 1) {
                     setResult("Ура! Все задания выполнены! Пакет нашёл новый путь и продолжает движение");
                     setButtonText(false);
-                    updateQuestStatus('lead', true);
+                    setTimeout(()=>{
+                        updateQuestStatus('lead', true);
+                    }, 2000)
                 } else {
                     setResult("Отлично! Переходим к следующему заданию");
                     setButtonText("Следующее задание");

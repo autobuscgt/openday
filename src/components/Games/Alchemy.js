@@ -310,11 +310,16 @@ const Alchemy = ({onComplete}) => {
     return (
         <div>
             <div className='alchemy-container' onClick={(e) => e.stopPropagation()}>
-                <div>
+                <div className='modal-question'>
                     <p>Для построения топологии сети, в которой движется пакет, необходимо собрать воедино все роутеры и соединить в сетку. Проведём аналогию и поалхимичим!</p>
                     <p>Используйте панель управления слева, чтобы перетаскивать предметы, соединять их и получать новые! МКИТ</p>
                 </div>
-                <div className="progress-info">
+                {/* 
+                
+                    ВРЕМЕННО УБРАЛ ПОТОМУ ЧТО ОЧЕНЬ СИЛЬНО ЛОМАЕТСЯ ВЕРСТКА
+                
+                */}
+                {/* <div className="progress-info">
                     <span>Прогресс: {availableItems.length} / {allPossibleItems.length}</span>
                     <div className="progress-bar">
                         <div
@@ -324,7 +329,7 @@ const Alchemy = ({onComplete}) => {
                             }}
                         />
                     </div>
-                </div>
+                </div> */}
                 {showCompletionMessage && (
                     <div className="completion-message">
                         <div className="completion-content">
