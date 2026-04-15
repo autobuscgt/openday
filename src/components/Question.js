@@ -28,7 +28,7 @@ const QuestionModal = ({question, options, correctAnswer, index }) => {
 
     if (selectedOption === correctAnswer) {
       updateQuestStatus(`question${index}`, true);
-      // setSelectedOption(null);
+      setSelectedOption(null);
       setStyle(correctAnswerStyle)
       setShowError(false);
     } else {

@@ -52,7 +52,7 @@ h2 {
 }
 
 .question-button {
-  background-color: #dc9c4f;
+  background-color: var(--white-purple);
   width: 30%;
   margin-left: 35%;
   border: 0;
