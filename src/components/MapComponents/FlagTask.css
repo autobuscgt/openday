@@ -112,7 +112,7 @@
 }
 
 .path-container[data-road-id ="3"] {
-    background-image: url('../../assets/roads/blue_orange.svg');
+    background-image: url('../../assets/finish_line.svg');
 }
 
 .path-container[data-road-id="4"]{
@@ -124,6 +124,7 @@
     background-image: url('../../assets/dev_map/roads/green_road_from_right_to_left.svg');
     background-position-x: 120px;
     background-position-y: 10px;
+    background-size: 90% !important;
 }
 .path-container[data-road-id="6"]{
     background-position-y: 10px;
@@ -133,12 +134,12 @@
 
 .path-container[data-road-id="0"]{
     background-position-x: 120px;
-    background-image: url('../../assets/roads/green_blue.svg');
+    background-image: url('../../assets/start.svg');
 }
 
 #rd0{    
     grid-row: 5;  
-     grid-column: 1 / 3; 
+    grid-column: 1 / 3; 
     height: 152px;
 }
 
