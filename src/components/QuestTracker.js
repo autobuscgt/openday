@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useQuest } from "../context/questContext";
 import End from "./CommonComponents/End";
-import congratulations from '../assets/congratulations.gif'
-import congratulations2 from '../assets/congratulations2.gif'
+import congratulations from '../assets/congratulations2.gif'
+import congratulations2 from '../assets/congratulations.gif'
 
 function QuestTracker(){
     const [showAnimation, setShowAnimation] = useState(false);
@@ -36,7 +36,7 @@ function QuestTracker(){
 
         {allDevCompleted ? 
             <End 
-            message={'ВЫ НАСТОЯЩИЙ ХАКЕР'}
+            message={'Вы настоящий программист'}
             isDev={true}
             isOpen={showAnimation} 
             doStyle={true}

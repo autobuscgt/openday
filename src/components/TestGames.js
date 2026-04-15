@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Modal from "./CommonComponents/Modal";
 import Alchemy from "./Games/Alchemy";
 import FindBug610 from "./Games/FindBug610";
@@ -7,8 +7,13 @@ import CenterDivModal from "./Games/CenterDivModal";
 import ComputerBuilder from "./Games/ComputerBuilder";
 import FindSecret from "./Games/FindSecret";
 import TypeText from "./Games/TypeText";
+import pathContext from "../context/pathContext";
 
 function TestGames(){
+    const contextValue = {
+        isDev: process.env.NODE_ENV === 'development' // или любое другое значение
+    };
+
     const [alchemy, setAlchemy] = useState(false);
     const [findBug1, setFindBug1] = useState(false);
     const [findBug2, setFindBug2] = useState(false);
@@ -64,7 +69,9 @@ function TestGames(){
         {levelId:6, component:FindSecret, state:findSecret, text:'Найти секретный ключ'},
         {levelId:7, component:TypeText, state:typeText, text:'Ввод текста'},
     ]
+    
     return ( 
+        <pathContext.Provider value={contextValue}> {/* ← Добавить value */}
         <div>
             <h1 style={{fontFamily:'MB'}}> Протестировать все компоненты </h1>
             {level.map((lvl)=>(
@@ -75,8 +82,8 @@ function TestGames(){
                     </Modal>
                 </div>
             ))}
-
         </div>
-    )
+        </pathContext.Provider>    
+        )
 }
 export default TestGames;

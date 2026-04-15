@@ -115,7 +115,7 @@ function AppContent() {
 function App() {
   return (
     <PathProvider>
-      <AppContent />
+      <AppContent/>
     </PathProvider>
   );
 }
