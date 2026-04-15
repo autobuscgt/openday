@@ -1,8 +1,17 @@
 import { useState } from 'react';
 import { useQuest } from '../context/questContext';
 
+const correctAnswerStyle = {
+  backgroundColor:'#dddddd',
+  userSelect:'none',
+  cursor:'no-drop',
+  pointerEvents:'none'
+  
+}
+
 const QuestionModal = ({question, options, correctAnswer, index }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [style, setStyle] = useState()
   const [showError, setShowError] = useState(false);
   const { updateQuestStatus } = useQuest();
 
@@ -19,7 +28,8 @@ const QuestionModal = ({question, options, correctAnswer, index }) => {
 
     if (selectedOption === correctAnswer) {
       updateQuestStatus(`question${index}`, true);
-      setSelectedOption(null);
+      // setSelectedOption(null);
+      setStyle(correctAnswerStyle)
       setShowError(false);
     } else {
       setShowError(true);
@@ -35,13 +45,14 @@ const QuestionModal = ({question, options, correctAnswer, index }) => {
 
         <div className="modal-options">
           {options.map((option, index) => (
-            <label key={index} className="option-label">
+            <label key={index} className="option-label" style={style}>
               <input
                 type="radio"
                 name="quiz-option"
                 value={option}
                 checked={selectedOption === option}
                 onChange={() => handleOptionClick(option)}
+
               />
               <span className="option-text">{option}</span>
             </label>
