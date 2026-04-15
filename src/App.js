@@ -85,14 +85,6 @@ function AppContent() {
         
         <Switcher toggled={isDev} onClick={handleToggle}/>
         
-        {/* <button 
-          style={{zIndex:'2', position:'absolute', bottom:'20px', right:'20px'}} 
-          onClick={() => setEndIsOpen(true)}
-        >
-          END
-        </button>
-        <End isOpen={endIsOpen} onClose={() => setEndIsOpen(false)}/>  */}
-        
         {isLoaded ? (
           <div className='instructions'>
             <button
@@ -105,6 +97,7 @@ function AppContent() {
               title={'Инструкции'} 
               textContent={"Приступить к выполнению задания"}
               textUnder={mock_text}
+              startButton={true}
             >
               <Greet/>
             </Modal>

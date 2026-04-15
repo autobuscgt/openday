@@ -147,6 +147,12 @@ body {
     text-align: left;
 }
 
+.modal-header.dev{
+    color: var(--green-color);
+    border-bottom: 3px solid var(--green-color);
+}
+
+
 .modal-header-example-text {
     margin: 10px 0px;
     background-color: var(--white-grey);
@@ -355,21 +361,22 @@ body {
 */
 
 .dev-container {
-    justify-content: center;
-    flex-direction: column;
-    padding: 20px 0px;
-    display: flex;
     align-items: center;
+    gap: 20px;
+    display: grid;
     min-height: 200px;
+    grid-template-columns: 200px 1fr;
 }
 
 .choosen-path {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     background-repeat: no-repeat;
-    min-width: 300px;
-    min-height: 300px;
+    background-position: center;
+    background-size: cover;
+    min-width: 200px;
+    min-height: 200px;
 }
 
 .choosen-path[path-id="1"] {

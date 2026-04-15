@@ -1,13 +1,18 @@
 import { useQuest } from '../../context/questContext';  
+import pathContext from '../../context/pathContext';  
+import { useContext } from 'react';
 
-function Modal({isOpen, onClose, title, children, questName, textContent, textUnder}) {
-    const {completedQuests} = useQuest();
+function Modal({isOpen, onClose, title, children, questName, textContent, textUnder, startButton}) {
+    const { completedQuests } = useQuest();
+    const { isDev } = useContext(pathContext);
+
     if (!isOpen) return null;
      const isQuestCompleted = questName ? completedQuests[questName] : false;
+
     return (
         <div className="modal-overlay">
             <div className="modal-content">
-                <div className="modal-header">
+                <div className={`modal-header ${isDev ? "dev" : ""}`}>
                     <h1>{title}</h1>
                 </div>
                 <div className={textUnder ? 'modal-header-example-text' : ''}>
@@ -17,7 +22,7 @@ function Modal({isOpen, onClose, title, children, questName, textContent, textUn
                 </div>
                 {children} 
                 <div className="modal-footer">
-                    <button onClick={onClose} className = {`close-btn ${isQuestCompleted ? "yes" : ""}`}>
+                    <button onClick={onClose} className = {`close-btn ${isQuestCompleted || startButton ? "yes" : ""}`} >
                         {isQuestCompleted ? "Завершить задание" : (textContent || "Закрыть")}    
                     </button>
                 </div>
