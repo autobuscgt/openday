@@ -163,7 +163,7 @@ const FindSecret = () => {
             } else if (type === 'brightness') {
                 newFilter = `brightness(${value})`;
             }
-            
+
             return {
                 ...prev,
                 filter: {
@@ -219,7 +219,7 @@ const FindSecret = () => {
                     <p><strong>Подсказка:</strong> Секретный файл должен быть поверх всех остальных элементов (самый большой z-index)</p>
                 </div>
 
-                <div className="elements-container" style={{ position: 'relative'}}>
+                <div className="elements-container" style={{ position: 'relative' }}>
                     {elements.map((element) => (
                         <div
                             key={element.id}
@@ -242,90 +242,91 @@ const FindSecret = () => {
                             <div className="element-zindex">z-index: {cssProperties.zIndex[element.id] || element.initialZIndex}</div>
                         </div>
                     ))}
-                
-                
+
+
                 </div>
 
 
-            
+
             </div>
             <div className='control-panel-container'>
 
-            
-                    <div className="control-panel">
-                        <h3>Управление элементом</h3>
 
-                        <div className="control-group">
-                            <label>Z-Index (приоритет отображения):</label>
-                            <div className="button-group">
-                                <button onClick={() => updateZIndex(selectedElement, 'decrease')}>-</button>
-                                <span>{cssProperties.zIndex[selectedElement] || elements.find(el => el.id === selectedElement)?.initialZIndex}</span>
-                                <button onClick={() => updateZIndex(selectedElement, 'increase')}>+</button>
-                            </div>
+                <div className="control-panel">
+                    <h3>Управление элементом</h3>
+
+                    <div className="control-group">
+                        <label>Z-Index (приоритет отображения):</label>
+                        <div className="button-group">
+                            <button onClick={() => updateZIndex(selectedElement, 'decrease')}>-</button>
+                            <span>{cssProperties.zIndex[selectedElement] || elements.find(el => el.id === selectedElement)?.initialZIndex}</span>
+                            <button onClick={() => updateZIndex(selectedElement, 'increase')}>+</button>
                         </div>
-
-                        <div className="control-group">
-                            <label>Прозрачность (Opacity):</label>
-                            <input
-                                type="range"
-                                min="0.1"
-                                max="1"
-                                step="0.1"
-                                value={cssProperties.opacity[selectedElement] !== undefined ? cssProperties.opacity[selectedElement] : 1}
-                                onChange={(e) => updateOpacity(selectedElement, parseFloat(e.target.value))}
-                            />
-                            <span>{(cssProperties.opacity[selectedElement] !== undefined ? cssProperties.opacity[selectedElement] : 1).toFixed(1)}</span>
-                        </div>
-
-                        <div className="control-group">
-                            <label>Поворот (Rotate):</label>
-                            <input
-                                type="range"
-                                min="-180"
-                                max="180"
-                                value={parseInt(cssProperties.transform[selectedElement]?.match(/rotate\(([^)]+)\)/)?.[1] || 0)}
-                                onChange={(e) => updateTransform(selectedElement, 'rotate', e.target.value)}
-                            />
-                            <span>{parseInt(cssProperties.transform[selectedElement]?.match(/rotate\(([^)]+)\)/)?.[1] || 0)}°</span>
-                        </div>
-
-                        <div className="control-group">
-                            <label>Размытие (Blur):</label>
-                            <input
-                                type="range"
-                                min="0"
-                                max="5"
-                                step="0.5"
-                                onChange={(e) => updateFilter(selectedElement, 'blur', e.target.value)}
-                            />
-                            <span>{cssProperties.filter[selectedElement]?.match(/blur\(([^)]+)\)/)?.[1] || 0}px</span>
-                        </div>
-
-                        <div className="control-group">
-                            <label>Яркость (Brightness):</label>
-                            <input
-                                type="range"
-                                min="0.2"
-                                max="2"
-                                step="0.1"
-                                onChange={(e) => updateFilter(selectedElement, 'brightness', e.target.value)}
-                            />
-                            <span>{cssProperties.filter[selectedElement]?.match(/brightness\(([^)]+)\)/)?.[1] || 1}</span>
-                        </div>
-
-                        <button className="reset-element-btn" onClick={resetElement}>
-                            Сбросить настройки для этого элемента
-                        </button>
-                        {found && <h2 style={{color:'var(--green-color)'}}>Ключ найден! Задание выполнено!</h2>}
                     </div>
-                        <div className="game-footer">
-                    {!found && (
-                        <button className="reset-btn" onClick={resetGame}>
-                            Новая игра ⟳ 
-                        </button>
-                    )}
-            </div>
 
+                    <div className="control-group">
+                        <label>Прозрачность (Opacity):</label>
+                        <input
+                            type="range"
+                            min="0.1"
+                            max="1"
+                            step="0.1"
+                            value={cssProperties.opacity[selectedElement] !== undefined ? cssProperties.opacity[selectedElement] : 1}
+                            onChange={(e) => updateOpacity(selectedElement, parseFloat(e.target.value))}
+                        />
+                        <span>{(cssProperties.opacity[selectedElement] !== undefined ? cssProperties.opacity[selectedElement] : 1).toFixed(1)}</span>
+                    </div>
+
+                    <div className="control-group">
+                        <label>Поворот (Rotate):</label>
+                        <input
+                            type="range"
+                            min="-180"
+                            max="180"
+                            value={parseInt(cssProperties.transform[selectedElement]?.match(/rotate\(([^)]+)\)/)?.[1] || 0)}
+                            onChange={(e) => updateTransform(selectedElement, 'rotate', e.target.value)}
+                        />
+                        <span>{parseInt(cssProperties.transform[selectedElement]?.match(/rotate\(([^)]+)\)/)?.[1] || 0)}°</span>
+                    </div>
+
+                    <div className="control-group">
+                        <label>Размытие (Blur):</label>
+                        <input
+                            type="range"
+                            min="0"
+                            max="5"
+                            step="0.5"
+                            onChange={(e) => updateFilter(selectedElement, 'blur', e.target.value)}
+                        />
+                        <span>{cssProperties.filter[selectedElement]?.match(/blur\(([^)]+)\)/)?.[1] || 0}px</span>
+                    </div>
+
+                    <div className="control-group">
+                        <label>Яркость (Brightness):</label>
+                        <input
+                            type="range"
+                            min="0.2"
+                            max="2"
+                            step="0.1"
+                            onChange={(e) => updateFilter(selectedElement, 'brightness', e.target.value)}
+                        />
+                        <span>{cssProperties.filter[selectedElement]?.match(/brightness\(([^)]+)\)/)?.[1] || 1}</span>
+                    </div>
+
+                    <button className="reset-element-btn" onClick={resetElement}>
+                        Сбросить настройки для этого элемента
+                    </button>
+                    {found && <h4 className='isfound'>Ключ найден! Задание выполнено!</h4>}
+                </div>
+                {!found && (
+                    <div className="game-footer">
+
+                        <button className="reset-btn" onClick={resetGame}>
+                            Новая игра ⟳
+                        </button>
+
+                    </div>
+                )}
             </div>
 
         </div>

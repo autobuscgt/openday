@@ -38,7 +38,7 @@ return(calculateSum(6, '10')); `);
         try {
             const result = executeCode(code);
             setOutText(result);
-            if (outText === 16) {
+            if (outText == 16) {
                 setSuccess(true)
                 updateQuestStatus("senior", true)
             }
@@ -48,22 +48,15 @@ return(calculateSum(6, '10')); `);
         }
     }, [code, outText]);
 
-
-
-    const handleClose = () => {
-        handleReset()
-        setSuccess(false)
-    };
-
     const handleReset = () => {
         setCode(`function calculateSum(a, b) {
         return a + b;
         }
 
         return(calculateSum(6, '10')); `)
-                const result = executeCode(code);
-                setOutText(result);
-        };
+        const result = executeCode(code);
+        setOutText(result);
+    };
 
     return (
 
@@ -104,7 +97,7 @@ return(calculateSum(6, '10')); `);
                     isOrange="true"
                     onClick={handleReset}
                 >
-                Сбросить изменения
+                    Сбросить изменения
                 </button>}
             </div>
 

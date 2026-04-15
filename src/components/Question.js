@@ -38,7 +38,7 @@ const QuestionModal = ({question, options, correctAnswer, index }) => {
 
   return (
     <div>
-        <h2>Пакет на развилке. Помогите ему выбрать вернуй маршрут, ответив на вопрос.</h2>
+        <h2>Пакет на развилке. Помогите ему выбрать верный маршрут, ответив на вопрос.</h2>
         <div className="modal-question">
           <p>{question}</p>
         </div>
@@ -61,19 +61,17 @@ const QuestionModal = ({question, options, correctAnswer, index }) => {
 
         {showError && (
           <div className="error-message">
-            {!selectedOption
-              ? 'Пожалуйста, выберите вариант ответа'
-              : 'Неверный ответ. Попробуйте снова!'}
+            Неверный ответ. Попробуйте снова!
           </div>
         )}
 
-        <button
-          className="submit-button"
+        {selectedOption !== null && <button
+          className="question-button"
           
           onClick={handleSubmit}
         >
           Ответить
-        </button>
+        </button>}
     </div>
   );
 };

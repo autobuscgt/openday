@@ -181,7 +181,7 @@ useEffect(()=> {
                         
                 </div>  
             </div> : 
-                <div style={{color:'var(--dark-grey)', fontSize:'19px', transition:'0.2s'}}>Поздравляю, вы собрали все комплектующие!</div> }
+                <div className="result-message">Поздравляем, вы собрали все комплектующие!</div> }
                 {/* <button onClick={completeLvl} className="complete-lvl"> Пройти уровень </button> */}
         </div>
 

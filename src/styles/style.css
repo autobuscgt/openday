@@ -594,6 +594,13 @@ body {
     opacity: 0.9;
 }
 
+.result-message {
+    color: var(--dark-grey);
+    font-size: 15px;
+    transition: '0.2s';
+    font-family: PM;
+}
+
 .submit-button {
     background-color: var(--white-purple);
     width: 100%;

@@ -57,7 +57,7 @@ function DevMap() {
     correctAnswer: "HTML"
   }, {
     question: "Что из перечисленного не является операционной системой?",
-    options: ["Linux", "Microsoft", "MacOs", "Kerny"],
+    options: ["Linux", "Windows", "MacOs", "Kerny"],
     correctAnswer: "Kerny"
   }], []);
 

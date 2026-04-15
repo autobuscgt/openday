@@ -50,3 +50,18 @@ h2 {
   color: #721c24;
   font-size: 1rem;
 }
+
+.question-button {
+  background-color: #dc9c4f;
+  width: 30%;
+  margin-left: 35%;
+  border: 0;
+  padding: 15px;
+  font-family: MB;
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.2s;
+}
