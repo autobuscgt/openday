@@ -86,22 +86,27 @@ const Alchemy = ({onComplete}) => {
         })  
     }
 
+    
     const secretElement = ['МКИТ']
-
+    
     const [availableItems, setAvailableItems] = useState(['код', 'дизайн', 'сервер']);
     const [fieldItems, setFieldItems] = useState([]);
     const [draggedItem, setDraggedItem] = useState(null);
     const [showCompletionMessage, setShowCompletionMessage] = useState(false);
-
+    
     const fieldRef = useRef(null);
     const basketRef = useRef(null);
     const { updateQuestStatus } = useQuest();
+    
+    
+    // МКИТ анимация
+    const[mkitSecretAnimation,setMkitSecretAnimation] = useState(false)
 
     useEffect(() => {
         const allCollected = allPossibleItems.every(item =>
             availableItems.includes(item.toLowerCase())
         );
-
+        
         if (allCollected && !showCompletionMessage) {
             setShowCompletionMessage(true);
             updateQuestStatus('alchemy', true);
@@ -129,6 +134,9 @@ const Alchemy = ({onComplete}) => {
         if (!availableItems.includes(normalizedName)) {
             setAvailableItems([...new Set(availableItems)]);
             setAvailableItems(prev => [...prev, normalizedName]);
+        }
+        if(itemName === "МКИТ" || itemName === "Мкит" || itemName === "мкит"){
+            setMkitSecretAnimation(true)
         }
         checkingCompletedItems(itemName)
     }, [availableItems]);
@@ -334,12 +342,22 @@ const Alchemy = ({onComplete}) => {
                         </div>
                     </div>
                 )}
+                {/* вы не поняли мкит */}
+                {mkitSecretAnimation && (
+                    <div className="completion-message">
+                        <div className="completion-content">
+                        <button className="completion-button">
+                        </button>
+                            <p>Вы не поняли МКИТ!</p>
+                        </div>
+                    </div>
+                )}
                 <div className="main">
                     {/* Левая панель - доступные предметы */}
                     <div className="items_list">
                         <div className="openItem">
                             {availableItems.map((item) => (
-                              console.log(item),
+                            console.log(item),
                                 <div
                                     key={item}
                                     className={`item open ${checkAvalibal[item] == 0 ? "competed_element" : ""}`}
