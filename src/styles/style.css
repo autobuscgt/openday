@@ -680,3 +680,25 @@ body {
     background-color: var(--red-color);
     transition: 0.2s;
 }
+
+/*
+============== BOSS =======
+*/
+
+.boss {
+    font-size: 14px;
+    position: absolute;
+    right: 10%;
+    bottom: 15%;
+}
+
+.boss-header {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    
+}
+
+.boss-label {
+    margin-top: 60%;
+}

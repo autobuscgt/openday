@@ -8,9 +8,10 @@ import FindSecret from './Games/FindSecret'
 import TypeText from './Games/TypeText'
 import FindBug610 from './Games/FindBug610'
 
-import { useMemo, useState } from 'react';
-import { useQuest } from '../context/questContext';
+import { useEffect, useState, useMemo } from 'react';
+import { useQuest, questionOrQuest } from '../context/questContext';
 import QuestionModal from './Question';
+import SeaBattle from './Games/SeaBattle';
 
 const divStyle = {
   width: '100%',
@@ -29,6 +30,7 @@ const questMapping = {
   '9': 'senior',
   '10': 'question3',
   '11': 'lead',
+  '12': 'seaButtle',
 }
 
 const mock_text = `Для того чтобы собрать компьютер, нужно перетаскивать комплектующие в соответствующие контейнеры`
@@ -36,7 +38,10 @@ const mock_text = `Для того чтобы собрать компьютер,
 function DevMap() {
   const { completedQuests } = useQuest();
 
+  const [random, setRandom] = useState(10);
+  const [buttle, setButtle] = useState(false);
   const [lead, setLead] = useState(false);
+  const [boss, setBoss] = useState(false);
   const [senior, setSenior] = useState(false);
   const [middle, setMiddle] = useState(false);
   const [junior, setJunior] = useState(false);
@@ -104,10 +109,22 @@ function DevMap() {
       case '11':
         setLead(true);
         break;
+      case '12':
+        setBoss(true);
+        break;
       default:
         break;
     }
   };
+
+  useEffect(() => {
+    const chance = questionOrQuest(random);
+    if (chance) {
+      setButtle(true);
+      setRandom(-100);
+    } else setRandom(random + 15)
+  }, [completedQuests])
+
   return (
     <div className="map-container" style={divStyle}>
       <div className='map-header' data-id="dev">
@@ -132,6 +149,24 @@ function DevMap() {
           </Modal>
         </div>
 
+        {buttle && <div className='boss'>
+          <FlagTask
+            id={10}
+            item={<h3 className='boss-header'>Открыто дополнительное задание</h3>}
+            isActive={true}
+            isCompleted={getQuestStatus('12')}
+            onClick={() => handleFlagClick('12')}
+          />
+          <Modal
+            title={'BOSS'}
+            isOpen={boss}
+            onClose={() => setBoss(false)}
+            questName={'seaButtle'}
+          >
+            <SeaBattle />
+          </Modal>
+        </div>}
+
         <div id='rd2'>
           <RoadContainer
             isActive={activeQuestId === '6'}
@@ -140,7 +175,7 @@ function DevMap() {
             id={"4"}
           />
           <Modal title={'Вопрос!'} isOpen={question3} onClose={() => setQuestion3(false)} questName={'question3'}>
-            <QuestionModal question={questionData[2].question} options={questionData[2].options} correctAnswer={questionData[2].correctAnswer} index={3}/>
+            <QuestionModal question={questionData[2].question} options={questionData[2].options} correctAnswer={questionData[2].correctAnswer} index={3} />
           </Modal>
         </div>
 
@@ -172,7 +207,7 @@ function DevMap() {
         <div id='rd5'>
           <RoadContainer
             id={"6"}
-             isActive={activeQuestId === '10'}
+            isActive={activeQuestId === '10'}
             isCompleted={getQuestStatus('10')}
             onClick={() => handleFlagClick('10')}
           />
