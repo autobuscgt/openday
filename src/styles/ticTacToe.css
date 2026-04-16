@@ -1,10 +1,11 @@
-
-
 .game-controls {
   text-align: center;
   margin: 20px 0px;
+  display: flex;
+  width: 100%;
 }
-.game-info{
+
+.game-info {
   background-color: #2a2a2a;
   padding: 15px;
   color: white;
@@ -26,7 +27,7 @@
   color: white;
 }
 
-.reset-btn:hover{
+.reset-btn:hover {
   opacity: 0.7;
 }
 
