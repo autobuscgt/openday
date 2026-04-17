@@ -39,6 +39,7 @@ const FindSecret = () => {
                 icon: isSecret ? systemIcons.secret : systemIcons[type],
                 label: isSecret ? 'СЕКРЕТНЫЙ ФАЙЛ' : `${type.toUpperCase()} ${i + 1}`,
                 initialZIndex: Math.floor(Math.random() * 10) + 1,
+                // initialZIndex: isSecret ? 1 : Math.floor(Math.random() * 10) + 1,
                 initialLeft: 40 + Math.random() * 300,
                 initialTop: 50 + Math.random() * 200,
                 initialRotation: Math.random() * 20 - 10,
@@ -50,7 +51,11 @@ const FindSecret = () => {
                 setSecretId(i);
             }
         }
-
+        const maxOtherZIndex = Math.max(...newElements.filter(el => !el.isSecret).map(el => el.initialZIndex));
+        const secretElement = newElements.find(el => el.isSecret);
+        if (secretElement && secretElement.initialZIndex >= maxOtherZIndex) {
+            secretElement.initialZIndex = Math.max(1, maxOtherZIndex - 1);
+        }
         const shuffled = newElements.sort(() => Math.random() - 0.5);
         setElements(shuffled);
 
