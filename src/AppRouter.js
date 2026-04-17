@@ -3,8 +3,6 @@ import { routes } from "./utils/routes";
 import { QuestProvider } from "./context/questContext";
 import pathContext from "./context/pathContext";
 
-
-
 function AppRouter(){
     return (
         <QuestProvider>
