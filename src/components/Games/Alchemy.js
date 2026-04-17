@@ -327,7 +327,7 @@ const Alchemy = ({onComplete}) => {
                     ВРЕМЕННО УБРАЛ ПОТОМУ ЧТО ОЧЕНЬ СИЛЬНО ЛОМАЕТСЯ ВЕРСТКА
                 
                 */}
-                {/* <div className="progress-info">
+                <div className="progress-info">
                     <span>Прогресс: {availableItems.length} / {allPossibleItems.length}</span>
                     <div className="progress-bar">
                         <div
@@ -337,7 +337,7 @@ const Alchemy = ({onComplete}) => {
                             }}
                         />
                     </div>
-                </div> */}
+                </div>
                 {showCompletionMessage && (
                     <div className="completion-message">
                         <div className="completion-content">

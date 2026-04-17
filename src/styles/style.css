@@ -597,8 +597,9 @@ body {
 
 .result-message {
     color: var(--dark-grey);
-    font-size: 15px;
-    transition: '0.2s';
+    font-size: 1.75rem;
+    padding: 10px;
+    transition: 0.2s;
     font-family: PM;
 }
 
