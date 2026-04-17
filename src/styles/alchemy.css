@@ -30,6 +30,7 @@
 
 
 #basket {
+    -webkit-user-drag: none;
     user-select: none;
     width: 100px;
     position: absolute;

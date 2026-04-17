@@ -36,7 +36,7 @@ const questMapping = {
 function Map() {
   const { completedQuests } = useQuest();
 
-  const [random, setRandom] = useState(-100); // Сделать "10" для подключения крестиков-ноликов
+  const [random, setRandom] = useState(10); // Сделать "10" для подключения крестиков-ноликов
   const [buttle, setButtle] = useState(false);
   const [isTicTacToe, setIsTicTacToe] = useState(false);
   const [isAlchemyOpen, setAlchemyIsOpen] = useState(false);
