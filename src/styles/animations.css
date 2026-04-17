@@ -16,6 +16,17 @@
         box-shadow: 0 0 0 0 rgba(245, 87, 108, 0);
     }
 }
+@keyframes pulse_for_secondary_lvls {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
 @keyframes slideIn {
     from {

@@ -134,7 +134,7 @@ function Map() {
 
         {buttle && <div className='boss'>
           <FlagTask
-          id={1}
+            id={1}
             item={<h3 className='boss-header boss-label'>Открыто дополнительное задание</h3>}
             isCompleted={getQuestStatus('8')}
             isActive={true}

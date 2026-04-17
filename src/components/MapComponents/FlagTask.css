@@ -33,7 +33,9 @@
 .flag-container[data-flag-id="1"] {
     background-image: url('../../assets/goals/goal\ 1.svg');
     display: flex;
-    background-position-y: -10px;
+    background-position-y: 20px;
+    background-position-x: 65%;
+    background-size: 50%;
     height: 250px;
     width: 250px;
 }
@@ -62,9 +64,9 @@
 .flag-container[data-flag-id="1"].active {
     cursor: pointer;
     filter: saturate(1);
-    border: 1px solid var(--red-color);
+    border: 1px solid rgba(0, 0, 0, 0.200);
     border-radius: 25px;
-    animation: 4s pulse ease-in infinite;
+    animation: 4s pulse_for_secondary_lvls ease-in infinite;
 }
 
 .flag-container[data-flag-id="3"].active {

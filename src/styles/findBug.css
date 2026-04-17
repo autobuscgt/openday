@@ -1,4 +1,5 @@
 .console-line {
+  margin: 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
