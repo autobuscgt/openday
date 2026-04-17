@@ -263,6 +263,7 @@
     transition: all 0.3s ease;
     font-size: 12px;
     text-align: center;
+    border: 1px solid #1E1E1E;
 }
 
 .slider-label:hover {
