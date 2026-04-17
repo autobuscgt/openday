@@ -135,7 +135,7 @@
 
 .path-container[data-road-id="3"] {
     background-image: url('../../assets/finish_line.svg');
-    background-size: 75%;
+    background-size: 100%;
 }
 
 .path-container[data-road-id="4"] {
