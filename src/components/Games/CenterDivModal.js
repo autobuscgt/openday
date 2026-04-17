@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useQuest } from '../../context/questContext';
+import pack from '../../assets/center_div/package.png';
+import arrow from '../../assets/center_div/arrow.png';
+import back from '../../assets/center_div/back.png';
+import out from '../../assets/center_div/out.png';
+import resetButton from '../../assets/center_div/button.png';
 
 const CenterDivModal = () => {
     const [justifyContent, setJustifyContent] = useState('flex-start');
@@ -10,23 +15,23 @@ const CenterDivModal = () => {
     const { updateQuestStatus } = useQuest();
 
     const justifyOptions = [
-        { value: 'flex-start', label: 'Начало', icon: '⬅️' },
-        { value: 'center', label: 'Центр', icon: '🎯' },
-        { value: 'flex-end', label: 'Конец', icon: '➡️' },
-        { value: 'space-between', label: 'Между', icon: '↔️' },
-        { value: 'space-around', label: 'Вокруг', icon: '🔄' }
+        { value: 'flex-start', label: 'Начало', icon: arrow, style: { transform: 'rotate(180deg)' } },
+        { value: 'center', label: 'Центр', icon2: arrow, style2: { transform: 'rotate(180deg)' }, icon: arrow },
+        { value: 'flex-end', label: 'Конец', icon: arrow },
+        { value: 'space-between', label: 'Между', icon: arrow, style: { transform: 'rotate(180deg)' }, icon2: arrow },
+        { value: 'space-around', label: 'Вокруг', icon: back }
     ];
 
     const alignOptions = [
-        { value: 'flex-start', label: 'Верх', icon: '⬆️' },
-        { value: 'center', label: 'Центр', icon: '🎯' },
-        { value: 'flex-end', label: 'Низ', icon: '⬇️' },
-        { value: 'stretch', label: 'Растянуть', icon: '📏' }
+        { value: 'flex-start', label: 'Верх', icon: arrow, style: { transform: 'rotate(270deg)' } },
+        { value: 'center', label: 'Центр', icon2: arrow, style2: { transform: 'rotate(180deg)' }, icon: arrow },
+        { value: 'flex-end', label: 'Низ', icon: arrow, style: { transform: 'rotate(90deg)' } },
+        { value: 'stretch', label: 'Растянуть', icon: out }
     ];
 
     const directionOptions = [
-        { value: 'row', label: 'Строка', icon: '➡️' },
-        { value: 'column', label: 'Колонка', icon: '⬇️' }
+        { value: 'row', label: 'Строка', icon: arrow },
+        { value: 'column', label: 'Колонка', icon: arrow, style: { transform: 'rotate(90deg)' } }
     ];
 
     useEffect(() => {
@@ -76,11 +81,10 @@ const CenterDivModal = () => {
 
     return (
         <div className='center-div-container'>
-            <div >
-                <div className="modal-question">
+            <div>
+                <div className="exercise">
                     <p>К следующей точке ведёт куча проводов. Помоги сетевому пакету протиснуться к центральному проводу.</p>
                     <p>Используй CSS Flexbox, чтобы поместить блок в центр контейнера!</p>
-                    <p>Цель: <i>justify-content: center, align-items: center</i></p>
                 </div>
 
                 <div className="playground-container">
@@ -106,7 +110,7 @@ const CenterDivModal = () => {
                     >
                         <div className={`floating-block ${showOffer ? 'transforming' : ''}`}>
                             {!showOffer ? (
-                                <span className="block-icon">📦</span>
+                                <img src={pack} className="block-icon" />
                             ) : (
                                 <div className="offer-content">
                                     <span className="offer-icon">Успех!</span>
@@ -117,32 +121,32 @@ const CenterDivModal = () => {
                 </div>
             </div>
 
-            <div className="control-panel">
+            <div className="playground-panel">
                 <h2>Управление Flexbox</h2>
 
                 <div className="control-section">
                     <label className="control-label">
-                        <span className="label-icon">🔄</span>
                         FLEX-DIRECTION
                     </label>
                     <div className="buttons">
                         {directionOptions.map(option => (
-                            <button
-                                key={option.value}
-                                className={`control-btn ${flexDirection === option.value ? 'active' : ''}`}
-                                onClick={() => handleDirectionChange(option.value)}
-                                disabled={showOffer}
-                            >
-                                <span className="btn-icon">{option.icon}</span>
-                                <span className="btn-label">{option.label}</span>
-                            </button>
+                            <div className={flexDirection === option.value ? 'active' : ''}>
+                                <button
+                                    key={option.value}
+                                    className={'control-btn'}
+                                    onClick={() => handleDirectionChange(option.value)}
+                                    disabled={showOffer}
+                                >
+                                    <img style={option.style} src={option.icon} />
+                                    <span className="btn-label">{option.label}</span>
+                                </button>
+                            </div>
                         ))}
                     </div>
                 </div>
 
                 <div className="control-section">
                     <label className="control-label">
-                        <span className="label-icon">↔️</span>
                         JUSTIFY-CONTENT
                     </label>
                     <div className="slider-container">
@@ -163,7 +167,10 @@ const CenterDivModal = () => {
                                     className={`slider-label ${justifyContent === opt.value ? 'active' : ''}`}
                                     onClick={() => handleJustifyChange(opt.value)}
                                 >
-                                    <span className="label-icon-small">{opt.icon}</span>
+                                    <div className='btn-icon'>
+                                        <img src={opt.icon} style={opt.style} className="label-icon-small" />
+                                        {opt.icon2 && <img src={opt.icon2} style={opt.style2} className="label-icon-small" />}
+                                    </div>
                                     <span className="label-text">{opt.label}</span>
                                 </span>
                             ))}
@@ -173,7 +180,6 @@ const CenterDivModal = () => {
 
                 <div className="control-section">
                     <label className="control-label">
-                        <span className="label-icon">⬇️</span>
                         ALIGN-ITEMS
                     </label>
                     <div className="slider-container">
@@ -194,7 +200,10 @@ const CenterDivModal = () => {
                                     className={`slider-label ${alignItems === opt.value ? 'active' : ''}`}
                                     onClick={() => handleAlignChange(opt.value)}
                                 >
-                                    <span className="label-icon-small">{opt.icon}</span>
+                                    <div className='btn-icon'>
+                                        <img src={opt.icon} style={opt.style} className="label-icon-small" />
+                                        {opt.icon2 && <img src={opt.icon2} style={opt.style2} className="label-icon-small" />}
+                                    </div>
                                     <span className="label-text">{opt.label}</span>
                                 </span>
                             ))}
@@ -220,11 +229,11 @@ const CenterDivModal = () => {
                     <div className="attempts">
                         Попыток: <span>0</span>
                     </div>
-                    <div className="status in-progress">
+                    <div className="status">
                         В процессе
                     </div>
                 </div>}
-                <button className="reset-btn" onClick={resetGame}>
+                <button className="new-btn" onClick={resetGame}>
                     Начать заново
                 </button>
 

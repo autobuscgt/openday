@@ -10,6 +10,12 @@ export const useQuest = () => {
     return context;
 };
 
+export const questionOrQuest = ((level) => {
+  const random = Math.round(Math.random() * 100);
+  console.log(random, '<', level, random < level )
+  return random < level
+})
+
 const loadProgressFromStorage = () => {
     const savedProgress = localStorage.getItem('questProgress');
     if (savedProgress) {
@@ -17,6 +23,7 @@ const loadProgressFromStorage = () => {
     }
     return {
         tictactoe: false,
+        seaButtle: false,
         alchemy: false,
         findSecret: false,
         centerDiv: false,
@@ -54,6 +61,7 @@ export const QuestProvider = ({ children }) => {
     const resetProgress = () => {
         const resetState = {
             tictactoe: false,
+            seaButtle: false,
             alchemy: false,
             findSecret: false,
             centerDiv: false,
@@ -76,7 +84,8 @@ export const QuestProvider = ({ children }) => {
     const value = useMemo(() => ({
         completedQuests,
         updateQuestStatus,
-        resetProgress
+        resetProgress,
+        questionOrQuest
     }), [completedQuests]);
 
     return (

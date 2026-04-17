@@ -1,4 +1,4 @@
-.flag-container{
+.flag-container {
     filter: saturate(0);
     height: 230px;
     width: 230px;
@@ -10,78 +10,96 @@
     transition: 2s;
 }
 
-.inner-flag-container-item{
+.inner-flag-container-item {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     font-size: 35px;
-    font-family: MB ;
+    font-family: MB;
 }
 
-.flag-container.completed{
+.flag-container.completed {
     filter: saturate(1);
     transition: 2s;
 }
 
-.flag-container[data-flag-id ="1"] {
-    background-image: url('../../assets/goals/goal\ 1.svg');  
+.flag-container[data-flag-id="10"] {
+    animation: 4s pulse2 ease-in infinite;
+    background-image: url('../../assets/center_div/form.png');
+    background-size: cover;
 }
 
-.flag-container[data-flag-id ="2"] {
+.flag-container[data-flag-id="1"] {
+    background-image: url('../../assets/goals/goal\ 1.svg');
+    display: flex;
+    background-position-y: -10px;
+    height: 250px;
+    width: 250px;
+}
+
+.flag-container[data-flag-id="2"] {
     background-image: url('../../assets/goals/goal\ 2.svg');
 }
 
-.flag-container[data-flag-id ="3"] {
+.flag-container[data-flag-id="3"] {
     background-image: url('../../assets/goals/goal\ 3.svg');
 }
 
-.flag-container[data-flag-id ="4"] {
+.flag-container[data-flag-id="4"] {
     background-image: url('../../assets/goals/goal\ 4.svg');
 }
 
 
-.flag-container[data-flag-id ="2"].active{
+.flag-container[data-flag-id="2"].active {
     cursor: pointer;
     filter: saturate(1);
     border: 1px solid var(--green-color);
     border-radius: 25px;
     animation: 2s pulse1 ease-in infinite;
 }
-.flag-container[data-flag-id ="1"].active{
+
+.flag-container[data-flag-id="1"].active {
     cursor: pointer;
     filter: saturate(1);
     border: 1px solid var(--red-color);
     border-radius: 25px;
-    animation: 2s pulse ease-in infinite;
+    animation: 4s pulse ease-in infinite;
 }
-.flag-container[data-flag-id ="3"].active{
+
+.flag-container[data-flag-id="3"].active {
     cursor: pointer;
     filter: saturate(1);
     border: 1px solid var(--white-purple);
     border-radius: 25px;
     animation: 2s pulse2 ease-in infinite;
 }
-.flag-container[data-flag-id ="4"].active{
+
+.flag-container[data-flag-id="4"].active {
     cursor: pointer;
     filter: saturate(1);
     border: 1px solid var(--orange-color);
     border-radius: 25px;
     animation: 2s pulse3 ease-in infinite;
 }
-.flag-container[data-flag-id ="5"].active{
+
+.flag-container[data-flag-id="5"].active {
     filter: saturate(1);
 }
-.flag-container[data-flag-id ="6"].active{
+
+.flag-container[data-flag-id="6"].active {
     filter: saturate(1);
 }
-.flag-container[data-flag-id ="7"].active{
+
+.flag-container[data-flag-id="7"].active {
     filter: saturate(1);
 }
-.flag-container[data-flag-id ="8"].active{
-    filter: saturate(1);    
+
+.flag-container[data-flag-id="8"].active {
+    filter: saturate(1);
 }
-.path-container{
+
+.path-container {
     background-size: contain;
     background-repeat: no-repeat;
     height: 100%;
@@ -91,116 +109,171 @@
     transition: 5s;
 }
 
-.path-container.active{
+.path-container.active {
     filter: saturate(1);
     animation: road_pulse 1s infinite ease-in-out;
 }
 
-.path-container.completed{
+.path-container.completed {
     filter: saturate(1);
     transition: 5s;
 }
 
-.path-container[data-road-id ="1"] {
+.path-container[data-road-id="0"] {
+    background-size: 50%;
+}
+
+.path-container[data-road-id="1"] {
     background-image: url('../../assets/roads/red_green.svg');
     position: relative;
 }
 
-.path-container[data-road-id ="2"] {
+.path-container[data-road-id="2"] {
     background-image: url('../../assets/roads/green_blue.svg');
     background-position-x: 130px;
 }
 
-.path-container[data-road-id ="3"] {
+.path-container[data-road-id="3"] {
     background-image: url('../../assets/finish_line.svg');
+    background-size: 100%;
 }
 
-.path-container[data-road-id="4"]{
+.path-container[data-road-id="4"] {
     background-position-y: 10px;
     background-position-x: 20px;
     background-image: url('../../assets/dev_map/roads/green_road_from_left_to_right.svg');
 }
-.path-container[data-road-id="5"]{
+
+.path-container[data-road-id="5"] {
     background-image: url('../../assets/dev_map/roads/green_road_from_right_to_left.svg');
     background-position-x: 120px;
     background-position-y: 10px;
     background-size: 90% !important;
 }
-.path-container[data-road-id="6"]{
+
+.path-container[data-road-id="6"] {
     background-position-y: 10px;
     background-position-x: 20px;
     background-image: url('../../assets/dev_map/roads/green_road_from_left_to_right.svg');
 }
 
-.path-container[data-road-id="0"]{
+.path-container[data-road-id="0"] {
     background-position-x: 120px;
     background-image: url('../../assets/start.svg');
 }
 
-#rd0{    
-    grid-row: 5;  
-    grid-column: 1 / 3; 
+#rd0 {
+    grid-row: 5;
+    grid-column: 1 / 4;
     height: 152px;
 }
 
-#rd1{    
+#rd1 {
     grid-row: 4;
     grid-column: 1;
 }
 
-#rd2{    
+#rd2 {
     grid-row: 4;
     grid-column: 2/4;
 }
 
-#rd3{    
+#rd3 {
     grid-row: 3;
     grid-column: 3;
 }
 
-#rd4{    
+#rd4 {
     grid-row: 3;
     grid-column: 1/3;
 }
 
-#rd5{    
+#rd5 {
     grid-row: 2;
     grid-column: 2 / 4;
 }
 
-#rd6{    
+#rd6 {
     grid-row: 2;
     grid-column: 1;
 }
 
-#rd7{    
+#rd7 {
     grid-row: 1;
-    grid-column:3;
+    grid-column: 3;
 }
 
 
 @keyframes pulse {
-    0%{ scale: 1;}
-    50%{box-shadow: 0px 0px 20px 0px #EF3C3C; scale: 1.01;}
-    100%{ scale: 1;}
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        box-shadow: 0px 0px 20px 0px #EF3C3C;
+        scale: 1.01;
+    }
+
+    100% {
+        scale: 1;
+    }
 }
+
 @keyframes pulse1 {
-    0%{ scale: 1;}
-    50%{box-shadow: 0px 0px 20px 0px #63C574; scale: 1.01;}
-    100%{ scale: 1;}
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        box-shadow: 0px 0px 20px 0px #63C574;
+        scale: 1.01;
+    }
+
+    100% {
+        scale: 1;
+    }
 }
+
 @keyframes pulse2 {
-    0%{ scale: 1;}
-    50%{box-shadow: 0px 0px 20px 0px var(--white-purple); scale: 1.01;}
-    100%{ scale: 1;}
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        box-shadow: 0px 0px 20px 0px var(--white-purple);
+        scale: 1.01;
+    }
+
+    100% {
+        scale: 1;
+    }
 }
 
 @keyframes pulse3 {
-    0%{ scale: 1;}
-    50%{box-shadow: 0px 0px 20px 0px #F48445; scale: 1.01;}
-    100%{ scale: 1;}
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        box-shadow: 0px 0px 20px 0px #F48445;
+        scale: 1.01;
+    }
+
+    100% {
+        scale: 1;
+    }
 }
 
 @keyframes road_pulse {
-    0%{opacity:0.6;} 50%{opacity: 1;} 100%{opacity:0.6;}
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
 }

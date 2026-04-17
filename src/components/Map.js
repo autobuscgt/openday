@@ -3,12 +3,13 @@ import '../styles/map.css'
 import FlagTask from './MapComponents/FlagTask';
 import RoadContainer from './MapComponents/RoadContainer';
 
-import { useQuest } from '../context/questContext';
-import { useMemo, useState } from 'react';
+import { questionOrQuest, useQuest } from '../context/questContext';
+import { useEffect, useMemo, useState } from 'react';
 
 import Alchemy from './Games/Alchemy';
 import CenterDivModal from './Games/CenterDivModal';
 import FindBug2 from './Games/FindBug2'
+import TicTacToe from './Games/TicTacToe'
 import Modal from './CommonComponents/Modal';
 import QuestionModal from './Question';
 
@@ -29,12 +30,15 @@ const questMapping = {
   '5': 'question6',
   '6': 'alchemy',
   '7': 'question7',
+  '8': 'tictactoe',
 };
 
 function Map() {
   const { completedQuests } = useQuest();
 
-  //const [isTicTacToe, setIsTicTacToe] = useState(false);
+  const [random, setRandom] = useState(10); // Сделать "10" для подключения крестиков-ноликов
+  const [buttle, setButtle] = useState(false);
+  const [isTicTacToe, setIsTicTacToe] = useState(false);
   const [isAlchemyOpen, setAlchemyIsOpen] = useState(false);
   const [findBug, setIsFindBug] = useState(false);
   const [isCenterDivOpen, setIsCenterDivOpen] = useState(false);
@@ -69,7 +73,7 @@ function Map() {
   const getActiveQuest = () => {
     for (let i = 1; i <= 7; ++i) {
       const questName = questMapping[i];
-      console.log(questName, completedQuests[questName])
+      //console.log(questName, completedQuests[questName])
       if (!completedQuests[questName]) {
         return i.toString();
       }
@@ -105,11 +109,21 @@ function Map() {
       case '7':
         setQuestion7(true);
         break;
+      case '8':
+        setIsTicTacToe(true);
+        break;
       default:
         break;
     }
   };
 
+  useEffect(() => {
+    const chance = questionOrQuest(random);
+    if (chance) {
+      setButtle(true);
+      setRandom(-100);
+    } else setRandom(random + 15)
+  }, [completedQuests])
 
   return (
     <div className="map-container" style={divStyle}>
@@ -118,18 +132,19 @@ function Map() {
       </div>
       <div className='road-container'>
 
-
-        {/* <div id="rd7">
-          <FlagTask 
-            id={"4"} 
-            isCompleted={getQuestStatus('4')} 
-            isActive={activeQuestId === '4'} 
-            onClick={!getQuestStatus('4') ? () => handleFlagClick('4') : undefined}
+        {buttle && <div className='boss'>
+          <FlagTask
+          id={1}
+            item={<h3 className='boss-header boss-label'>Открыто дополнительное задание</h3>}
+            isCompleted={getQuestStatus('8')}
+            isActive={true}
+            onClick={!getQuestStatus('8') ? () => handleFlagClick('8') : undefined}
           />
-          <Modal isOpen={isTicTacToe} onClose={()=> setIsTicTacToe(false)} title={'Крестики нолики'} questName={"tictactoe"}> 
-            <TicTacToe/>
+          <Modal isOpen={isTicTacToe} onClose={() => setIsTicTacToe(false)} title={'Крестики нолики'} questName={"tictactoe"}>
+            <TicTacToe />
           </Modal>
-        </div> */}
+        </div>}
+
         <div id="rd5">
           <RoadContainer
             isActive={activeQuestId === '7'}
@@ -213,7 +228,7 @@ function Map() {
           </Modal>
         </div>
 
-         <div id="rd0">
+        <div id="rd0">
           <RoadContainer
             isActive={activeQuestId === '1'}
             isCompleted={getQuestStatus('1')}

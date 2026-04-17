@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useQuest } from "../../context/questContext";
 
-const SeaBattle = ({ isOpen, onClose }) => {
+const SeaBattle = () => {
     const [result, setResult] = useState("");
     const [hit, setHits] = useState(0);
     const [start, setStart] = useState(false);
@@ -126,7 +126,7 @@ const SeaBattle = ({ isOpen, onClose }) => {
             if (newHits === 5) {
                 setResult("ПОБЕДА! Все лазейки злоумышленника уничтожены!");
                 log("ПОБЕДА! Все уязвимости устранены!");
-                updateQuestStatus('middle', true);
+                updateQuestStatus('seaButtle', true);
             }
         } else {
             log(`ПРОМАХ в [${row},${col}]`);
@@ -181,100 +181,81 @@ const SeaBattle = ({ isOpen, onClose }) => {
         };
     }, [shoot]);
 
-    const handleClose = () => {
-        setHits(0);
-        setResult('');
-        setStart(false);
-        setPc([]);
-        setShots([]);
-
-        delete window.shoot;
-        delete window.help;
-        delete window.clear;
-
-        onClose();
-    };
-
-    function walkTh(){
-        updateQuestStatus('middle',true)
+    function walkTh() {
+        updateQuestStatus('seaButtle', true)
     }
 
-    if (!isOpen) return null;
-    
     return (
-        <div className="modal-overlay" onClick={handleClose}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                
-                <h1 className='modal-header'>
-                    Морской бой
-                </h1>
+        <div>
+            <h1 className='modal-header'>
+                Морской бой
+            </h1>
 
-                {!start && (
-                    <div className="modal-question">
-                        <p>Сразите злоумышленника в честном бою!</p>
-                        <p>Враг спрятал 5 своих IP-адресов (1-клеточные компьютеры) на поле 8x8.</p>
-                        <p>Закрой дыры в системе через консоль разработчика!</p>
-                        <p><strong>Инструкция:</strong> открой консоль (F12) и используй команду <code>shoot(ряд, колонка)</code></p>
-                        <p>Например: <code>shoot(3, 4)</code></p>
-                    </div>
-                )}
-
-                {start && (
-                    <>
-                        <div className="game-info" id="info">
-                            Попаданий: {hit} / 5
-                        </div>
-
-                        <canvas
-                            ref={canvasRef}
-                            id="enemyField"
-                            width={fieldSize * cellSize}
-                            height={fieldSize * cellSize}
-                            style={{
-                                border: '2px solid #444',
-                                margin: '10px 0',
-                                display: 'block'
-                            }}
-                        />
-
-                        <textarea
-                            ref={consoleRef}
-                            id="console"
-                            placeholder="Вывод логов..."
-                            readOnly
-                            rows={5}
-                            style={{
-                                width: '100%',
-                                backgroundColor: '#1e1e1e',
-                                color: '#0f0',
-                                fontFamily: 'monospace',
-                                padding: '10px',
-                                borderRadius: '4px',
-                                border: '1px solid #444',
-                                marginTop: '10px'
-                            }}
-                        />
-                    </>
-                )}
-
-                <div className="info-message">
-                    {result}
+            {!start && (
+                <div className="modal-question">
+                    <p>Сразите злоумышленника в честном бою!</p>
+                    <p>Враг спрятал 5 своих IP-адресов (1-клеточные компьютеры) на поле 8x8.</p>
+                    <p>Закрой дыры в системе через консоль разработчика!</p>
+                    <p><strong>Инструкция:</strong> открой консоль (F12) и используй команду <code>shoot(ряд, колонка)</code></p>
+                    <p>Например: <code>shoot(3, 4)</code></p>
                 </div>
+            )}
 
-                {!start && (
-                    <div className='double-btn'>
-                        <button className="modal-close" onClick={handleClose}>Назад ←</button>
-                        <button
-                           className="submit-button green-btn" 
-                        onClick={() => setStart(true)}
-                        >
-                            Начать игру
-                        </button>
+            {start && (
+                <>
+                    <div className="game-info" id="info">
+                        Попаданий: {hit} / 5
                     </div>
-                )}
 
-                <button onClick={walkTh}>Пройти игру</button>
+                    <canvas
+                        ref={canvasRef}
+                        id="enemyField"
+                        width={fieldSize * cellSize}
+                        height={fieldSize * cellSize}
+                        style={{
+                            border: '2px solid #444',
+                            margin: '10px 0',
+                            display: 'block'
+                        }}
+                    />
+
+                    <textarea
+                        ref={consoleRef}
+                        id="console"
+                        placeholder="Вывод логов..."
+                        readOnly
+                        rows={5}
+                        style={{
+                            width: '100%',
+                            backgroundColor: '#1e1e1e',
+                            color: '#0f0',
+                            fontFamily: 'monospace',
+                            padding: '10px',
+                            borderRadius: '4px',
+                            border: '1px solid #444',
+                            marginTop: '10px'
+                        }}
+                    />
+                </>
+            )}
+
+            <div className="info-message">
+                {result}
             </div>
+
+            {!start && (
+                <div className='double-btn'>
+                    <button
+                        className="submit-button green-btn"
+                        onClick={() => setStart(true)}
+                    >
+                        Начать игру
+                    </button>
+                </div>
+            )}
+
+            <button onClick={walkTh}>Пройти игру</button>
+
         </div>
     );
 };
