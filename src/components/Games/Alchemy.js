@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useQuest } from '../../context/questContext';
 import '../../styles/alchemy.css'
-
+let flagmkitSecretAnimation = 1
 const Alchemy = ({onComplete}) => {
     const [recipes, setRecipes] = useState({
         "код,дизайн": "Сайт",
@@ -101,7 +101,6 @@ const Alchemy = ({onComplete}) => {
     
     // МКИТ анимация
     const[mkitSecretAnimation,setMkitSecretAnimation] = useState(false)
-
     useEffect(() => {
         const allCollected = allPossibleItems.every(item =>
             availableItems.includes(item.toLowerCase())
@@ -129,15 +128,19 @@ const Alchemy = ({onComplete}) => {
     };
 
     // Добавление нового предмета в коллекцию доступных
+    
     const addToAvailableItems = useCallback((itemName) => {
         const normalizedName = normalizeName(itemName);
         if (!availableItems.includes(normalizedName)) {
             setAvailableItems([...new Set(availableItems)]);
             setAvailableItems(prev => [...prev, normalizedName]);
         }
-        if(itemName === "МКИТ" || itemName === "Мкит" || itemName === "мкит"){
+        if((itemName === "МКИТ" || itemName === "Мкит" || itemName === "мкит") && flagmkitSecretAnimation === 1){
             setMkitSecretAnimation(true)
+            flagmkitSecretAnimation--
         }
+
+
         checkingCompletedItems(itemName)
     }, [availableItems]);
 
@@ -346,7 +349,7 @@ const Alchemy = ({onComplete}) => {
                 {mkitSecretAnimation && (
                     <div className="completion-message">
                         <div className="completion-content">
-                        <button className="completion-button">
+                        <button onClick={(e) => setMkitSecretAnimation(false)} className="completion-button">
                         </button>
                             <p>Вы не поняли МКИТ!</p>
                         </div>
