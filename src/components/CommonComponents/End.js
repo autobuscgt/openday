@@ -26,7 +26,7 @@ function End({ isOpen, onClose, message, doStyle, imgProp, isDev }) {
       if (isDev === true) {
         setText(
           <>
-            Вы очень жесткий хакер, который <br /> прошел все уровни!
+            Вы настоящий TEAM LEAD <br /> прошел все уровни!
           </>
         );
       } else {
