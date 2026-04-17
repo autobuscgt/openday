@@ -39,7 +39,7 @@ const FindSecret = () => {
                 icon: isSecret ? systemIcons.secret : systemIcons[type],
                 label: isSecret ? 'СЕКРЕТНЫЙ ФАЙЛ' : `${type.toUpperCase()} ${i + 1}`,
                 initialZIndex: Math.floor(Math.random() * 10) + 1,
-                initialLeft: 50 + Math.random() * 300,
+                initialLeft: 40 + Math.random() * 300,
                 initialTop: 50 + Math.random() * 200,
                 initialRotation: Math.random() * 20 - 10,
                 initialOpacity: 0.7 + Math.random() * 0.3,
@@ -212,54 +212,55 @@ const FindSecret = () => {
 
     return (
         <div className="find-secret-modal-container">
-            <div className="find-secret-modal" onClick={(e) => e.stopPropagation()}>
-                <div className="modal-question">
-                    <p>Секретный ключ для расшифровки данных потерялся. Секретный файл (🔐), который хранит все ключи, необходимо найти среди множества элементов информационной системы.</p>
-                    <p>Используйте панель управления справа, чтобы изменять CSS-свойства и найти его!</p>
-                    <p><strong>Подсказка:</strong> Секретный файл должен быть поверх всех остальных элементов (самый большой z-index)</p>
-                </div>
-
-                <div className="elements-container" style={{ position: 'relative' }}>
-                    {elements.map((element) => (
-                        <div
-                            key={element.id}
-                            className={`system-element ${selectedElement === element.id ? 'selected' : ''} ${element.isSecret && found ? 'found' : ''}`}
-                            style={{
-                                position: 'absolute',
-                                left: `${element.initialLeft}px`,
-                                top: `${element.initialTop}px`,
-                                zIndex: cssProperties.zIndex[element.id] || element.initialZIndex,
-                                opacity: cssProperties.opacity[element.id] !== undefined ? cssProperties.opacity[element.id] : element.initialOpacity,
-                                transform: cssProperties.transform[element.id] || `rotate(${element.initialRotation}deg)`,
-                                filter: cssProperties.filter[element.id] || 'none',
-                                cursor: 'pointer',
-                                transition: 'all 0.3s ease'
-                            }}
-                            onClick={() => handleElementClick(element.id)}
-                        >
-                            <div className="element-icon">{element.icon}</div>
-                            <div className="element-label">{element.label}</div>
-                            <div className="element-zindex">z-index: {cssProperties.zIndex[element.id] || element.initialZIndex}</div>
-                        </div>
-                    ))}
-
-
-                </div>
-
-
-
+            <div className="exercice top-exercice" >
+                <p>Секретный ключ для расшифровки данных потерялся. Секретный файл (🔐), который хранит все ключи, необходимо найти среди множества элементов информационной системы.</p>
+                <p>Используйте панель управления справа, чтобы изменять CSS-свойства и найти его!</p>
+                <p><strong>Подсказка:</strong> Секретный файл должен быть поверх всех остальных элементов (самый большой z-index)</p>
             </div>
-            <div className='control-panel-container'>
+            <div className="find-secret-container">
+                <div className="find-secret-modal" onClick={(e) => e.stopPropagation()}>
+                    <div className="elements-container">
+                        {elements.map((element) => (
+                            <div
+                                key={element.id}
+                                className={`system-element ${selectedElement === element.id ? 'selected' : ''} ${element.isSecret && found ? 'found' : ''}`}
+                                style={{
+                                    position: 'absolute',
+                                    left: `${element.initialLeft}px`,
+                                    top: `${element.initialTop}px`,
+                                    zIndex: cssProperties.zIndex[element.id] || element.initialZIndex,
+                                    opacity: cssProperties.opacity[element.id] !== undefined ? cssProperties.opacity[element.id] : element.initialOpacity,
+                                    transform: cssProperties.transform[element.id] || `rotate(${element.initialRotation}deg)`,
+                                    filter: cssProperties.filter[element.id] || 'none',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease'
+                                }}
+                                onClick={() => handleElementClick(element.id)}
+                            >
+                                <div className="element-icon">{element.icon}</div>
+                                <div className="element-label">{element.label}</div>
+                                <div className="element-zindex">z-index: {cssProperties.zIndex[element.id] || element.initialZIndex}</div>
+                            </div>
+                        ))}
 
+                    </div>
+                    {found ?
+                        <h4 className='isfound'>Ключ найден! Задание выполнено!</h4>
+                        : (
+                            <button className="new-btn" onClick={resetGame}>
+                                Новая игра
+                            </button>
+                        )}
+                </div>
 
                 <div className="control-panel">
-                    <h3>Управление элементом</h3>
+                    <h1>Управление элементом</h1>
 
                     <div className="control-group">
                         <label>Z-Index (приоритет отображения):</label>
                         <div className="button-group">
                             <button onClick={() => updateZIndex(selectedElement, 'decrease')}>-</button>
-                            <span>{cssProperties.zIndex[selectedElement] || elements.find(el => el.id === selectedElement)?.initialZIndex}</span>
+                            <p>{cssProperties.zIndex[selectedElement] || elements.find(el => el.id === selectedElement)?.initialZIndex}</p>
                             <button onClick={() => updateZIndex(selectedElement, 'increase')}>+</button>
                         </div>
                     </div>
@@ -316,19 +317,8 @@ const FindSecret = () => {
                     <button className="reset-element-btn" onClick={resetElement}>
                         Сбросить настройки для этого элемента
                     </button>
-                    {found && <h4 className='isfound'>Ключ найден! Задание выполнено!</h4>}
                 </div>
-                {!found && (
-                    <div className="game-footer">
-
-                        <button className="reset-btn" onClick={resetGame}>
-                            Новая игра ⟳
-                        </button>
-
-                    </div>
-                )}
             </div>
-
         </div>
     );
 };
