@@ -72,7 +72,6 @@ const SeaBattle = () => {
 
     const generatePc = useCallback(() => {
         const newPc = [];
-        console.log(newPc);
         while (newPc.length < 5) {
             const row = Math.floor(Math.random() * fieldSize);
             const col = Math.floor(Math.random() * fieldSize);

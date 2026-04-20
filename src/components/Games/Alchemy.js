@@ -85,7 +85,6 @@ const Alchemy = ({onComplete}) => {
             return newState
         })  
     }
-
     
     const secretElement = ['МКИТ']
     
@@ -111,7 +110,7 @@ const Alchemy = ({onComplete}) => {
             updateQuestStatus('alchemy', true);
         }
 
-    }, [availableItems, allPossibleItems, showCompletionMessage]);
+    }, [availableItems, allPossibleItems, showCompletionMessage,updateQuestStatus]);
 
     // Функция для нормализации имени (приведение к нижнему регистру)
     const normalizeName = (name) => {
@@ -142,7 +141,7 @@ const Alchemy = ({onComplete}) => {
 
 
         checkingCompletedItems(itemName)
-    }, [availableItems]);
+    }, [availableItems,checkingCompletedItems]);
 
     // Создание предмета на поле
     const createFieldItem = useCallback((itemId, position = { x: 0, y: 0 }) => {
@@ -167,10 +166,11 @@ const Alchemy = ({onComplete}) => {
     }, [addToAvailableItems]);
 
     // Получение имени предмета по ID
-    const getItemNameById = (id) => {
-        const item = availableItems.find(item => item === id);
-        return item || id;
-    };
+
+    // const getItemNameById = (id) => {
+    //     const item = availableItems.find(item => item === id);
+    //     return item || id;
+    // };
 
     // Обработка комбинации предметов
     const checkCombination = useCallback((item1, item2) => {
@@ -183,7 +183,7 @@ const Alchemy = ({onComplete}) => {
         let result = recipes[combination1] || recipes[combination2];
 
         if (result) {
-            console.log(`${name1} + ${name2} = ${result}`);
+            // console.log(`${name1} + ${name2} = ${result}`);
 
             setFieldItems(prev => prev.filter(item => item.id !== item1.id && item.id !== item2.id));
             createFieldItem(result, item1.position);
@@ -287,7 +287,7 @@ const Alchemy = ({onComplete}) => {
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseup', handleMouseUp);
         };
-    }, [draggedItem, fieldItems, checkCollisions]);
+    }, [draggedItem, fieldItems, checkCollisions, updateQuestStatus]);
 
     // Обработка drop из списка доступных предметов
     const handleDropFromList = (e) => {
@@ -360,11 +360,11 @@ const Alchemy = ({onComplete}) => {
                     <div className="items_list">
                         <div className="openItem">
                             {availableItems.map((item) => (
-                            console.log(item),
+                            // console.log(item),
                                 <div
                                     key={item}
-                                    className={`item open ${checkAvalibal[item] == 0 ? "competed_element" : ""}`}
-                                    draggable = {checkAvalibal[item] == 0 ? false : true}
+                                    className={`item open ${checkAvalibal[item] === 0 ? "competed_element" : ""}`}
+                                    draggable = {checkAvalibal[item] === 0 ? false : true}
                                     onDragStart={(e) => handleListDragStart(e, item)}
                                 >
                                 <div className='item-card-img-container'>
@@ -372,7 +372,7 @@ const Alchemy = ({onComplete}) => {
                                         src={itemImages[item]}
                                         alt={displayName(item)}
                                         onError={(e) => {
-                                            console.log('Ошибка загрузки:', item, e.target.src);
+                                            // console.log('Ошибка загрузки:', item, e.target.src);
                                             e.target.style.backgroundColor = '#ccc'; // Устанавливаем серый фон
                                         }}
                                     />
@@ -418,7 +418,7 @@ const Alchemy = ({onComplete}) => {
                                         src={imgSrc}
                                         alt={item.name}
                                         onError={(e) => {
-                                            console.log('Ошибка загрузки в поле:', item.type, imgSrc, e.target.src);
+                                            // console.log('Ошибка загрузки в поле:', item.type, imgSrc, e.target.src);
                                             e.target.style.backgroundColor = '#ccc'; // Изменили стиль на случай ошибки
                                         }}
                                     />
@@ -433,7 +433,7 @@ const Alchemy = ({onComplete}) => {
                             src="/images/корзина.svg"
                             alt="Корзина"
                             onError={(e) => {
-                                console.log('Ошибка загрузки корзины');
+                                // console.log('Ошибка загрузки корзины');
                                 e.target.style.display = 'none';
                             }}
                         />

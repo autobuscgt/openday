@@ -12,7 +12,7 @@ export const useQuest = () => {
 
 export const questionOrQuest = ((level) => {
   const random = Math.round(Math.random() * 100);
-  console.log(random, '<', level, random < level )
+//   console.log(random, '<', level, random < level )
   return random < level
 })
 

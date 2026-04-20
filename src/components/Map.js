@@ -36,7 +36,7 @@ const questMapping = {
 function Map() {
   const { completedQuests } = useQuest();
 
-  const [random, setRandom] = useState(10); // Сделать "10" для подключения крестиков-ноликов
+  const [random, setRandom] = useState(10);
   const [buttle, setButtle] = useState(false);
   const [isTicTacToe, setIsTicTacToe] = useState(false);
   const [isAlchemyOpen, setAlchemyIsOpen] = useState(false);
@@ -127,6 +127,7 @@ function Map() {
 
   return (
     <div className="map-container" style={divStyle}>
+      
       <div className='map-header'>
         <h1>{'-._={ Основной путь }=_.-'}</h1>
       </div>
@@ -169,9 +170,7 @@ function Map() {
             <Alchemy onComplete={() => setAlchemyIsOpen(false)} />
           </Modal>
         </div>
-
-
-
+        
         {/* <div id="rd5">
           <RoadContainer
             id={"3"}

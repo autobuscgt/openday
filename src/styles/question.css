@@ -53,12 +53,11 @@ h2 {
 
 .question-button {
   background-color: var(--white-purple);
-  width: 30%;
-  margin-left: 35%;
+  width: 100%;
   border: 0;
-  padding: 15px;
-  font-family: MB;
-  border-radius: 25px;
+  height: 50px;
+  font-family: MM;
+  border-radius: 10px;
   color: white;
   font-size: 1rem;
   cursor: pointer;
