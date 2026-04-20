@@ -85,7 +85,7 @@ const Alchemy = ({onComplete}) => {
             return newState
         })  
     }
-    
+
     const secretElement = ['МКИТ']
     
     const [availableItems, setAvailableItems] = useState(['код', 'дизайн', 'сервер']);
@@ -141,7 +141,7 @@ const Alchemy = ({onComplete}) => {
 
 
         checkingCompletedItems(itemName)
-    }, [availableItems,checkingCompletedItems]);
+    }, [availableItems]);
 
     // Создание предмета на поле
     const createFieldItem = useCallback((itemId, position = { x: 0, y: 0 }) => {
@@ -287,7 +287,7 @@ const Alchemy = ({onComplete}) => {
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseup', handleMouseUp);
         };
-    }, [draggedItem, fieldItems, checkCollisions, updateQuestStatus]);
+    }, [draggedItem, fieldItems, checkCollisions]);
 
     // Обработка drop из списка доступных предметов
     const handleDropFromList = (e) => {
@@ -363,8 +363,8 @@ const Alchemy = ({onComplete}) => {
                             // console.log(item),
                                 <div
                                     key={item}
-                                    className={`item open ${checkAvalibal[item] === 0 ? "competed_element" : ""}`}
-                                    draggable = {checkAvalibal[item] === 0 ? false : true}
+                                    className={`item open ${checkAvalibal[item] == 0 ? "competed_element" : ""}`}
+                                    draggable = {checkAvalibal[item] == 0 ? false : true}
                                     onDragStart={(e) => handleListDragStart(e, item)}
                                 >
                                 <div className='item-card-img-container'>
